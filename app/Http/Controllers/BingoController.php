@@ -8,6 +8,20 @@ class BingoController extends Controller
 {
 
     public function  index(){
-        return view('layouts.index');
+
+        $numeros = array();
+        for ($i=1;$i<101;$i++){
+
+                $numeros[] = $i;
+
+        }
+        $numeros = array_chunk($numeros, 10);
+
+        return view('layouts.index',compact('numeros'));
+    }
+
+    public function dadosView(){
+
+
     }
 }

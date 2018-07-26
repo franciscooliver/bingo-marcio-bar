@@ -21,15 +21,15 @@
                 <div id="table-responsive">
                     <table class="mt-2">
                         <tbody>
-                        @for($i=0;$i<10;$i++)
+                        @foreach($numeros as $nums)
                             <tr class="text-light text-center">
-                            @for($j=0;$j<10;$j++)
+                            @foreach($nums as $numero)
 
-                                <td class="p-1"><button class="btn btn-light text-secondary" name="{{ ($i.$j)+1  }}">{{ ($i.$j)+1  }}</button></td>
+                                <td class="p-1"><button class="btn btn-light text-secondary" name="{{ $numero }}">{{ $numero}}</button></td>
 
-                            @endfor
+                            @endforeach
                             </tr>
-                        @endfor
+                        @endforeach
 
                         </tbody>
                         </tbody>
