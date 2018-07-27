@@ -19,7 +19,7 @@
             </div>
 
             <div class="col-md-1"></div>
-            <div class="col-md-5 ">
+            <div class="col-md-6 ">
                 <div id="table-responsive">
                     <table class="mt-2">
                         <tbody>
@@ -38,6 +38,12 @@
                         </tbody>
                         </tbody>
                     </table>
+                    <div class="card  mb-2 w-100" style="width: 18rem;">
+                        <span class="text-center mt-0">Números sorteados</span>
+                        <div class="card-body mt-0" id="div_nums">
+
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

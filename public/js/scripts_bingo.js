@@ -6,7 +6,7 @@ $(document).ready( function () {
     }
     $(".btn-light").click(function () {
         fundoBotao(this);
-        enviaDadosAjax(this);
+        imprimeNumsSorteados(this);
         //retorna o valor do botao clicado
         var valor =  $(this).attr("name");
         //console.log(valor);
@@ -44,5 +44,17 @@ $(document).ready( function () {
     }
 
     //$(this).slideDown("slow");
+    
+    function imprimeNumsSorteados(elemento) {
+
+        $(elemento)
+            .clone()
+            .appendTo($('#div_nums'))
+            .removeClass("btn-danger")
+            .addClass("btn-success","text-center")
+            .css({"margin-left":"5px","margin-top":"5px"});
+
+
+    }
 
 });
