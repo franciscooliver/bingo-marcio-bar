@@ -14,7 +14,7 @@
                         <h1 style="font-size: 13rem;" class="text-danger" id="num-sorteado">--</h1>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-lg btn-block btn-outline-light mb-1" id="sorteio">Guardar número</button>
+                <button type="submit" class="btn btn-lg btn-block btn-outline-light mb-1" id="verifica" data-toggle="modal" data-target="#modal">Verificar ganhadores</button>
                 <button class="btn btn-lg btn-block btn-outline-light mb-3" id="final">Finalizar bingo</button>
             </div>
 
@@ -39,7 +39,7 @@
                         </tbody>
                     </table>
                     <div class="card  mb-2 w-100" style="width: 18rem;">
-                        <span class="text-center mt-0">Números sorteados</span>
+                        <span class="text-center mt-0">Últimos números sorteados</span>
                         <div class="card-body mt-0" id="div_nums">
 
                         </div>
@@ -48,4 +48,5 @@
             </div>
         </div>
     </div>
+    @include("_includes.modal")<!--carrega modal-->
 @endsection

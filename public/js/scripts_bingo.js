@@ -1,9 +1,10 @@
 $(document).ready( function () {
 
     console.log($(window).width());
-    if($(window).width() <= 360){
+    if($(window).width() <= 640){
         $("div#table-responsive").addClass(".table-responsive");
     }
+
     $(".btn-light").click(function () {
         fundoBotao(this);
         imprimeNumsSorteados(this);
@@ -51,10 +52,54 @@ $(document).ready( function () {
             .clone()
             .appendTo($('#div_nums'))
             .removeClass("btn-danger")
-            .addClass("btn-success","text-center")
-            .css({"margin-left":"5px","margin-top":"5px"});
+            .addClass("btn-success","text-center",'btn-lg')
+            .css({"margin-left":"5px","margin-top":"5px"})
+            .attr("type","button");
 
+        var tam_div = $("#div_nums .btn-success").length;
+        //console.log(tam_div)
 
+        //remove o primeiro botao da div sempre que o tamanho dela for maior que 8
+        if(tam_div > 8){
+            $("#div_nums .btn-success:first").remove();
+        }
+        
     }
+    $("#verifica").click(function () {
+
+        var tam_div_clonada = parseInt($("tbody tr td .btn-danger").clone().length);
+        var controleDeNumeros = null;
+        //console.log(controleDeNumeros)
+
+        if(tam_div_clonada < 5){
+            alert("Necessário selecionar no mínimo 5 números para comparação")
+            $("#modal-body").append("<h6 class='text-secondary'>Nenhum número por enquanto</h6>")
+        }else{
+            //$(this).attr("data-target","#modal");
+            if(parseInt($(".modal-body .btn-danger").length) === 0){//se nao tiver nenhum elemento na div
+                //clona os elementos selecionados
+                $("td .btn-danger")
+                    .clone()
+                    .appendTo($('#modal-body'))//coloca o elementos selecionados no modal
+                    .css({"margin-left":"5px","margin-top":"5px"});//aplica um css ao elemento clonado
+
+                $('#modal').modal('show');//exibe modal
+                controleDeNumeros += $(".modal-body .btn-danger").length;//seta variavel com a quantidade de numeros selecionados
+            }else {
+                if(controleDeNumeros != 0){//se a quantidade de numeros for diferente de zero remove
+                    $(".modal-body .btn-danger").remove();//adiciona novamente com a quantidade atualizada
+                    $("td .btn-danger").
+                        clone()
+                        .appendTo($('#modal-body'))
+                        .css({"margin-left":"5px","margin-top":"5px"});
+                }
+                $('#modal').modal('show');
+            }
+        }
+
+        //alert()
+
+
+    })
 
 });
