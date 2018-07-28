@@ -73,24 +73,27 @@ $(document).ready( function () {
 
         if(tam_div_clonada < 5){
             alert("Necessário selecionar no mínimo 5 números para comparação")
-            $("#modal-body").append("<h6 class='text-secondary'>Nenhum número por enquanto</h6>")
+            //$("#modal-body").append("<h6 class='text-secondary'>Selecione mais números</h6>")
+
+            $("#verifica").attr("data-target","#m");
         }else{
             //$(this).attr("data-target","#modal");
-            if(parseInt($(".modal-body .btn-danger").length) === 0){//se nao tiver nenhum elemento na div
+            if(parseInt($("#form .btn-danger").length) === 0){//se nao tiver nenhum elemento na div
+                $("#verifica").attr("data-target","#modal");
                 //clona os elementos selecionados
                 $("td .btn-danger")
                     .clone()
-                    .appendTo($('#modal-body'))//coloca o elementos selecionados no modal
+                    .appendTo($('#form'))//coloca o elementos selecionados no modal
                     .css({"margin-left":"5px","margin-top":"5px"});//aplica um css ao elemento clonado
 
                 $('#modal').modal('show');//exibe modal
-                controleDeNumeros += $(".modal-body .btn-danger").length;//seta variavel com a quantidade de numeros selecionados
+                controleDeNumeros += $("#form .btn-danger").length;//seta variavel com a quantidade de numeros selecionados
             }else {
                 if(controleDeNumeros != 0){//se a quantidade de numeros for diferente de zero remove
-                    $(".modal-body .btn-danger").remove();//adiciona novamente com a quantidade atualizada
+                    $("#form .btn-danger").remove();//adiciona novamente com a quantidade atualizada
                     $("td .btn-danger").
                         clone()
-                        .appendTo($('#modal-body'))
+                        .appendTo($('#form'))
                         .css({"margin-left":"5px","margin-top":"5px"});
                 }
                 $('#modal').modal('show');
@@ -100,6 +103,24 @@ $(document).ready( function () {
         //alert()
 
 
+    })
+
+    $(document).on("click","#envia_numeros", function () {
+        var teste = [12,45,48,68];
+        ;
+
+
+        $.ajax({
+            type: 'POST',
+            url: 'verificaganhador',
+            data: {
+                '_token': $('input[name=_token]').val(),
+               'numeros':teste
+            },
+            success: function(data){
+                alert("Retorno teste: "+data.numeros);
+            },
+        })
     })
 
 });

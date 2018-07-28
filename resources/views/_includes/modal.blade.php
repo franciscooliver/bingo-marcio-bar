@@ -9,11 +9,13 @@
                 </button>
             </div>
             <div class="modal-body" id="modal-body">
-
+                <form class="form-horizontal" role="form" id="form">
+                {{ csrf_field() }}
+                </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" id="btn_closemodal" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary ">Verificar ganhador</button>
+                <button type="submit" class="btn btn-primary" id="envia_numeros">Verificar ganhador</button>
             </div>
         </div>
     </div>

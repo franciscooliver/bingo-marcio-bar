@@ -23,7 +23,6 @@
                 <div id="table-responsive">
                     <table class="mt-2">
                         <tbody>
-
                             {{ csrf_field() }}
                         @foreach($numeros as $nums)
                             <tr class="text-light text-center">
@@ -34,7 +33,6 @@
                             @endforeach
                             </tr>
                         @endforeach
-
                         </tbody>
                         </tbody>
                     </table>

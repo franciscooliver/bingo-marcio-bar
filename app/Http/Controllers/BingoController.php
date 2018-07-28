@@ -25,4 +25,10 @@ class BingoController extends Controller
 
 
     }
+
+    public function verificaGanhador(Request $request){
+
+
+            return response()->json($request->all());
+    }
 }

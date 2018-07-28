@@ -14,4 +14,5 @@
 use App\Http\Controllers\BingoController;
 
 Route::get('/', 'BingoController@index')->name('index');
+Route::post("/verificaganhador","BingoController@verificaGanhador");
 
