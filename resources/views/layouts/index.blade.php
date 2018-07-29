@@ -14,7 +14,7 @@
                         <h1 style="font-size: 13rem;" class="text-danger" id="num-sorteado">--</h1>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-lg btn-block btn-outline-light mb-1" id="verifica" data-toggle="modal" data-target="#modal">Verificar ganhadores</button>
+                <button type="submit" class="btn btn-lg btn-block btn-outline-light mb-1" data-toggle="modal" data-target="#">sortear número</button>
                 <button class="btn btn-lg btn-block btn-outline-light mb-3" id="final">Finalizar bingo</button>
             </div>
 

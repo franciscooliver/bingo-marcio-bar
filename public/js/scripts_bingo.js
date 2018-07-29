@@ -7,7 +7,7 @@ $(document).ready( function () {
 
     $(".btn-light").click(function () {
         fundoBotao(this);
-        imprimeNumsSorteados(this);
+        //imprimeNumsSorteados(this);
         //retorna o valor do botao clicado
         var valor =  $(this).attr("name");
         //console.log(valor);
@@ -30,10 +30,10 @@ $(document).ready( function () {
 
     function controlaRestantes() {
         //retorna valor de numeros restantes
-        var pegarPreco = parseInt($("#restantes").html());
+        var restantes = parseInt($("#restantes").html());
 
-        pegarPreco = (pegarPreco) -1;
-        $("#restantes").html(pegarPreco);
+        restantes = (restantes) -1;
+        $("#restantes").html(restantes);
     }
 
     function controlaChamados(chamados) {
@@ -103,7 +103,9 @@ $(document).ready( function () {
         //alert()
 
 
-    })
+    });
+
+
 
     $(document).on("click","#envia_numeros", function () {
         var teste = [12,45,48,68];
