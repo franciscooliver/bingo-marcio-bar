@@ -1,5 +1,40 @@
 $(document).ready( function () {
+    //array com os numeros ja sorteados
+    var dataNumero = [];
+        //pegar os valores da td
+        $(document).on("click",".ajax", function () {
+            //pega o valor do id da td
+            var numero = this.id ;
+           
+            $.ajax({
+                headers: {
+                    'X-CSRF-Token': $('input[name="_token"]').val()
+                },
+                type: 'POST',
+                url: '/salvarJogo',
+                data: {
+                   'numero':numero
+                },
+                success: function(data){
+                    //retornar um array com objetos com todos os numeros salvo no banco
+                    alert("Retorno teste: "+data);
+                    dataNumero = data;
+                },
+                error: function (request, status, erro) {
+                    alert("Problema ocorrido: " + status + "\nDescição: " + erro);
+                    
+                }
+            });
+  
+            // divId.
+        /* var col ="#"+divId+"_div";
 
+            //focar em ema div e  rolar ela
+            $('html, body').animate({
+            scrollTop:$( col).offset().top
+                },1000);*/
+
+        });
     console.log($(window).width());
     if($(window).width() <= 640){
         $("div#table-responsive").addClass(".table-responsive");
@@ -105,12 +140,18 @@ $(document).ready( function () {
 
     })
 
+    
+
     $(document).on("click","#envia_numeros", function () {
-        var teste = [12,45,48,68];
-        ;
+        //var teste = [12,45,48,68];
+        
+        //alert(dataNumero['numeros']);
+        for(var i = 0;i<dataNumero.length;i++){
+            console.log(dataNumero[i].numeros);
 
+        }
 
-        $.ajax({
+       /* $.ajax({
             type: 'POST',
             url: 'verificaganhador',
             data: {
@@ -120,7 +161,6 @@ $(document).ready( function () {
             success: function(data){
                 alert("Retorno teste: "+data.numeros);
             },
-        })
-    })
+        */})
 
 });

@@ -23,12 +23,12 @@
                 <div id="table-responsive">
                     <table class="mt-2">
                         <tbody>
-                            {{ csrf_field() }}
+                          {{ csrf_field() }}
                         @foreach($numeros as $nums)
                             <tr class="text-light text-center">
                             @foreach($nums as $numero)
 
-                                <td class="p-1"><button type="submit" class="btn btn-light text-secondary" name="{{ $numero }}">{{ $numero}}</button></td>
+                                <td class="p-1 ajax" id="{!! $numero !!}"><button type="submit" id="" class="btn btn-light text-secondary" name="{{ $numero }}">{{ $numero}}</button></td>
 
                             @endforeach
                             </tr>
