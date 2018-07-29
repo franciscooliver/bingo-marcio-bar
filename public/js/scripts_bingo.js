@@ -143,6 +143,7 @@ $(document).ready( function () {
     
 
     $(document).on("click","#envia_numeros", function () {
+
         //var teste = [12,45,48,68];
         
         //alert(dataNumero['numeros']);
@@ -150,6 +151,8 @@ $(document).ready( function () {
             console.log(dataNumero[i].numeros);
 
         }
+
+        var teste = [12,45,48,68];
 
        /* $.ajax({
             type: 'POST',
