@@ -107,8 +107,6 @@ $(document).ready( function () {
 
     $(document).on("click","#envia_numeros", function () {
         var teste = [12,45,48,68];
-        ;
-
 
         $.ajax({
             type: 'POST',
