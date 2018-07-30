@@ -5,7 +5,7 @@ $(document).ready( function () {
         $("div#table-responsive").addClass(".table-responsive");
     }
 
-    $(".btn-light").click(function () {
+    /*$(".btn-light").click(function () {
         fundoBotao(this);
         //imprimeNumsSorteados(this);
         //retorna o valor do botao clicado
@@ -16,7 +16,35 @@ $(document).ready( function () {
         //alert(pegarPreco);
         var chamados =  parseInt($("#chamados").html());
         controlaChamados(chamados);
-    })
+    })*/
+
+    //array com os numeros ja sorteados
+    var dataNumero = [];
+    //pegar os valores da td
+    $(document).on("click","#sortear", function () {
+        //pega o valor do id da td
+
+        $.ajax({
+            type: 'GET',
+            url: "sorteiaNumero",
+            dataType:"json",
+            success: function(data)
+            {
+                dataNumero = data;
+
+                for (var i=0;i<dataNumero.length;i++){
+                    console.log(dataNumero[i]);
+                }
+
+            },
+            error:function(jqXHR, textStatus, errorThrown){
+                alert('Erro ao sortear número');
+                console.log(errorThrown);
+            }
+        });
+
+
+    });
 
     function fundoBotao( elemento) {
         $(elemento).removeClass("btn-light");
@@ -102,25 +130,7 @@ $(document).ready( function () {
 
         //alert()
 
-
-    });
-
-
-
-    $(document).on("click","#envia_numeros", function () {
-        var teste = [12,45,48,68];
-
-        $.ajax({
-            type: 'POST',
-            url: 'verificaganhador',
-            data: {
-                '_token': $('input[name=_token]').val(),
-               'numeros':teste
-            },
-            success: function(data){
-                alert("Retorno teste: "+data.numeros);
-            },
-        })
     })
+
 
 });

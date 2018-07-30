@@ -14,7 +14,7 @@
                         <h1 style="font-size: 13rem;" class="text-danger" id="num-sorteado">--</h1>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-lg btn-block btn-outline-light mb-1" data-toggle="modal" data-target="#">sortear número</button>
+                <button type="submit" class="btn btn-lg btn-block btn-outline-light mb-1" data-toggle="modal" data-target="#" id="sortear">sortear número</button>
                 <button class="btn btn-lg btn-block btn-outline-light mb-3" id="final">Finalizar bingo</button>
             </div>
 
@@ -23,12 +23,12 @@
                 <div id="table-responsive">
                     <table class="mt-2">
                         <tbody>
-                            {{ csrf_field() }}
+                          {{ csrf_field() }}
                         @foreach($numeros as $nums)
                             <tr class="text-light text-center">
                             @foreach($nums as $numero)
 
-                                <td class="p-1"><button type="submit" class="btn btn-light text-secondary" name="{{ $numero }}">{{ $numero}}</button></td>
+                                <td class="p-1 ajax" id="{!! $numero !!}"><button type="submit" id="" class="btn btn-light text-secondary" name="{{ $numero }}">{{ $numero}}</button></td>
 
                             @endforeach
                             </tr>
