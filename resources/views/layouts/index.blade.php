@@ -28,7 +28,7 @@
                             <tr class="text-light text-center">
                             @foreach($nums as $numero)
 
-                                <td class="p-1 ajax" id="{!! $numero !!}"><button type="submit" id="" class="btn btn-light text-secondary" name="{{ $numero }}">{{ $numero}}</button></td>
+                                <td class="p-1 ajax" id="{!! $numero !!}"><button type="submit" id="btn_num_tabela" class="btn btn-light text-secondary" name="{{ $numero }}">{{ $numero}}</button></td>
 
                             @endforeach
                             </tr>

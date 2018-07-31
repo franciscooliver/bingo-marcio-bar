@@ -22,7 +22,8 @@ $(document).ready( function () {
     var dataNumero = [];
     //pegar os valores da td
     $(document).on("click","#sortear", function () {
-        //pega o valor do id da td
+
+        $("")
 
         $.ajax({
             type: 'GET',
@@ -31,10 +32,16 @@ $(document).ready( function () {
             success: function(data)
             {
                 dataNumero = data;
+                //console.log(dataNumero);
 
-                for (var i=0;i<dataNumero.length;i++){
-                    console.log(dataNumero[i]);
+                for(var i=0 ;i< $("table tr td").length;i++){
+                    var numero_selecinado = $("table tr td .btn-light").eq(i).attr("name");
+
+                    if (dataNumero == numero_selecinado){
+                       fundoBotao($("table tr td .btn-light").eq(numero_selecinado));
+                    }
                 }
+
 
             },
             error:function(jqXHR, textStatus, errorThrown){

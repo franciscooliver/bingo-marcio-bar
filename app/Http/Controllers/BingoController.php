@@ -30,13 +30,11 @@ class BingoController extends Controller
     }
     public function sorteiaNumero(){
 
-        $arr = range(1,75);
-
-        shuffle( $arr );
-
-
         //salvar no banco
         try{
+
+            $arr = range( 1, 75);
+            shuffle($arr);
 
             foreach( $arr AS $each ) {
                 //echo $each, '<br />';
@@ -50,7 +48,7 @@ class BingoController extends Controller
                     DB::table('tabela_bingo_atuals')->insert([
                         'numeros' => $each
                     ]);
-                    return  response()->json($num_banco);
+                    return  response()->json($each);
 
                 }
             }
