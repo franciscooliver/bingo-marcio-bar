@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use http\Env\Response;
 use Illuminate\Http\Request;
 use App\TabelaBingoAtual;
 use Illuminate\Support\Facades\DB;
@@ -30,28 +31,28 @@ class BingoController extends Controller
     }
     public function sorteiaNumero(){
 
+            //$nums_array = range(1, 75);
+
         //salvar no banco
         try{
 
-            $arr = range( 1, 75);
-            shuffle($arr);
-
-            foreach( $arr AS $each ) {
-                //echo $each, '<br />';
-                unset($arr[$each]);
-
                 $num_banco = DB::table('tabela_bingo_atuals')
                     ->select('numeros')
-                    ->where(["numeros" => $each])
                     ->get()->toArray();
-                if (count($num_banco) <= 0) {
-                    DB::table('tabela_bingo_atuals')->insert([
-                        'numeros' => $each
-                    ]);
-                    return  response()->json($each);
 
-                }
-            }
+                shuffle($num_banco);
+                $num_sorteado = array_rand($num_banco);
+
+
+               DB::table("tabela_bingo_atuals")
+                ->select("numeros")
+                ->where([
+                    'numeros'=>$num_sorteado
+                ])->delete();
+
+
+                return  $num_sorteado;
+
 
 
         }catch(Exception $e){

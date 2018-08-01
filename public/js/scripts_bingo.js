@@ -19,33 +19,48 @@ $(document).ready( function () {
     })*/
 
     //array com os numeros ja sorteados
-    var dataNumero = [];
+
     //pegar os valores da td
     $(document).on("click","#sortear", function () {
-
-        $("")
-
+        var dataNumero;
+        var restantes;
+        //alert(chamados);
         $.ajax({
             type: 'GET',
             url: "sorteiaNumero",
-            dataType:"json",
             success: function(data)
             {
                 dataNumero = data;
                 //console.log(dataNumero);
+                var numero_selecinado;
+                var array = $("table tr td .ajax").toArray();
+                //console.log($(array[75-1]).attr("name"));
 
-                for(var i=0 ;i< $("table tr td").length;i++){
-                    var numero_selecinado = $("table tr td .btn-light").eq(i).attr("name");
+                numero_selecinado = $(array[dataNumero-1]).html(); //recupera o valor do elemento dentro da table de acordo com o índice =>(número vindo do server)
+                console.log(dataNumero);
+                console.log(numero_selecinado);
+                if(dataNumero === numero_selecinado && dataNumero != ""){//verifica se o número sorteado é igual ao valor do indice selecionado
 
-                    if (dataNumero == numero_selecinado){
-                       fundoBotao($("table tr td .btn-light").eq(numero_selecinado));
-                    }
+
+                fundoBotao($("table tr td .btn-light").filter(function( index ) { /*filtra o elemento de acordo com o indice selecionado
+                                                                                  e aplica a classe btn-danger */
+                    return $( this ).attr( "id" ) === numero_selecinado;
+                }));
+
+                var chamados =  parseInt($("tr td .btn-danger").length);//retorna o qtd de numeros chamados (classe btn-danger é adicionada sempre que um número é sorteado)
+                $("#num-sorteado").html(dataNumero);
+
+                controlaChamados(chamados);
+                controlaRestantes(chamados);
+                //imprime a sequencia de numeros sorteados (os oito últimos)
+                imprimeNumsSorteados($("#"+numero_selecinado));
                 }
 
-
             },
+
             error:function(jqXHR, textStatus, errorThrown){
                 alert('Erro ao sortear número');
+                chamados = (chamados) -1;
                 console.log(errorThrown);
             }
         });
@@ -63,18 +78,15 @@ $(document).ready( function () {
 
     }
 
-    function controlaRestantes() {
+    function controlaRestantes(chamados) {
         //retorna valor de numeros restantes
-        var restantes = parseInt($("#restantes").html());
+        restantes = 75 - chamados;
 
-        restantes = (restantes) -1;
         $("#restantes").html(restantes);
     }
 
     function controlaChamados(chamados) {
         var chamados = chamados;
-
-        chamados = (chamados) + 1;
 
         $("#chamados").html(chamados);
     }
