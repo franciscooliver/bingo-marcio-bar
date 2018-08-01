@@ -1,8 +1,8 @@
 $(document).ready( function () {
 
-    console.log($(window).width());
+
     if($(window).width() <= 640){
-        $("div#table-responsive").addClass(".table-responsive");
+        $("#table-responsive").addClass("table-responsive");
     }
 
     /*$(".btn-light").click(function () {
@@ -23,8 +23,7 @@ $(document).ready( function () {
     //pegar os valores da td
     $(document).on("click","#sortear", function () {
         var dataNumero;
-        var restantes;
-        //alert(chamados);
+        var nums_chamados = [];
         $.ajax({
             type: 'GET',
             url: "sorteiaNumero",
@@ -34,26 +33,31 @@ $(document).ready( function () {
                 //console.log(dataNumero);
                 var numero_selecinado;
                 var array = $("table tr td .ajax").toArray();
-                //console.log($(array[75-1]).attr("name"));
+                var array_nums_chamds = $("table tr td .btn-danger").toArray();
+
+                for(var i = 0; i < array_nums_chamds.length;i++){
+                    nums_chamados.push($(array_nums_chamds[i]).html());
+                }
 
                 numero_selecinado = $(array[dataNumero-1]).html(); //recupera o valor do elemento dentro da table de acordo com o índice =>(número vindo do server)
-                console.log(dataNumero);
-                console.log(numero_selecinado);
-                if(dataNumero === numero_selecinado && dataNumero != ""){//verifica se o número sorteado é igual ao valor do indice selecionado
+                //console.log(dataNumero);
+                //console.log(numero_selecinado);
+                if(dataNumero === numero_selecinado && dataNumero != "" && $.inArray(dataNumero, nums_chamados) === -1){//verifica se o número sorteado é igual ao valor do indice selecionado
 
+                    fundoBotao($("table tr td .btn-light").filter(function( index ) { /*filtra o elemento de acordo com o indice selecionado
+                                                                                      e aplica a classe btn-danger */
+                        return $( this ).attr( "id" ) === numero_selecinado;
+                    }));
 
-                fundoBotao($("table tr td .btn-light").filter(function( index ) { /*filtra o elemento de acordo com o indice selecionado
-                                                                                  e aplica a classe btn-danger */
-                    return $( this ).attr( "id" ) === numero_selecinado;
-                }));
+                    var chamados =  parseInt($("tr td .btn-danger").length);//retorna o qtd de numeros chamados (classe btn-danger é adicionada sempre que um número é sorteado)
 
-                var chamados =  parseInt($("tr td .btn-danger").length);//retorna o qtd de numeros chamados (classe btn-danger é adicionada sempre que um número é sorteado)
-                $("#num-sorteado").html(dataNumero);
+                    $("#num-sorteado").html(dataNumero);
 
-                controlaChamados(chamados);
-                controlaRestantes(chamados);
-                //imprime a sequencia de numeros sorteados (os oito últimos)
-                imprimeNumsSorteados($("#"+numero_selecinado));
+                    controlaChamados(chamados);
+                    controlaRestantes(chamados);
+                    //imprime a sequencia de numeros sorteados (os oito últimos)
+                    imprimeNumsSorteados($("#"+numero_selecinado));
+
                 }
 
             },

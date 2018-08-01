@@ -31,29 +31,33 @@ class BingoController extends Controller
     }
     public function sorteiaNumero(){
 
-            //$nums_array = range(1, 75);
-
+        $nums_chamados = array();
+        $num_sorteado = null;
         //salvar no banco
         try{
 
-                $num_banco = DB::table('tabela_bingo_atuals')
-                    ->select('numeros')
-                    ->get()->toArray();
+            $num_banco = DB::table('tabela_bingo_atuals')
+                ->select('numeros')
+                ->get()->toArray();
 
-                shuffle($num_banco);
+            if(!in_array($num_sorteado,$nums_chamados)){
                 $num_sorteado = array_rand($num_banco);
 
+                $count = count( $num_banco);
 
-               DB::table("tabela_bingo_atuals")
-                ->select("numeros")
-                ->where([
-                    'numeros'=>$num_sorteado
-                ])->delete();
+                for($i = 0 ;$i< $count;$i++){
+                    $nums_chamados[] = $num_sorteado;
+                }
+
+                DB::table("tabela_bingo_atuals")
+                    ->select("numeros")
+                    ->where([
+                        'numeros'=>$num_sorteado
+                    ])->delete();
 
 
                 return  $num_sorteado;
-
-
+            }
 
         }catch(Exception $e){
             return response()->json([$e->getMessage()]);
