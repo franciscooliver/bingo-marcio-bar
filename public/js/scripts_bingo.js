@@ -32,13 +32,16 @@ $(document).ready( function () {
             success: function(data)
             {
                 dataNumero = data;
-                //console.log(dataNumero);
+                console.log("Numero sorteado ="+dataNumero);
 
-                for(var i=0 ;i< $("table tr td").length;i++){
+                for(var i=1 ;i< $("table tr td").length;i++){
                     var numero_selecinado = $("table tr td .btn-light").eq(i).attr("name");
 
                     if (dataNumero == numero_selecinado){
-                       fundoBotao($("table tr td .btn-light").eq(numero_selecinado));
+                        console.log("numero selecionado ="+numero_selecinado);
+                        //o erro esta aqui nessa função ele ta passando com um numero a mais
+                        //porém se deixar o -1 resolve
+                       fundoBotao($("table tr td .btn-light").eq(numero_selecinado-1));
                     }
                 }
 
