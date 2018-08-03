@@ -32,29 +32,32 @@ class BingoController extends Controller
     public function sorteiaNumero(){
 
         $nums_chamados = array();
+        $array_tabela = array();
         $num_sorteado = null;
+
+        $array_tabela = range(1, 75);
         //salvar no banco
         try{
 
-            $num_banco = DB::table('tabela_bingo_atuals')
+            /*$num_banco = DB::table('tabela_bingo_atuals')
                 ->select('numeros')
-                ->get()->toArray();
+                ->get()->toArray();*/
+
+           shuffle( $array_tabela );
+
 
             if(!in_array($num_sorteado,$nums_chamados)){
-                $num_sorteado = array_rand($num_banco);
+                $num_sorteado = array_rand($array_tabela);
 
-                $count = count( $num_banco);
+                array_push($nums_chamados, $num_sorteado);
 
-                for($i = 0 ;$i< $count;$i++){
-                    $nums_chamados[] = $num_sorteado;
-                }
-
-                DB::table("tabela_bingo_atuals")
+                /*DB::table("tabela_bingo_atuals")
                     ->select("numeros")
                     ->where([
                         'numeros'=>$num_sorteado
-                    ])->delete();
+                    ])->delete();*/
 
+                unset($array_tabela[$num_sorteado]);
 
                 return  $num_sorteado;
             }
@@ -71,11 +74,19 @@ class BingoController extends Controller
         
 }
 
-
     public function verificaGanhador(Request $request){
 
 
             return response()->json($request->all());
+    }
+
+    public function cadastraCartela(Request $request){
+
+        $numeros = range(1 ,75);
+        $array_view = array_chunk($numeros , 9);
+
+
+        return view('bingo.cadastro_cartelas',compact('array_view'));
     }
 
 
