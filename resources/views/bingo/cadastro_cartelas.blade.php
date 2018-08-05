@@ -7,7 +7,7 @@
         <div class="row bg-info align-items-center">
             <div class="card col-12">
                 <div class="card-body">
-                   <h6 >Clique nos números para cadastrar uma cartela</h6>
+                   <h6 >Selecione abaixo os números da cartela</h6>
                     <p class="text-success">INFO:<span class="text-secondary"> Cartela deverá conter exatamente 24 números</span></p>
                 </div>
             </div>
