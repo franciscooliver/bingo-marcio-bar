@@ -38,7 +38,10 @@
                     </table>
                     <div class="card  mb-2 w-100" style="width: 18rem;">
                         <span class="text-center mt-0">Últimos números sorteados</span>
-                        <div class="card-body mt-0" id="div_nums">
+                        
+                            <div class="card-body mt-0" id="div_nums">
+                        
+                        
 
                         </div>
                     </div>

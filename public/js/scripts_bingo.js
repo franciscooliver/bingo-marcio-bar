@@ -30,35 +30,42 @@ $(document).ready( function () {
             success: function(data)
             {
                 dataNumero = data;
-                //console.log(dataNumero);
-                var numero_selecinado;
-                var array = $("table tr td .ajax").toArray();
-                var array_nums_chamds = $("table tr td .btn-danger").toArray();
-
-                for(var i = 0; i < array_nums_chamds.length;i++){
-                    nums_chamados.push($(array_nums_chamds[i]).html());
+                console.log(dataNumero);
+                //data igual a 0, a tabela do banco está zerada
+                if(dataNumero != 0){
+                    var numero_selecinado;
+                    var array = $("table tr td .ajax").toArray();
+                    var array_nums_chamds = $("table tr td .btn-danger").toArray();
+    
+                    for(var i = 0; i < array_nums_chamds.length;i++){
+                        nums_chamados.push($(array_nums_chamds[i]).html());
+                    }
+    
+                    numero_selecinado = $(array[dataNumero-1]).html(); //recupera o valor do elemento dentro da table de acordo com o índice =>(número vindo do server)
+                    //console.log(dataNumero);
+                    console.log(numero_selecinado);
+                    if(dataNumero === numero_selecinado && dataNumero != "" && $.inArray(dataNumero, nums_chamados) === -1){//verifica se o número sorteado é igual ao valor do indice selecionado
+    
+                        fundoBotao($("table tr td .btn-light").filter(function( index ) { /*filtra o elemento de acordo com o indice selecionado
+                                                                                          e aplica a classe btn-danger */
+                           return $( this ).attr( "id" ) === numero_selecinado;
+                       }));
+    
+                        var chamados =  parseInt($("tr td .btn-danger").length);//retorna o qtd de numeros chamados (classe btn-danger é adicionada sempre que um número é sorteado)
+    
+                        $("#num-sorteado").html(dataNumero);
+    
+                        controlaChamados(chamados);
+                        controlaRestantes(chamados);
+                        //imprime a sequencia de numeros sorteados (os oito últimos)
+                        imprimeNumsSorteados($("#"+numero_selecinado));
+    
+                    }
+                }else{
+                    alert('Acabou o bingo');
                 }
-
-                numero_selecinado = $(array[dataNumero-1]).html(); //recupera o valor do elemento dentro da table de acordo com o índice =>(número vindo do server)
-                //console.log(dataNumero);
-                //console.log(numero_selecinado);
-                if(dataNumero === numero_selecinado && dataNumero != "" && $.inArray(dataNumero, nums_chamados) === -1){//verifica se o número sorteado é igual ao valor do indice selecionado
-
-                    fundoBotao($("table tr td .btn-light").filter(function( index ) { /*filtra o elemento de acordo com o indice selecionado
-                                                                                      e aplica a classe btn-danger */
-                        return $( this ).attr( "id" ) === numero_selecinado;
-                    }));
-
-                    var chamados =  parseInt($("tr td .btn-danger").length);//retorna o qtd de numeros chamados (classe btn-danger é adicionada sempre que um número é sorteado)
-
-                    $("#num-sorteado").html(dataNumero);
-
-                    controlaChamados(chamados);
-                    controlaRestantes(chamados);
-                    //imprime a sequencia de numeros sorteados (os oito últimos)
-                    imprimeNumsSorteados($("#"+numero_selecinado));
-
-                }
+              
+               
 
             },
 
@@ -120,7 +127,7 @@ $(document).ready( function () {
 
         var tam_div_clonada = parseInt($("tbody tr td .btn-danger").clone().length);
         var controleDeNumeros = null;
-        //console.log(controleDeNumeros)
+        
 
         if(tam_div_clonada < 5){
             alert("Necessário selecionar no mínimo 5 números para comparação")

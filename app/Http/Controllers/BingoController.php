@@ -21,6 +21,7 @@ class BingoController extends Controller
         }
         (int) $size_array = count($numeros);
         $numeros = array_chunk($numeros, 9);
+        
         //dd($size_array);
         return view('layouts.index',compact('numeros','size_array'));
     }
@@ -34,33 +35,52 @@ class BingoController extends Controller
         $nums_chamados = array();
         $array_tabela = array();
         $num_sorteado = null;
-
-        $array_tabela = range(1, 75);
+        $numerosBanco = array();
         //salvar no banco
         try{
 
-            /*$num_banco = DB::table('tabela_bingo_atuals')
+            $num_banco = DB::table('tabela_bingo_atuals')
                 ->select('numeros')
-                ->get()->toArray();*/
+                ->get()->toArray();
 
-           shuffle( $array_tabela );
+            //$count = count( $num_banco);
+            //pegar o objeto e transformar em um array
+            foreach($num_banco as $key=>$num){
+                 $numerosBanco[$num->numeros]=$num->numeros;
+                
+            }
 
+            if (!empty($numerosBanco)) {
+                //sortear um numero aleatorio no array
+                $num_sorteado = array_rand($numerosBanco);
 
-            if(!in_array($num_sorteado,$nums_chamados)){
-                $num_sorteado = array_rand($array_tabela);
+                //deletar o numero sorteado da tabela no banco
+               DB::table("tabela_bingo_atuals")
+               ->select("numeros")
+               ->where([
+                   'numeros'=>$num_sorteado
+               ])->delete();
+               
+                return  $num_sorteado;
 
-                array_push($nums_chamados, $num_sorteado);
+             } else {
 
-                /*DB::table("tabela_bingo_atuals")
+                return 0;
+             }
+          /*  if(!in_array($num_sorteado,$numerosBanco)){
+                $num_sorteado = array_rand($numerosBanco);
+
+             
+                //deletar o numero sorteado da tabela no banco
+                DB::table("tabela_bingo_atuals")
                     ->select("numeros")
                     ->where([
                         'numeros'=>$num_sorteado
-                    ])->delete();*/
-
-                unset($array_tabela[$num_sorteado]);
-
+                    ])->delete();
+              //  print_r($numerosBanco);
+               // print_r($nums_chamados);
                 return  $num_sorteado;
-            }
+            }*/
 
         }catch(Exception $e){
             return response()->json([$e->getMessage()]);
