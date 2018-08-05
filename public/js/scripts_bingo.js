@@ -42,8 +42,7 @@ $(document).ready( function () {
                     }
     
                     numero_selecinado = $(array[dataNumero-1]).html(); //recupera o valor do elemento dentro da table de acordo com o índice =>(número vindo do server)
-                    //console.log(dataNumero);
-                    console.log(numero_selecinado);
+
                     if(dataNumero === numero_selecinado && dataNumero != "" && $.inArray(dataNumero, nums_chamados) === -1){//verifica se o número sorteado é igual ao valor do indice selecionado
     
                         fundoBotao($("table tr td .btn-light").filter(function( index ) { /*filtra o elemento de acordo com o indice selecionado
@@ -80,7 +79,12 @@ $(document).ready( function () {
     });
 
     //tela cad cartelas
+    if($('#card_nums_selecionados .btn-success').length <= 0){
+        $("#text-num_sel").hide();
+    }
+
     $(".num_cartela").click(function () {
+        $("#text-num_sel").show();
         var button = $(this).attr('name');
 
         fundoBotao(this);

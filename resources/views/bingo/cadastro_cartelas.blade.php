@@ -17,8 +17,20 @@
                         <thead>
                         </thead>
                         <tbody>
-                        @foreach($array_view as $nums)
+                        @foreach($array_view as $key => $nums)
                         <tr>
+                                @if($key == 0)
+                                    <th scope="row" class="text-center">B</th>
+                                @elseif ($key==1)
+                                    <th scope="row" class="text-center">I</th>
+                                @elseif ($key==2)
+                                    <th scope="row" class="text-center">N</th>
+                                @elseif ($key==3)
+                                    <th scope="row" class="text-center">G</th>
+                                @elseif ($key==4)
+                                    <th scope="row" class="text-center">O</th>
+                                @endif
+
                             @foreach($nums as $num)
                                 <td class="p-0 ml-0"><a class="btn btn-light ml-1 num_cartela" name="{{ $num }}">{{ $num }}</a></td>
                             @endforeach
@@ -33,7 +45,7 @@
                 <form >
                     {{ csrf_field() }}
                     <div class="card-body" id="card_nums_selecionados">
-                        <h6 class="text-center">Números selecionados</h6>
+                        <h6 class="text-center" id="text-num_sel">Números selecionados</h6>
                         <p  id="retorno"></p>
                     </div>
                     <button type="button" class="btn btn-info  btn-sm col-4 offset-md-4 " id="btn_cad">Cadastrar cartela</button>

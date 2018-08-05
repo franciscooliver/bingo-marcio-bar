@@ -95,10 +95,11 @@ class BingoController extends Controller
     public function viewcadCartela(Request $request){
 
         $numeros = range(1 ,75);
+        $letras = array(['B','I','N','G','O']);
         $array_view = array_chunk($numeros , 15);
 
 
-        return view('bingo.cadastro_cartelas',compact('array_view'));
+        return view('bingo.cadastro_cartelas',compact('array_view','letras'));
     }
 
     public function addCartela(Request $request){
