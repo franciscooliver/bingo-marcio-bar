@@ -8,7 +8,8 @@
             <div class="card col-12">
                 <div class="card-body">
                    <h6 >Selecione abaixo os números da cartela</h6>
-                    <p class="text-success">INFO:<span class="text-secondary"> Cartela deverá conter exatamente 24 números</span></p>
+                    <p class="text-success">INFO:<span class="text-secondary"> Cartela deverá conter exatamente 24 números</span><br>
+                        <span class="text-secondary">Para remover um número selecinado, click sobre ele</span></p>
                 </div>
             </div>
             <div class="col-md-8 offset-md-2">

@@ -105,12 +105,17 @@ $(document).ready( function () {
 
     });
 
+    $(document).on('click','#card_nums_selecionados .btn-success', function (event) {
+       excluirNumSelecionado(this);
+    });
+
     function clonaBotaoClicado(button) {
         $(button)
             .clone()
             .appendTo($('#card_nums_selecionados'))
             .removeClass("btn-danger")
-            .addClass("btn-success","text-center",'btn-lg')
+            .removeClass('num_cartela')
+            .addClass("btn btn-success","text-center",'btn-lg')
             .css({"margin-left":"5px","margin-top":"5px"})
 
     }
@@ -140,7 +145,18 @@ $(document).ready( function () {
         });
     }
 
+    function excluirNumSelecionado(numero) {
 
+        $(numero).remove();
+
+        $("table tr td .btn-danger").filter(function (index) { /*filtra o elemento de acordo com o indice selecionado
+                                                                                          e aplica a classe btn-danger */
+            return $(this).attr("name") === $(numero).html();
+        }).removeClass('btn-danger')
+            .addClass('btn-light')
+            .addClass('text-dark')
+
+    }
     //fim tela cad cartelas
 
 
@@ -148,10 +164,10 @@ $(document).ready( function () {
         $(elemento).removeClass("btn-light");
         $(elemento).addClass("btn-danger");
         $(".text-secondary").removeClass("text-secondary");
-        $(this).removeClass("text-light");
-        $(elemento).unbind("click");
+        $(elemento).addClass("text-light");
+        //$(elemento).unbind("click");
 
-        $(elemento).css({'color':'#fff'});
+        //$(elemento).css({'color':'#fff'});
 
 
     }
