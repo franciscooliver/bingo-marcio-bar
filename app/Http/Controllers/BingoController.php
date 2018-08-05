@@ -33,6 +33,7 @@ class BingoController extends Controller
     public function sorteiaNumero(){
 
         $nums_chamados = array();
+        $array_tabela = array();
         $num_sorteado = null;
         $numerosBanco = array();
         //salvar no banco
@@ -93,11 +94,19 @@ class BingoController extends Controller
         
 }
 
-
     public function verificaGanhador(Request $request){
 
 
             return response()->json($request->all());
+    }
+
+    public function cadastraCartela(Request $request){
+
+        $numeros = range(1 ,75);
+        $array_view = array_chunk($numeros , 9);
+
+
+        return view('bingo.cadastro_cartelas',compact('array_view'));
     }
 
 

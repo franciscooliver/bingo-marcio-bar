@@ -15,5 +15,5 @@ use App\Http\Controllers\BingoController;
 
 Route::get('/', 'BingoController@index')->name('index');
 //Route::post("/verificaganhador","BingoController@verificaGanhador");
-Route::get("/sorteiaNumero","BingoController@sorteiaNumero");
-
+Route::get("/sorteiaNumero","BingoController@sorteiaNumero")->name('sorteianumero');
+Route::get("/cadastraCartela","BingoController@cadastraCartela")->name('cadcartela');
