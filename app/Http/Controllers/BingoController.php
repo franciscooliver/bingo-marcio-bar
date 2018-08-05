@@ -46,13 +46,20 @@ class BingoController extends Controller
             //$count = count( $num_banco);
             //pegar o objeto e transformar em um array
             foreach($num_banco as $key=>$num){
-                 $numerosBanco[$num->numeros]=$num->numeros;
+                 $numerosBanco[$num->numeros] = $num->numeros;
                 
             }
 
             if (!empty($numerosBanco)) {
                 //sortear um numero aleatorio no array
                 $num_sorteado = array_rand($numerosBanco);
+
+                shuffle($numerosBanco);
+
+                DB::table('numero_sorteados')
+                    ->insert([
+                        'numero'=>$num_sorteado
+                ]);
 
                 //deletar o numero sorteado da tabela no banco
                DB::table("tabela_bingo_atuals")
@@ -67,21 +74,6 @@ class BingoController extends Controller
 
                 return 0;
              }
-          /*  if(!in_array($num_sorteado,$numerosBanco)){
-                $num_sorteado = array_rand($numerosBanco);
-
-             
-                //deletar o numero sorteado da tabela no banco
-                DB::table("tabela_bingo_atuals")
-                    ->select("numeros")
-                    ->where([
-                        'numeros'=>$num_sorteado
-                    ])->delete();
-              //  print_r($numerosBanco);
-               // print_r($nums_chamados);
-                return  $num_sorteado;
-            }*/
-
         }catch(Exception $e){
             return response()->json([$e->getMessage()]);
 
@@ -100,13 +92,24 @@ class BingoController extends Controller
             return response()->json($request->all());
     }
 
-    public function cadastraCartela(Request $request){
+    public function viewcadCartela(Request $request){
 
         $numeros = range(1 ,75);
-        $array_view = array_chunk($numeros , 9);
+        $array_view = array_chunk($numeros , 15);
 
 
         return view('bingo.cadastro_cartelas',compact('array_view'));
+    }
+
+    public function addCartela(Request $request){
+
+        if(!empty($request->numero)){
+            return response()->json(['data'=>true]);
+        }else{
+            return response()->json(['data'=>false]);
+        }
+
+
     }
 
 

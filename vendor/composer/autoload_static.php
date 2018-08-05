@@ -280,10 +280,9 @@ class ComposerStaticInit44bae7c12cfb8ce2482c4530bf81fbe1
     );
 
     public static $classMap = array (
-        'CreateBingosTable' => __DIR__ . '/../..' . '/database/migrations/2018_07_28_152721_create_bingos_table.php',
-        'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
+        'CreateCartelasTable' => __DIR__ . '/../..' . '/database/migrations/2018_08_05_164532_create_cartelas_table.php',
+        'CreateNumeroSorteadosTable' => __DIR__ . '/../..' . '/database/migrations/2018_08_05_150823_create_numero_sorteados_table.php',
         'CreateTabelaBingoAtualsTable' => __DIR__ . '/../..' . '/database/migrations/2018_07_28_210738_create_tabela_bingo_atuals_table.php',
-        'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
         'File_Iterator' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Iterator.php',
         'File_Iterator_Facade' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Facade.php',

@@ -1,8 +1,8 @@
 $(document).ready( function () {
 
-
+//tela index
     if($(window).width() <= 640){
-        $("#table-responsive").addClass("table-responsive");
+        $(".responsive-table").addClass("table-responsive");
     }
 
     /*$(".btn-light").click(function () {
@@ -79,12 +79,75 @@ $(document).ready( function () {
 
     });
 
+    //tela cad cartelas
+    $(".num_cartela").click(function () {
+        var button = $(this).attr('name');
+
+        fundoBotao(this);
+        clonaBotaoClicado($(this).attr('name',button));
+
+    });
+
+    $(document).on('click','#btn_cad', function (event) {
+        event.preventDefault();
+
+        var array_elementos = $('#card_nums_selecionados .btn-success').toArray();
+        var array_numeros_selecinados = [];
+
+        for (var i=0;i<array_elementos.length;i++) {
+           array_numeros_selecinados.push($(array_elementos[i]).html())
+        }
+        enviaDadosBackEnd(array_numeros_selecinados);
+
+    });
+
+    function clonaBotaoClicado(button) {
+        $(button)
+            .clone()
+            .appendTo($('#card_nums_selecionados'))
+            .removeClass("btn-danger")
+            .addClass("btn-success","text-center",'btn-lg')
+            .css({"margin-left":"5px","margin-top":"5px"})
+
+    }
+
+    function enviaDadosBackEnd(array_numeros) {
+        $.ajax({
+            url: 'addCartela',
+            type: 'POST',
+            dataType:'json',
+            data:{
+                '_token': $('input[name=_token]').val(),
+                'numero':array_numeros
+        },
+            success:function (data) {
+
+                if(data.data){
+                    $("#retorno").removeClass('text-danger');
+                    $("#retorno").addClass("text-success");
+                    $("#retorno").html("Sucesso");
+                }else{
+                    $("#retorno").removeClass('text-success');
+                    $("#retorno").addClass('text-danger');
+                    $("#retorno").html("Erro no cadastro");
+                }
+
+            }
+        });
+    }
+
+
+    //fim tela cad cartelas
+
+
     function fundoBotao( elemento) {
         $(elemento).removeClass("btn-light");
         $(elemento).addClass("btn-danger");
         $(".text-secondary").removeClass("text-secondary");
         $(this).removeClass("text-light");
         $(elemento).unbind("click");
+
+        $(elemento).css({'color':'#fff'});
 
 
     }
@@ -162,5 +225,5 @@ $(document).ready( function () {
 
     })
 
-
 });
+

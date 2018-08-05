@@ -20,7 +20,7 @@
 
             <div class="col-md-1"></div>
             <div class="col-md-6 ">
-                <div id="table-responsive">
+                <div class="responsive-table">
                     <table class="mt-2">
                         <tbody>
                           {{ csrf_field() }}
@@ -28,12 +28,11 @@
                             <tr class="text-light text-center">
                             @foreach($nums as $numero)
 
-                                <td class="p-1 " ><button type="submit" id="{!! $numero !!}" class="btn btn-light text-secondary ajax" name="{{ $numero }}">{{ $numero}}</button></td>
+                                <td class="p-1 "><button type="submit" id="{!! $numero !!}" class="btn btn-light text-secondary ajax" name="{{ $numero }}">{{ $numero}}</button></td>
 
                             @endforeach
                             </tr>
                         @endforeach
-                        </tbody>
                         </tbody>
                     </table>
                     <div class="card  mb-2 w-100" style="width: 18rem;">
