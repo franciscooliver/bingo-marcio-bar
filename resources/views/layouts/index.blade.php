@@ -27,8 +27,8 @@
                         @foreach($numeros as $nums)
                             <tr class="text-light text-center">
                             @foreach($nums as $numero)
-                           
-                                <td class="p-1 ajax" id="{!! $numero !!}"><button type="submit" id="btn_num_tabela" class="btn btn-light text-secondary" name="{{ $numero }}">{{ $numero}}</button></td>
+
+                                <td class="p-1 " ><button type="submit" id="{!! $numero !!}" class="btn btn-light text-secondary ajax" name="{{ $numero }}">{{ $numero}}</button></td>
 
                             @endforeach
                             </tr>
@@ -38,7 +38,10 @@
                     </table>
                     <div class="card  mb-2 w-100" style="width: 18rem;">
                         <span class="text-center mt-0">Últimos números sorteados</span>
-                        <div class="card-body mt-0" id="div_nums">
+                        
+                            <div class="card-body mt-0" id="div_nums">
+                        
+                        
 
                         </div>
                     </div>

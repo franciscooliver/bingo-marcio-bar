@@ -23,6 +23,10 @@ div span.text-center{
 .text-center .text-light span{
     border-radius: 5px;
 }
+
+btn-lg:hover{
+    animation: bounce 1s;
+}
 /*rodape*/
 .footer{
 
@@ -33,3 +37,5 @@ div span.text-center{
     line-height: 60px;
     background-color: #f5f5f5;
 }
+
+
