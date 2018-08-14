@@ -15,7 +15,7 @@
                     </div>
                 </div>
                 <button type="submit" class="btn btn-lg btn-block btn-outline-light mb-1 " data-toggle="modal" data-target="#" id="sortear">sortear número</button>
-                <button class="btn btn-lg btn-block btn-outline-light mb-3 " id="final">Finalizar bingo</button>
+                <a class="btn btn-lg btn-block btn-outline-light mb-3 " id="final" href="{{ route('gerarPdf') }}">Gerar pdf</a>
             </div>
 
             <div class="col-md-1"></div>

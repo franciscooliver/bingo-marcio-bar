@@ -127,19 +127,12 @@ $(document).ready( function () {
             dataType:'json',
             data:{
                 '_token': $('input[name=_token]').val(),
-                'numero':array_numeros
+                'numeros':array_numeros,
+                'numero_cart': $('input[name=numero_cart]').val()
         },
             success:function (data) {
 
-                if(data.data){
-                    $("#retorno").removeClass('text-danger');
-                    $("#retorno").addClass("text-success");
-                    $("#retorno").html("Sucesso");
-                }else{
-                    $("#retorno").removeClass('text-success');
-                    $("#retorno").addClass('text-danger');
-                    $("#retorno").html("Erro no cadastro");
-                }
+               console.log(data);
 
             }
         });

@@ -2,11 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Cartela;
 use http\Env\Response;
 use Illuminate\Http\Request;
 use App\TabelaBingoAtual;
 use Illuminate\Support\Facades\DB;
 use Exception;
+use Dompdf\Dompdf;
+use App\LinhaB;
+use App\LinhaG;
+use App\LinhaI;
+use App\LinhaN;
+use App\LinhaO;
 
 class BingoController extends Controller
 {
@@ -56,7 +63,7 @@ class BingoController extends Controller
 
                 shuffle($numerosBanco);
 
-                DB::table('numero_sorteados')
+                DB::table('numero_sorteados')//salva na tabela o numero que foi sorteado
                     ->insert([
                         'numero'=>$num_sorteado
                 ]);
@@ -79,11 +86,6 @@ class BingoController extends Controller
 
         }
 
-            //$numeros = DB::table('tabela_bingo_atuals')->select("numeros")->get();
-            //dd($numeros);
-        
-        //return $numeros;
-        
 }
 
     public function verificaGanhador(Request $request){
@@ -104,11 +106,41 @@ class BingoController extends Controller
 
     public function addCartela(Request $request){
 
-        if(!empty($request->numero)){
-            return response()->json(['data'=>true]);
-        }else{
-            return response()->json(['data'=>false]);
-        }
+        $arraysave =  array("numeros" => $request->numeros);
+        $id_cartela = $request->input("numero_cart");
+
+        $aray_div = array_chunk($arraysave["numeros"], 5);
+        $b = array(
+            "numeros"=>$aray_div[0]
+        );
+        //$i = array("numeros"=>$aray_div[1]);
+        //$n = array("numeros"=>$aray_div[2]);
+        //$g = array("numeros"=>$aray_div[3]);
+       // $o = array("numeros"=>$aray_div[4]);
+
+        $linhaB = new LinhaB();
+        $cartela = new Cartela();
+
+        $cartela->salvaIdCartela($id_cartela, 12345);
+
+        $retorno_LB = $linhaB->saveNums($b["numeros"],$id_cartela);
+
+
+    }
+
+    public function gerarPdf()
+    {
+        $dompdf = new Dompdf();
+
+        $html = file_get_contents(public_path('exemplo_pdf.php'));
+
+        $dompdf->loadHtml($html);
+
+        $dompdf->setPaper('A4', 'landscape');
+
+        $dompdf->render();
+
+        $dompdf->stream();
 
 
     }

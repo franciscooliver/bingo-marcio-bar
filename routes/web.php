@@ -18,3 +18,7 @@ Route::get('/', 'BingoController@index')->name('index');
 Route::get("/sorteiaNumero","BingoController@sorteiaNumero")->name('sorteianumero');
 Route::get("/viewcadCartela","BingoController@viewcadCartela")->name('view_cad_cartela');
 Route::post("/addCartela","BingoController@addCartela")->name('addcartela');
+Route::get("/gerarPdf","BingoController@gerarPdf")->name('gerarPdf');
+Route::get("/returnpdf", function (){
+    return view('exemplo_pdf');
+})->name('returnpdf');

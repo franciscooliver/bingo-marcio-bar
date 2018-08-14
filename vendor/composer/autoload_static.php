@@ -78,11 +78,13 @@ class ComposerStaticInit44bae7c12cfb8ce2482c4530bf81fbe1
         ),
         'F' => 
         array (
+            'FontLib\\' => 8,
             'Faker\\' => 6,
         ),
         'D' => 
         array (
             'Dotenv\\' => 7,
+            'Dompdf\\' => 7,
             'Doctrine\\Instantiator\\' => 22,
             'Doctrine\\Common\\Inflector\\' => 26,
             'DeepCopy\\' => 9,
@@ -213,6 +215,10 @@ class ComposerStaticInit44bae7c12cfb8ce2482c4530bf81fbe1
         array (
             0 => __DIR__ . '/..' . '/laravel/framework/src/Illuminate',
         ),
+        'FontLib\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phenx/php-font-lib/src/FontLib',
+        ),
         'Faker\\' => 
         array (
             0 => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker',
@@ -220,6 +226,10 @@ class ComposerStaticInit44bae7c12cfb8ce2482c4530bf81fbe1
         'Dotenv\\' => 
         array (
             0 => __DIR__ . '/..' . '/vlucas/phpdotenv/src',
+        ),
+        'Dompdf\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/dompdf/dompdf/src',
         ),
         'Doctrine\\Instantiator\\' => 
         array (
@@ -252,6 +262,17 @@ class ComposerStaticInit44bae7c12cfb8ce2482c4530bf81fbe1
     );
 
     public static $prefixesPsr0 = array (
+        'S' => 
+        array (
+            'Svg\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/phenx/php-svg-lib/src',
+            ),
+            'Sabberworm\\CSS' => 
+            array (
+                0 => __DIR__ . '/..' . '/sabberworm/php-css-parser/lib',
+            ),
+        ),
         'P' => 
         array (
             'Prophecy\\' => 
@@ -280,13 +301,24 @@ class ComposerStaticInit44bae7c12cfb8ce2482c4530bf81fbe1
     );
 
     public static $classMap = array (
-        'CreateCartelasTable' => __DIR__ . '/../..' . '/database/migrations/2018_08_05_164532_create_cartelas_table.php',
+        'Cpdf' => __DIR__ . '/..' . '/dompdf/dompdf/lib/Cpdf.php',
         'CreateNumeroSorteadosTable' => __DIR__ . '/../..' . '/database/migrations/2018_08_05_150823_create_numero_sorteados_table.php',
         'CreateTabelaBingoAtualsTable' => __DIR__ . '/../..' . '/database/migrations/2018_07_28_210738_create_tabela_bingo_atuals_table.php',
+        'CreateTableCartelas' => __DIR__ . '/../..' . '/database/migrations/2018_08_14_235107_create_table_cartelas.php',
+        'CreateTableTableB' => __DIR__ . '/../..' . '/database/migrations/2018_08_14_232827_create_table_table_B.php',
+        'CreateTableTableG' => __DIR__ . '/../..' . '/database/migrations/2018_08_14_234846_create_table_table_G.php',
+        'CreateTableTableI' => __DIR__ . '/../..' . '/database/migrations/2018_08_14_234642_create_table_table_I.php',
+        'CreateTableTableN' => __DIR__ . '/../..' . '/database/migrations/2018_08_14_234800_create_table_table_N.php',
+        'CreateTableTableO' => __DIR__ . '/../..' . '/database/migrations/2018_08_14_234928_create_table_table_O.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
         'File_Iterator' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Iterator.php',
         'File_Iterator_Facade' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Facade.php',
         'File_Iterator_Factory' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Factory.php',
+        'HTML5_Data' => __DIR__ . '/..' . '/dompdf/dompdf/lib/html5lib/Data.php',
+        'HTML5_InputStream' => __DIR__ . '/..' . '/dompdf/dompdf/lib/html5lib/InputStream.php',
+        'HTML5_Parser' => __DIR__ . '/..' . '/dompdf/dompdf/lib/html5lib/Parser.php',
+        'HTML5_Tokenizer' => __DIR__ . '/..' . '/dompdf/dompdf/lib/html5lib/Tokenizer.php',
+        'HTML5_TreeBuilder' => __DIR__ . '/..' . '/dompdf/dompdf/lib/html5lib/TreeBuilder.php',
         'Hamcrest\\Arrays\\IsArray' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArray.php',
         'Hamcrest\\Arrays\\IsArrayContaining' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArrayContaining.php',
         'Hamcrest\\Arrays\\IsArrayContainingInAnyOrder' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArrayContainingInAnyOrder.php',
