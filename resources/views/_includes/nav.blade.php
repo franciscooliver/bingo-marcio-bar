@@ -13,7 +13,7 @@
                     <a class="nav-link text-uppercase text-light" href="{{ route('view_cad_cartela') }}">Cadastrar cartelas</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-uppercase text-light" href="#">Premiações</a>
+                    <a class="nav-link text-uppercase text-light" href="{{ route('premios') }}">Premiações</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-uppercase text-light" href="#">Gerar cartelas</a>

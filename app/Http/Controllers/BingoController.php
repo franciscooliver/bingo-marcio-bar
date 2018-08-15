@@ -110,11 +110,11 @@ class BingoController extends Controller
         $num_cartela = $request->input("numero_cart");
 
         $aray_div = array_chunk($arraysave["numeros"], 5);//divide array de numeros em 5
+
         //cria um array com 5 numeros para a linha B
         $table_B = array(
             "numeros" => $aray_div[0]
         );
-
 
         //cria um array com 5 numeros para a linha I
         $table_I = array(
@@ -125,7 +125,7 @@ class BingoController extends Controller
         $array_merge = array_merge($aray_div[3], $aray_div[4]);//junta os dois arrays restantes
         array_unshift($array_merge, $remove_numero);//adiciona numero no inicio do array criado
 
-        $novo_array = array_chunk($array_merge,5);
+        $novo_array = array_chunk($array_merge,5);//divide o novo array em dois novos arrays com 5 numeros cada
 
         $novoArray_div = [
             "linhaG"=>$novo_array[0],
@@ -175,6 +175,7 @@ class BingoController extends Controller
 
     }
 
+
     public function gerarPdf()
     {
         $dompdf = new Dompdf();
@@ -188,7 +189,6 @@ class BingoController extends Controller
         $dompdf->render();
 
         $dompdf->stream();
-
 
     }
 

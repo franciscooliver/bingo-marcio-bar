@@ -303,6 +303,7 @@ class ComposerStaticInit44bae7c12cfb8ce2482c4530bf81fbe1
     public static $classMap = array (
         'Cpdf' => __DIR__ . '/..' . '/dompdf/dompdf/lib/Cpdf.php',
         'CreateNumeroSorteadosTable' => __DIR__ . '/../..' . '/database/migrations/2018_08_05_150823_create_numero_sorteados_table.php',
+        'CreatePremiosTable' => __DIR__ . '/../..' . '/database/migrations/2018_08_15_220906_create_premios_table.php',
         'CreateTabelaBingoAtualsTable' => __DIR__ . '/../..' . '/database/migrations/2018_07_28_210738_create_tabela_bingo_atuals_table.php',
         'CreateTableCartelas' => __DIR__ . '/../..' . '/database/migrations/2018_08_14_235107_create_table_cartelas.php',
         'CreateTableTableB' => __DIR__ . '/../..' . '/database/migrations/2018_08_14_232827_create_table_table_B.php',
