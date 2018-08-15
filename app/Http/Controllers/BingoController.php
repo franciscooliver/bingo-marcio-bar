@@ -106,25 +106,72 @@ class BingoController extends Controller
 
     public function addCartela(Request $request){
 
-        $arraysave =  array("numeros" => $request->numeros);
-        $id_cartela = $request->input("numero_cart");
+        $arraysave =  array("numeros"=>$request->numeros);
+        $num_cartela = $request->input("numero_cart");
 
-        $aray_div = array_chunk($arraysave["numeros"], 5);
-        $b = array(
-            "numeros"=>$aray_div[0]
+        $aray_div = array_chunk($arraysave["numeros"], 5);//divide array de numeros em 5
+        //cria um array com 5 numeros para a linha B
+        $table_B = array(
+            "numeros" => $aray_div[0]
         );
-        //$i = array("numeros"=>$aray_div[1]);
-        //$n = array("numeros"=>$aray_div[2]);
-        //$g = array("numeros"=>$aray_div[3]);
-       // $o = array("numeros"=>$aray_div[4]);
 
+
+        //cria um array com 5 numeros para a linha I
+        $table_I = array(
+            "numeros" => $aray_div[1]
+        );
+
+        $remove_numero = array_pop($aray_div[2]);//remove numero do final do array
+        $array_merge = array_merge($aray_div[3], $aray_div[4]);//junta os dois arrays restantes
+        array_unshift($array_merge, $remove_numero);//adiciona numero no inicio do array criado
+
+        $novo_array = array_chunk($array_merge,5);
+
+        $novoArray_div = [
+            "linhaG"=>$novo_array[0],
+            "linhaO"=>$novo_array[1]
+        ];
+
+        //cria um array com 4 numeros para a linha N
+        $table_N = array(
+            "numeros" => $aray_div[2]
+        );
+
+        //cria um array com 5 numeros para a linha G
+        $table_G = array(
+            "numeros" => $novoArray_div["linhaG"]
+        );
+
+        //cria um array com 5 numeros para a linha O
+        $table_O = array(
+            "numeros" => $novoArray_div["linhaO"]
+        );
+
+        //salva a sequencia B no banco
         $linhaB = new LinhaB();
-        $cartela = new Cartela();
+        $retorno_linhaB = $linhaB->salvaNumerosLinhaB($table_B);
 
-        $cartela->salvaIdCartela($id_cartela, 12345);
+        //salva a sequencia I no banco
+        $linnhaI = new LinhaI();
+        $retorno  = $linnhaI->salvaNumerosLinhaI($table_I);
 
-        $retorno_LB = $linhaB->saveNums($b["numeros"],$id_cartela);
+        if($retorno['status'] === true){
+            $linhaN = new LinhaN();
+            $retorno_linhaN = $linhaN->salvaNumerosLinhaN($table_N);
 
+            if($retorno_linhaN['status'] === true){
+                $linhaG = new LinhaG();
+                $retorno_linhaG = $linhaG->salvaNumerosLinhaG($table_G);
+
+                if ($retorno_linhaG['status'] === true){
+
+                    $linhaO = new LinhaO();
+                    $retorno_linhaG = $linhaO->salvaNumerosLinhaO($table_O);
+
+                    return response()->json(["retorno_bd"=>$retorno_linhaB,"mensagem"=>"Sucesso ao cadastrar cartela"]);
+                }
+            }
+        }
 
     }
 

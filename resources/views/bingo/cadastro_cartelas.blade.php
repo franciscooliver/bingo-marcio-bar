@@ -51,7 +51,8 @@
 
                         </div>
                         <h6 class="text-center" id="text-num_sel">Números selecionados</h6>
-                        <p id="retorno"></p>
+                        <p id="retorno_success" class="text-success"></p>
+                        <p id="retorno_error" class="text-danger"></p>
 
                     </div>
 

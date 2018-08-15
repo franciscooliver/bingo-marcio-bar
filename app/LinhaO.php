@@ -3,19 +3,33 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\DB;
+use App\Cartela;
 
 class LinhaO extends Model
 {
     protected $table = "table_O";
-    protected $fillable = ['idtable_O','o_1','o_2','o_3','o_4','b_5'];
+    protected $fillable = ['id_table_O','o_1','o_2','o_3','o_4','o_5'];
+    public $timestamps = false;
 
-    public function saveNums($numeros = []) {
-        for($i=0;$i<count($numeros);$i++){
-            DB::table('linhas_o')
-                ->insert([
-                    'numero'=>$numeros[$i]
-                ]);
+    public function cartelas() {
+        return $this->hasMany(Cartela::class);
+    }
+
+    public function salvaNumerosLinhaO($data = []) : Array{
+
+        $retorno = $this::create([
+            "o_1"=> $data["numeros"][0],
+            "o_2"=> $data["numeros"][1],
+            "o_3"=> $data["numeros"][2],
+            "o_4"=> $data["numeros"][3],
+            "o_5"=> $data["numeros"][4]
+        ]);
+
+        if($retorno){
+            return ["status"=>true];
+        }else{
+            return ["status"=>false];
         }
+
     }
 }
