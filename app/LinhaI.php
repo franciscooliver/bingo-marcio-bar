@@ -27,7 +27,9 @@ class LinhaI extends Model
 
 
         if($retorno){
-            return ["status"=>true];
+            return [
+                "status"=>true,
+                "id_I"=>$retorno->id];
         }else{
             return ["status"=>false];
         }

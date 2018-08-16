@@ -31,7 +31,7 @@ class LinhaB extends Model
             if($retorno){
                 return [
                     "status"=>true,
-                    "retorno_bd"=>$retorno
+                    "id_B"=>$retorno->id
                 ];
             }else{
                 return ["status"=>false];

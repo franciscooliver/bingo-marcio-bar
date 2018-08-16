@@ -28,7 +28,10 @@ class LinhaG extends Model
         ]);
 
         if($retorno){
-            return ["status"=>true];
+            return [
+                "status"=>true,
+                "id_G"=>$retorno->id
+        ];
         }else{
             return ["status"=>false];
         }

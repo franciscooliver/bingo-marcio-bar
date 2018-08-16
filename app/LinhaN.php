@@ -25,7 +25,10 @@ class LinhaN extends Model
         ]);
 
         if($retorno){
-            return ["status"=>true];
+            return [
+                "status"=>true,
+                "id_N"=>$retorno->id
+                ];
         }else{
             return ["status"=>false];
         }

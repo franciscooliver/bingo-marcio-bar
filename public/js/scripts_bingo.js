@@ -138,7 +138,7 @@ $(document).ready( function () {
                 'numero_cart': $('input[name=numero_cart]').val()
         },
             success:function (data) {
-
+                console.log(data)
                 if(data.retorno_bd.status){
                     $("#retorno_success").html(data.mensagem);
                 }else {

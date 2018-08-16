@@ -150,12 +150,12 @@ class BingoController extends Controller
         //salva a sequencia B no banco
         $linhaB = new LinhaB();
         $retorno_linhaB = $linhaB->salvaNumerosLinhaB($table_B);
-
+      
         //salva a sequencia I no banco
         $linnhaI = new LinhaI();
-        $retorno  = $linnhaI->salvaNumerosLinhaI($table_I);
+        $retorno_linhaI = $linnhaI->salvaNumerosLinhaI($table_I);
 
-        if($retorno['status'] === true){
+        if($retorno_linhaI['status'] === true){
             $linhaN = new LinhaN();
             $retorno_linhaN = $linhaN->salvaNumerosLinhaN($table_N);
 
@@ -166,10 +166,28 @@ class BingoController extends Controller
                 if ($retorno_linhaG['status'] === true){
 
                     $linhaO = new LinhaO();
-                    $retorno_linhaG = $linhaO->salvaNumerosLinhaO($table_O);
+                    $retorno_linhaO = $linhaO->salvaNumerosLinhaO($table_O);
+                    if ($retorno_linhaO['status'] === true){
+                    //quando chama essa função para salvar os id na cartela não retorna nada
+                    $cartela = new Cartela();
+                    $retorno_cartela = $cartela->salvaColunas(  
+                    $retorno_linhaB['id_B'],//retorna o id das colunas cadastradas
+                    $retorno_linhaI['id_I'],
+                    $retorno_linhaN['id_N'],
+                    $retorno_linhaG['id_G'],
+                    $retorno_linhaO['id_O']
+                    );
+                        if ($retorno_cartela['status'] === true){
+                           
+                            return response()->json(["retorno_bd"=>$retorno_cartela,"mensagem"=>"Sucesso ao cadastrar cartela"]);
 
-                    return response()->json(["retorno_bd"=>$retorno_linhaB,"mensagem"=>"Sucesso ao cadastrar cartela"]);
-                }
+                        }
+                    
+                    }
+                
+                  
+                       
+                }   
             }
         }
 
