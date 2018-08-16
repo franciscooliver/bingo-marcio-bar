@@ -21,15 +21,15 @@
                         @foreach($array_view as $key => $nums)
                         <tr>
                                 @if($key == 0)
-                                    <th scope="row" class="text-center">B</th>
+                                    <th scope="row" class="text-center text-light">B</th>
                                 @elseif ($key==1)
-                                    <th scope="row" class="text-center">I</th>
+                                    <th scope="row" class="text-center text-light">I</th>
                                 @elseif ($key==2)
-                                    <th scope="row" class="text-center">N</th>
+                                    <th scope="row" class="text-center text-light">N</th>
                                 @elseif ($key==3)
-                                    <th scope="row" class="text-center">G</th>
+                                    <th scope="row" class="text-center text-light">G</th>
                                 @elseif ($key==4)
-                                    <th scope="row" class="text-center">O</th>
+                                    <th scope="row" class="text-center text-light">O</th>
                                 @endif
 
                             @foreach($nums as $num)
@@ -46,9 +46,16 @@
                 <form >
                     {{ csrf_field() }}
                     <div class="card-body" id="card_nums_selecionados">
+                        <div class="col-md-3 ml-0 col-xs-12">
+                            <input type="text" placeholder="Digite o identificador" class="form-control" name="numero_cart">
+
+                        </div>
                         <h6 class="text-center" id="text-num_sel">Números selecionados</h6>
-                        <p  id="retorno"></p>
+                        <p id="retorno_success" class="text-success"></p>
+                        <p id="retorno_error" class="text-danger"></p>
+
                     </div>
+
                     <button type="button" class="btn btn-info  btn-sm col-4 offset-md-4 " id="btn_cad">Cadastrar cartela</button>
                 </form>
             </div>

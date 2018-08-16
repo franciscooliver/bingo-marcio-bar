@@ -101,7 +101,14 @@ $(document).ready( function () {
         for (var i=0;i<array_elementos.length;i++) {
            array_numeros_selecinados.push($(array_elementos[i]).html())
         }
-        enviaDadosBackEnd(array_numeros_selecinados);
+
+        if(array_numeros_selecinados.length != 24 ){//verifica se  a quantidade de números é diferente de 24
+            alert("Você deve selecionar exatamente 24 números para a cartela!!!\n" +
+                "Quantidade de números selecionados: ( "+array_numeros_selecinados.length+" )")
+        }else{
+            enviaDadosBackEnd(array_numeros_selecinados);
+        }
+
 
     });
 
@@ -127,18 +134,15 @@ $(document).ready( function () {
             dataType:'json',
             data:{
                 '_token': $('input[name=_token]').val(),
-                'numero':array_numeros
+                'numeros':array_numeros,
+                'numero_cart': $('input[name=numero_cart]').val()
         },
             success:function (data) {
-
-                if(data.data){
-                    $("#retorno").removeClass('text-danger');
-                    $("#retorno").addClass("text-success");
-                    $("#retorno").html("Sucesso");
-                }else{
-                    $("#retorno").removeClass('text-success');
-                    $("#retorno").addClass('text-danger');
-                    $("#retorno").html("Erro no cadastro");
+                console.log(data)
+                if(data.retorno_bd.status){
+                    $("#retorno_success").html(data.mensagem);
+                }else {
+                    $("#retorno_error").html("Erro ao cadastrar cartela");
                 }
 
             }

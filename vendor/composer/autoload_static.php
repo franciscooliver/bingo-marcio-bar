@@ -78,11 +78,13 @@ class ComposerStaticInit44bae7c12cfb8ce2482c4530bf81fbe1
         ),
         'F' => 
         array (
+            'FontLib\\' => 8,
             'Faker\\' => 6,
         ),
         'D' => 
         array (
             'Dotenv\\' => 7,
+            'Dompdf\\' => 7,
             'Doctrine\\Instantiator\\' => 22,
             'Doctrine\\Common\\Inflector\\' => 26,
             'DeepCopy\\' => 9,
@@ -213,6 +215,10 @@ class ComposerStaticInit44bae7c12cfb8ce2482c4530bf81fbe1
         array (
             0 => __DIR__ . '/..' . '/laravel/framework/src/Illuminate',
         ),
+        'FontLib\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phenx/php-font-lib/src/FontLib',
+        ),
         'Faker\\' => 
         array (
             0 => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker',
@@ -220,6 +226,10 @@ class ComposerStaticInit44bae7c12cfb8ce2482c4530bf81fbe1
         'Dotenv\\' => 
         array (
             0 => __DIR__ . '/..' . '/vlucas/phpdotenv/src',
+        ),
+        'Dompdf\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/dompdf/dompdf/src',
         ),
         'Doctrine\\Instantiator\\' => 
         array (
@@ -252,6 +262,17 @@ class ComposerStaticInit44bae7c12cfb8ce2482c4530bf81fbe1
     );
 
     public static $prefixesPsr0 = array (
+        'S' => 
+        array (
+            'Svg\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/phenx/php-svg-lib/src',
+            ),
+            'Sabberworm\\CSS' => 
+            array (
+                0 => __DIR__ . '/..' . '/sabberworm/php-css-parser/lib',
+            ),
+        ),
         'P' => 
         array (
             'Prophecy\\' => 
@@ -280,62 +301,15 @@ class ComposerStaticInit44bae7c12cfb8ce2482c4530bf81fbe1
     );
 
     public static $classMap = array (
-        'App\\Bingo' => __DIR__ . '/../..' . '/app/Bingo.php',
-        'App\\Cartela' => __DIR__ . '/../..' . '/app/Cartela.php',
-        'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
-        'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
-        'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
-        'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
-        'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
-        'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
-        'App\\Http\\Controllers\\BingoController' => __DIR__ . '/../..' . '/app/Http/Controllers/BingoController.php',
-        'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
-        'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
-        'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
-        'App\\Http\\Middleware\\RedirectIfAuthenticated' => __DIR__ . '/../..' . '/app/Http/Middleware/RedirectIfAuthenticated.php',
-        'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
-        'App\\NumeroSorteado' => __DIR__ . '/../..' . '/app/NumeroSorteado.php',
-        'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
-        'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
-        'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
-        'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
-        'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
-        'App\\TabelaBingoAtual' => __DIR__ . '/../..' . '/app/TabelaBingoAtual.php',
-        'App\\User' => __DIR__ . '/../..' . '/app/User.php',
-        'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
-        'Carbon\\CarbonInterval' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
-        'Carbon\\CarbonPeriod' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonPeriod.php',
-        'Carbon\\Exceptions\\InvalidDateException' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Exceptions/InvalidDateException.php',
-        'Carbon\\Laravel\\ServiceProvider' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Laravel/ServiceProvider.php',
-        'Carbon\\Translator' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Translator.php',
-        'ClassPreloader\\ClassList' => __DIR__ . '/..' . '/classpreloader/classpreloader/src/ClassList.php',
-        'ClassPreloader\\ClassLoader' => __DIR__ . '/..' . '/classpreloader/classpreloader/src/ClassLoader.php',
-        'ClassPreloader\\ClassNode' => __DIR__ . '/..' . '/classpreloader/classpreloader/src/ClassNode.php',
-        'ClassPreloader\\ClassPreloader' => __DIR__ . '/..' . '/classpreloader/classpreloader/src/ClassPreloader.php',
-        'ClassPreloader\\Config' => __DIR__ . '/..' . '/classpreloader/classpreloader/src/Config.php',
-        'ClassPreloader\\Exceptions\\DirConstantException' => __DIR__ . '/..' . '/classpreloader/classpreloader/src/Exceptions/DirConstantException.php',
-        'ClassPreloader\\Exceptions\\FileConstantException' => __DIR__ . '/..' . '/classpreloader/classpreloader/src/Exceptions/FileConstantException.php',
-        'ClassPreloader\\Exceptions\\StrictTypesException' => __DIR__ . '/..' . '/classpreloader/classpreloader/src/Exceptions/StrictTypesException.php',
-        'ClassPreloader\\Exceptions\\VisitorExceptionInterface' => __DIR__ . '/..' . '/classpreloader/classpreloader/src/Exceptions/VisitorExceptionInterface.php',
-        'ClassPreloader\\Factory' => __DIR__ . '/..' . '/classpreloader/classpreloader/src/Factory.php',
-        'ClassPreloader\\Parser\\AbstractNodeVisitor' => __DIR__ . '/..' . '/classpreloader/classpreloader/src/Parser/AbstractNodeVisitor.php',
-        'ClassPreloader\\Parser\\DirVisitor' => __DIR__ . '/..' . '/classpreloader/classpreloader/src/Parser/DirVisitor.php',
-        'ClassPreloader\\Parser\\FileVisitor' => __DIR__ . '/..' . '/classpreloader/classpreloader/src/Parser/FileVisitor.php',
-        'ClassPreloader\\Parser\\NodeTraverser' => __DIR__ . '/..' . '/classpreloader/classpreloader/src/Parser/NodeTraverser.php',
-        'ClassPreloader\\Parser\\StrictTypesVisitor' => __DIR__ . '/..' . '/classpreloader/classpreloader/src/Parser/StrictTypesVisitor.php',
-        'CreateCartelasTable' => __DIR__ . '/../..' . '/database/migrations/2018_08_05_164532_create_cartelas_table.php',
+        'Cpdf' => __DIR__ . '/..' . '/dompdf/dompdf/lib/Cpdf.php',
         'CreateNumeroSorteadosTable' => __DIR__ . '/../..' . '/database/migrations/2018_08_05_150823_create_numero_sorteados_table.php',
         'CreateTabelaBingoAtualsTable' => __DIR__ . '/../..' . '/database/migrations/2018_07_28_210738_create_tabela_bingo_atuals_table.php',
-        'Cron\\AbstractField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/AbstractField.php',
-        'Cron\\CronExpression' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/CronExpression.php',
-        'Cron\\DayOfMonthField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/DayOfMonthField.php',
-        'Cron\\DayOfWeekField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/DayOfWeekField.php',
-        'Cron\\FieldFactory' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/FieldFactory.php',
-        'Cron\\FieldInterface' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/FieldInterface.php',
-        'Cron\\HoursField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/HoursField.php',
-        'Cron\\MinutesField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/MinutesField.php',
-        'Cron\\MonthField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/MonthField.php',
-        'Cron\\YearField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/YearField.php',
+        'CreateTableCartelas' => __DIR__ . '/../..' . '/database/migrations/2018_08_14_235107_create_table_cartelas.php',
+        'CreateTableTableB' => __DIR__ . '/../..' . '/database/migrations/2018_08_14_232827_create_table_table_B.php',
+        'CreateTableTableG' => __DIR__ . '/../..' . '/database/migrations/2018_08_14_234846_create_table_table_G.php',
+        'CreateTableTableI' => __DIR__ . '/../..' . '/database/migrations/2018_08_14_234642_create_table_table_I.php',
+        'CreateTableTableN' => __DIR__ . '/../..' . '/database/migrations/2018_08_14_234800_create_table_table_N.php',
+        'CreateTableTableO' => __DIR__ . '/../..' . '/database/migrations/2018_08_14_234928_create_table_table_O.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
         'DeepCopy\\DeepCopy' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/DeepCopy.php',
         'DeepCopy\\Exception\\CloneException' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/Exception/CloneException.php',
@@ -821,6 +795,11 @@ class ComposerStaticInit44bae7c12cfb8ce2482c4530bf81fbe1
         'File_Iterator' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Iterator.php',
         'File_Iterator_Facade' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Facade.php',
         'File_Iterator_Factory' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Factory.php',
+        'HTML5_Data' => __DIR__ . '/..' . '/dompdf/dompdf/lib/html5lib/Data.php',
+        'HTML5_InputStream' => __DIR__ . '/..' . '/dompdf/dompdf/lib/html5lib/InputStream.php',
+        'HTML5_Parser' => __DIR__ . '/..' . '/dompdf/dompdf/lib/html5lib/Parser.php',
+        'HTML5_Tokenizer' => __DIR__ . '/..' . '/dompdf/dompdf/lib/html5lib/Tokenizer.php',
+        'HTML5_TreeBuilder' => __DIR__ . '/..' . '/dompdf/dompdf/lib/html5lib/TreeBuilder.php',
         'Hamcrest\\Arrays\\IsArray' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArray.php',
         'Hamcrest\\Arrays\\IsArrayContaining' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArrayContaining.php',
         'Hamcrest\\Arrays\\IsArrayContainingInAnyOrder' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArrayContainingInAnyOrder.php',
