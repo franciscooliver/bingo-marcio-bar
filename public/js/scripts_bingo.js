@@ -152,7 +152,7 @@ $(document).ready( function () {
             }
 
         }else{
-            if(array_numeros_selecinados.length > 5 && array_numeros_selecinados.length < 10 && numero > 30){
+            if(array_numeros_selecinados.length >= 5 && array_numeros_selecinados.length < 10 && numero > 30){
                 alert("Numero fora da sequência de I")
             }
         }
@@ -184,7 +184,7 @@ $(document).ready( function () {
             }
 
         }else{
-            if(array_numeros_selecinados.length > 10 && array_numeros_selecinados.length < 14 && numero > 45){
+            if(array_numeros_selecinados.length >= 10 && array_numeros_selecinados.length < 14 && numero > 45){
                 alert("Numero fora da sequência de N")
             }
         }
@@ -217,7 +217,7 @@ $(document).ready( function () {
             }
 
         }else{
-            if(array_numeros_selecinados.length > 14 && array_numeros_selecinados.length < 19 && numero > 60){
+            if(array_numeros_selecinados.length >= 14 && array_numeros_selecinados.length < 19 && numero > 60){
                 alert("Número fora da sequência de G")
             }
         }
@@ -257,6 +257,7 @@ $(document).ready( function () {
     function populaCartela(ids, numeros){
       for (var i=0; i< ids.length; i++){
           $("#"+ids[i]).html(numeros[i]);
+          $("#"+ids[i]).addClass('limpa')
       }
 
     }
@@ -279,11 +280,12 @@ $(document).ready( function () {
             numeros_cartela.sort(sortfunction)
             console.log(numeros_cartela)
             enviaDadosBackEnd(numeros_cartela);
+            $(".col-md-4 table tr .limpa").html("")
+
         }
         //console.log(array_elementos_selecionados);
 
     });
-
 
 
     function clonaBotaoClicado(button) {

@@ -51,11 +51,11 @@
                         <td class="text-center">O</td>
                     </tr>
                     <tr>
-                        <td  id="b_1" class="border-bottom border-right p-3 text-center text-light"></td>
-                        <td  id="i_1" class="border-bottom border-right p-3 text-center text-light"></td>
-                        <td  id="n_1" class="border-bottom border-right p-3 text-center text-light"></td>
-                        <td  id="g_1" class="border-bottom border-right p-3 text-center text-light"></td>
-                        <td  id="o_1" class="border-bottom p-3 text-center text-light"></td>
+                        <td  id="b_1" class="border-bottom border-right p-3 text-center text-light "></td>
+                        <td  id="i_1" class="border-bottom border-right p-3 text-center text-light "></td>
+                        <td  id="n_1" class="border-bottom border-right p-3 text-center text-light "></td>
+                        <td  id="g_1" class="border-bottom border-right p-3 text-center text-light "></td>
+                        <td  id="o_1" class="border-bottom p-3 text-center text-light "></td>
                     </tr>
                     <tr>
 
@@ -68,7 +68,7 @@
                     <tr>
                         <td id="b_3" class="border-bottom border-right p-3 text-center text-light"></td>
                         <td id="i_3" class="border-bottom border-right p-3 text-center text-light"> </td>
-                        <td class="border-bottom border-right text-center "><img src="{{ asset('img/globo_bingo.png') }}" width="50"></td>
+                        <td class="border-bottom border-right text-center"  id="img"><img src="{{ asset('img/globo_bingo.png') }}" width="50"></td>
                         <td id="g_3" class="border-bottom border-right p-3 text-center text-light"></td>
                         <td id="o_3"class="border-bottom p-3 text-center text-light"></td>
                     </tr>
