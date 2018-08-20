@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7ae194c6-f793-4002-850d-9214d724eaf2" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BingoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BingoController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/scripts_bingo.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/scripts_bingo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/bingo/cadastro_cartelas.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/bingo/cadastro_cartelas.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/_includes/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/_includes/footer.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -100,13 +94,13 @@
           <entry key="env" value="7" />
           <entry key="js" value="5" />
           <entry key="json" value="2" />
-          <entry key="php" value="178" />
+          <entry key="php" value="179" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key=".env file" value="7" />
-          <entry key="Blade" value="23" />
+          <entry key="Blade" value="24" />
           <entry key="CSS" value="3" />
           <entry key="JSON" value="2" />
           <entry key="JavaScript" value="5" />
@@ -119,13 +113,13 @@
           <entry key="env" value="17" />
           <entry key="js" value="5552" />
           <entry key="json" value="3" />
-          <entry key="php" value="10626" />
+          <entry key="php" value="10763" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key=".env file" value="17" />
-          <entry key="Blade" value="2102" />
+          <entry key="Blade" value="2239" />
           <entry key="CSS" value="45" />
           <entry key="JSON" value="3" />
           <entry key="JavaScript" value="5552" />
@@ -174,11 +168,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/scripts_bingo.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="89">
-              <caret line="282" column="12" selection-start-line="282" selection-start-column="12" selection-end-line="282" selection-end-column="12" />
+            <state relative-caret-position="17">
+              <caret line="275" column="42" selection-start-line="275" selection-start-column="42" selection-end-line="275" selection-end-column="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/_includes/footer.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -248,6 +251,7 @@
         <option value="$PROJECT_DIR$/resources/views/bingo/cadastro_cartelas.blade.php" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/public/js/scripts_bingo.js" />
+        <option value="$PROJECT_DIR$/resources/views/_includes/footer.blade.php" />
       </list>
     </option>
   </component>
@@ -343,7 +347,7 @@
       <path value="$PROJECT_DIR$/vendor/phenx/php-font-lib" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="27" />
     <option name="width" value="1366" />
     <option name="height" value="741" />
@@ -400,6 +404,13 @@
               <item name="bingo-marcio-bar" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bingo-marcio-bar" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bingo-marcio-bar" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="_includes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="bingo-marcio-bar" type="b2602c69:ProjectViewProjectNode" />
@@ -503,7 +514,7 @@
       <workItem from="1534776075396" duration="7356000" />
       <workItem from="1534801548748" duration="2413000" />
       <workItem from="1534804023073" duration="1162000" />
-      <workItem from="1534806364863" duration="560000" />
+      <workItem from="1534806364863" duration="2104000" />
     </task>
     <task id="LOCAL-00001" summary="up">
       <created>1533495109724</created>
@@ -516,13 +527,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="247681000" />
+    <option name="totallyTimeSpent" value="249225000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="32" width="1366" height="736" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25341427" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1828528" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Gulp" order="2" side_tool="true" />
       <window_info id="npm" order="3" side_tool="true" />
@@ -536,7 +547,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.29090908" />
+      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.28951746" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32894737" />
       <window_info anchor="bottom" id="Version Control" order="11" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -579,7 +590,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="up" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/database/migrations/2018_07_28_152721_create_bingos_table.php" />
     <entry file="file://$PROJECT_DIR$/resources/views/_includes/modal.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -853,8 +863,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/scripts_bingo.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="89">
-          <caret line="282" column="12" selection-start-line="282" selection-start-column="12" selection-end-line="282" selection-end-column="12" />
+        <state relative-caret-position="17">
+          <caret line="275" column="42" selection-start-line="275" selection-start-column="42" selection-end-line="275" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/_includes/footer.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
         </state>
       </provider>
     </entry>
