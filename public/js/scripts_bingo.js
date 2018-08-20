@@ -4,7 +4,6 @@ $(document).ready( function () {
     if($(window).width() <= 640){
         $(".responsive-table").addClass("table-responsive");
     }
-
     /*$(".btn-light").click(function () {
         fundoBotao(this);
         //imprimeNumsSorteados(this);
@@ -17,7 +16,6 @@ $(document).ready( function () {
         var chamados =  parseInt($("#chamados").html());
         controlaChamados(chamados);
     })*/
-
     //array com os numeros ja sorteados
 
     //pegar os valores da td
@@ -63,8 +61,6 @@ $(document).ready( function () {
                 }else{
                     alert('Acabou o bingo');
                 }
-              
-               
 
             },
 
@@ -74,7 +70,6 @@ $(document).ready( function () {
                 console.log(errorThrown);
             }
         });
-
 
     });
 
@@ -86,17 +81,16 @@ $(document).ready( function () {
     $(document).on("click",".num_cartela", function (event) {
         event.preventDefault()
 
-
-        valida_selecao_numeros(this);
+        valida_selecao_numeros(this);//chama a funcao de validacao
 
     });
-    function valida_selecao_numeros(elemento){
+    function valida_selecao_numeros(elemento){//funcao responsável por validar a sequencia de numeros selecionados
         var array_numeros_selecinados = $("form #card_nums_selecionados .btn-success").toArray();
-        var arraylinhaB = [];
-        var arraylinhaI = [];
-        var arraylinhaN = [];
-        var arraylinhaG = [];
-        var arraylinhaO = [];
+        var arraylinhaB = [];//array para os numeros linha B
+        var arraylinhaI = [];//array para os numeros linha I
+        var arraylinhaN = [];//array para os numeros linha N
+        var arraylinhaG = [];//array para os numeros linha G
+        var arraylinhaO = [];//array para os numeros linha O
 
         var numero = $(elemento).attr('name');
         //alert(button);
@@ -121,7 +115,8 @@ $(document).ready( function () {
                 for (var i=0; i< array_danger.length; i++){
                     arraylinhaB.push($(array_danger[i]).html());
 
-                   populaCartela(ids_B, arraylinhaB);
+                   arraylinhaB = arraylinhaB.sort(sortfunction)
+                    populaCartela(ids_B, arraylinhaB);
                 }
 
             }
@@ -149,6 +144,7 @@ $(document).ready( function () {
 
                 for (var i=5; i< array_danger.length; i++){
                     arraylinhaI.push($(array_danger[i]).html());
+                    arraylinhaI = arraylinhaI.sort(sortfunction)
                     populaCartela(ids_I, arraylinhaI)
 
                 }
@@ -180,6 +176,7 @@ $(document).ready( function () {
 
                 for (var i=10; i< array_danger.length; i++){
                     arraylinhaN.push($(array_danger[i]).html());
+                    arraylinhaN = arraylinhaN.sort(sortfunction)//ordena array
                     populaCartela(ids_N, arraylinhaN)
 
                 }
@@ -211,6 +208,7 @@ $(document).ready( function () {
 
                 for (var i=14; i< array_danger.length; i++){
                     arraylinhaG.push($(array_danger[i]).html());
+                    arraylinhaG = arraylinhaG.sort(sortfunction)
                     populaCartela(ids_G, arraylinhaG);
                 }
                 //console.log(array_linhaG)
@@ -226,7 +224,6 @@ $(document).ready( function () {
 
         //valida linha O
         if(numero >= 61 && numero <= 75 && array_numeros_selecinados.length >= 19){
-
 
             if(array_numeros_selecinados.length >= 24){//verifica se já foram selecionados todos os números da linha B
 
@@ -245,13 +242,17 @@ $(document).ready( function () {
                     arraylinhaO.push($(array_danger[i]).html());
                     populaCartela(ids_O, arraylinhaO);
                 }
-
-
             }
 
         }
 
     }
+
+
+    function sortfunction(a, b){
+        return (a - b) //faz com que o array seja ordenado numericamente e de ordem crescente.
+    }
+
 
     function populaCartela(ids, numeros){
       for (var i=0; i< ids.length; i++){
@@ -260,17 +261,30 @@ $(document).ready( function () {
 
     }
 
+    $(document).on("click", "#btn_cad", function (event) {
+        event.preventDefault();
 
-        /*if(array_numeros_selecinados.length != 24 ){//verifica se  a quantidade de números é diferente de 24
-            alert("Você deve selecionar exatamente 24 números para a cartela!!!\n" +
-                "Quantidade de números selecionados: ( "+array_numeros_selecinados.length+" )")
+        var array_elementos_selecionados = $("form #card_nums_selecionados .btn-success").toArray();
+        var numeros_cartela = []
+
+        for(var i=0; i< array_elementos_selecionados.length;i++){
+            numeros_cartela.push($(array_elementos_selecionados[i]).html());
+
+        }
+
+        if(numeros_cartela.length != 24 ){//verifica se  a quantidade de números é diferente de 24
+            alert("A cartela deverá conter exatamente 24 números!!!\n" +
+                "Quantidade de números selecionados: ( "+numeros_cartela.length+" )")
         }else{
-            enviaDadosBackEnd(array_numeros_selecinados);
-        }*/
+            numeros_cartela.sort(sortfunction)
+            console.log(numeros_cartela)
+            enviaDadosBackEnd(numeros_cartela);
+        }
+        //console.log(array_elementos_selecionados);
 
-    $(document).on('click','#card_nums_selecionados .btn-success', function (event) {
-       excluirNumSelecionado(this);
     });
+
+
 
     function clonaBotaoClicado(button) {
         $(button)
@@ -305,18 +319,6 @@ $(document).ready( function () {
         });
     }
 
-    function excluirNumSelecionado(numero) {
-
-        $(numero).remove();
-
-        $("table tr td .btn-danger").filter(function (index) { /*filtra o elemento de acordo com o indice selecionado
-                                                                                          e aplica a classe btn-danger */
-            return $(this).attr("name") === $(numero).html();
-        }).removeClass('btn-danger')
-            .addClass('btn-light')
-            .addClass('text-dark')
-
-    }
     //fim tela cad cartelas
 
 
