@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Cartela;
 use http\Env\Response;
+use Illuminate\Database\Console\Seeds\SeedCommand;
 use Illuminate\Http\Request;
 use App\TabelaBingoAtual;
 use Illuminate\Support\Facades\DB;
@@ -182,6 +183,17 @@ class BingoController extends Controller
         }
 
     }
+
+ public function popularTabela(){
+        $seed = new \DatabaseSeeder();
+        $operacao = $seed->run();
+
+
+        return redirect()
+            ->route('index')
+            ->with("success_generate","Números gerados");
+
+ }
 
 
     public function gerarPdf()
