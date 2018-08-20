@@ -18,6 +18,7 @@ class CreatePremiosTable extends Migration
             $table->string('nome_premio');
             $table->string('descricao_premio', 150);
             $table->date('data_bingo');
+            $table->time('hora_inicio');
             $table->timestamps();
         });
     }

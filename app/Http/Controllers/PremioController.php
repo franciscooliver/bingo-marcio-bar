@@ -15,7 +15,7 @@ class PremioController extends Controller
 
 
         $premios = DB::table('premios')
-            ->select("nome_premio","descricao_premio")
+            ->select("nome_premio","descricao_premio","hora_inicio")
             ->where([
                 "data_bingo" => $data_comparativa
             ])->get();

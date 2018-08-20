@@ -17,7 +17,6 @@
                             <div class="card-body ">
                                 <h5 class="card-title text-info">{{ $premio->nome_premio }}</h5>
                                 <h6 class="card-subtitle mb-2 text-black-50">{{ $premio->descricao_premio }}</h6>
-
                             </div>
                         </div>
                         @endforeach

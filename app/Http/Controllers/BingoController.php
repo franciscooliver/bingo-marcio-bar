@@ -19,9 +19,6 @@ class BingoController extends Controller
 {
 
     public function  index(){
-        
-       
-
         $numeros = array();
         for ($i=1;$i<76;$i++){
             $numeros[] = $i;
@@ -33,10 +30,6 @@ class BingoController extends Controller
         return view('layouts.index',compact('numeros','size_array'));
     }
 
-   public function dadosView(){
-
-
-    }
     public function sorteiaNumero(){
 
         $nums_chamados = array();
@@ -91,17 +84,14 @@ class BingoController extends Controller
     public function verificaGanhador(Request $request){
 
 
-            return response()->json($request->all());
     }
 
     public function viewcadCartela(Request $request){
 
         $numeros = range(1 ,75);
-        $letras = array(['B','I','N','G','O']);
         $array_view = array_chunk($numeros , 15);
 
-
-        return view('bingo.cadastro_cartelas',compact('array_view','letras'));
+        return view('bingo.cadastro_cartelas',compact('array_view'));
     }
 
     public function addCartela(Request $request){
