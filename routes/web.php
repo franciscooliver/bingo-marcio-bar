@@ -22,6 +22,8 @@ Route::get('/premios','PremioController@index')->name('premios');
 Route::get('/viewCadPremios','PremioController@viewCadPremios')->name('view-cad-premios');
 Route::post('/addPremio','PremioController@addPremio')->name('add-premio');
 
+Route::get("/popularTabela","BingoController@popularTabela")->name('popular-tabela');
+
 
 Route::get("/gerarPdf","BingoController@gerarPdf")->name('gerarPdf');
 Route::get("/returnpdf", function (){

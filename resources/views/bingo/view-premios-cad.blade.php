@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 
-@section('title','- cadastro de prẽmios')
+@section('title','- cadastro de prêmios')
 
 @section("content")
     <div class="container mt-5 mb-5">
@@ -24,10 +24,15 @@
 
                     <div class="form-group">
                         <label for="data_bingo">Data do bingo</label>
-                        <input type="datetime-local" class="form-control" name="data_bingo" id="data_bingo" placeholder="Password">
+                        <input type="date" class="form-control" name="data_bingo" id="data_bingo" placeholder="Password">
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Salvar prêmios</button>
+                    <div class="form-group">
+                        <label for="hora_inicio">Hora de início</label>
+                        <input type="time" class="form-control" name="hora_inicio" id="hora_inicio" placeholder="Password">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Salvar prêmio</button>
                 </form>
             </div>
         </div>

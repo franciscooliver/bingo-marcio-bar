@@ -4,7 +4,6 @@ $(document).ready( function () {
     if($(window).width() <= 640){
         $(".responsive-table").addClass("table-responsive");
     }
-
     /*$(".btn-light").click(function () {
         fundoBotao(this);
         //imprimeNumsSorteados(this);
@@ -17,7 +16,6 @@ $(document).ready( function () {
         var chamados =  parseInt($("#chamados").html());
         controlaChamados(chamados);
     })*/
-
     //array com os numeros ja sorteados
 
     //pegar os valores da td
@@ -63,8 +61,6 @@ $(document).ready( function () {
                 }else{
                     alert('Acabou o bingo');
                 }
-              
-               
 
             },
 
@@ -75,7 +71,6 @@ $(document).ready( function () {
             }
         });
 
-
     });
 
     //tela cad cartelas
@@ -83,39 +78,224 @@ $(document).ready( function () {
         $("#text-num_sel").hide();
     }
 
-    $(".num_cartela").click(function () {
-        $("#text-num_sel").show();
-        var button = $(this).attr('name');
+    $(document).on("click",".num_cartela", function (event) {
+        event.preventDefault()
 
-        fundoBotao(this);
-        clonaBotaoClicado($(this).attr('name',button));
+        valida_selecao_numeros(this);//chama a funcao de validacao
 
     });
+    function valida_selecao_numeros(elemento){//funcao responsável por validar a sequencia de numeros selecionados
+        var array_numeros_selecinados = $("form #card_nums_selecionados .btn-success").toArray();
+        var arraylinhaB = [];//array para os numeros linha B
+        var arraylinhaI = [];//array para os numeros linha I
+        var arraylinhaN = [];//array para os numeros linha N
+        var arraylinhaG = [];//array para os numeros linha G
+        var arraylinhaO = [];//array para os numeros linha O
 
-    $(document).on('click','#btn_cad', function (event) {
-        event.preventDefault();
+        var numero = $(elemento).attr('name');
+        //alert(button);
+        //var array_elementos = $('#card_nums_selecionados .btn-light').toArray();
 
+        if ( numero >= 1 && numero <= 15) {//verifica se numero selecionado está no intervalo entre 1 - 15
+
+            if(array_numeros_selecinados.length >= 5){//verifica se já foram selecionados todos os números da linha B
+
+                alert("Você já escolheu o máximo de números para a linha B \n" +
+                    "Por favor vá para a próxima linha")
+                $(elemento).removeClass("btn-danger")
+
+            }else{
+
+
+                fundoBotao(elemento);
+                clonaBotaoClicado($(elemento).attr('name',numero));
+                var array_danger = $("#table_cad tr td .btn-danger").toArray();
+                var ids_B = ["b_1","b_2","b_3","b_4","b_5"];
+
+                for (var i=0; i< array_danger.length; i++){
+                    arraylinhaB.push($(array_danger[i]).html());
+
+<<<<<<< HEAD
         var array_elementos = $('#card_nums_selecionados .btn-success').toArray();
         var array_numeros_selecinados = [];
       
         
         for (var i=0;i<array_elementos.length;i++) {
            array_numeros_selecinados.push($(array_elementos[i]).html())
+=======
+                   arraylinhaB = arraylinhaB.sort(sortfunction)
+                    populaCartela(ids_B, arraylinhaB);
+                }
+
+            }
+
+
+        }else if(numero > 15 && array_numeros_selecinados.length < 5){
+            alert("Número não permitido na sequência de B")
+>>>>>>> upstream/master
         }
 
-        if(array_numeros_selecinados.length != 24 ){//verifica se  a quantidade de números é diferente de 24
-            alert("Você deve selecionar exatamente 24 números para a cartela!!!\n" +
-                "Quantidade de números selecionados: ( "+array_numeros_selecinados.length+" )")
+        //validacao linha I
+        if(numero >= 16 && numero <= 30 && array_numeros_selecinados.length >= 5){
+
+
+            if(array_numeros_selecinados.length >= 10){//verifica se já foram selecionados todos os números da linha B
+
+                alert("Você já escolheu o máximo de números para a linha I \n" +
+                    "Por favor vá para a próxima linha")
+                $(elemento).removeClass("btn-danger")
+
+            }else{
+                fundoBotao(elemento);
+                clonaBotaoClicado($(elemento).attr('name',numero));
+                var array_danger = $("#table_cad tr td .btn-danger").toArray();
+                var ids_I = ["i_1","i_2","i_3","i_4","i_5"];
+
+                for (var i=5; i< array_danger.length; i++){
+                    arraylinhaI.push($(array_danger[i]).html());
+                    arraylinhaI = arraylinhaI.sort(sortfunction)
+                    populaCartela(ids_I, arraylinhaI)
+
+                }
+
+            }
+
         }else{
-            enviaDadosBackEnd(array_numeros_selecinados);
+            if(array_numeros_selecinados.length >= 5 && array_numeros_selecinados.length < 10 && numero > 30){
+                alert("Numero fora da sequência de I")
+            }
         }
 
+        //validação linha N
+        if(numero >= 31 && numero <= 45 && array_numeros_selecinados.length >= 10){
+
+
+            if(array_numeros_selecinados.length >= 14){//verifica se já foram selecionados todos os números da linha B
+
+                alert("Você já escolheu o máximo de números para a linha N \n" +
+                    "Por favor vá para a próxima linha")
+                $(elemento).removeClass("btn-danger")
+
+            }else{
+
+                fundoBotao(elemento);
+                clonaBotaoClicado($(elemento).attr('name',numero));
+                var array_danger = $("#table_cad tr td .btn-danger").toArray();
+                var ids_N = ["n_1","n_2","n_3","n_4"];
+
+                for (var i=10; i< array_danger.length; i++){
+                    arraylinhaN.push($(array_danger[i]).html());
+                    arraylinhaN = arraylinhaN.sort(sortfunction)//ordena array
+                    populaCartela(ids_N, arraylinhaN)
+
+                }
+
+            }
+
+        }else{
+            if(array_numeros_selecinados.length >= 10 && array_numeros_selecinados.length < 14 && numero > 45){
+                alert("Numero fora da sequência de N")
+            }
+        }
+
+        //valida linha G
+        if(numero >= 46 && numero <= 60 && array_numeros_selecinados.length >= 14){
+
+
+            if(array_numeros_selecinados.length >= 19){//verifica se já foram selecionados todos os números da linha B
+
+                alert("Você já escolheu o máximo de números para a linha G \n" +
+                    "Por favor vá para a próxima linha")
+
+
+            }else{
+
+                fundoBotao(elemento);
+                clonaBotaoClicado($(elemento).attr('name',numero));
+                var array_danger = $("#table_cad tr td .btn-danger").toArray();
+                var ids_G = ["g_1","g_2","g_3","g_4","g_5"];
+
+                for (var i=14; i< array_danger.length; i++){
+                    arraylinhaG.push($(array_danger[i]).html());
+                    arraylinhaG = arraylinhaG.sort(sortfunction)
+                    populaCartela(ids_G, arraylinhaG);
+                }
+                //console.log(array_linhaG)
+
+
+            }
+
+        }else{
+            if(array_numeros_selecinados.length >= 14 && array_numeros_selecinados.length < 19 && numero > 60){
+                alert("Número fora da sequência de G")
+            }
+        }
+
+        //valida linha O
+        if(numero >= 61 && numero <= 75 && array_numeros_selecinados.length >= 19){
+
+            if(array_numeros_selecinados.length >= 24){//verifica se já foram selecionados todos os números da linha B
+
+                alert("Você já selecionou o todos os números para essa cartela\n" +
+                    "Verifique os números selecionados e clique em (Cadastrar cartela)")
+                $(elemento).removeClass("btn-danger")
+
+            }else{
+
+                fundoBotao(elemento);
+                clonaBotaoClicado($(elemento).attr('name',numero));
+                var array_danger = $("#table_cad tr td .btn-danger").toArray();
+                var ids_O = ["o_1","o_2","o_3","o_4","o_5"];
+
+                for (var i=19; i< array_danger.length; i++){
+                    arraylinhaO.push($(array_danger[i]).html());
+                    populaCartela(ids_O, arraylinhaO);
+                }
+            }
+
+        }
+
+    }
+
+
+    function sortfunction(a, b){
+        return (a - b) //faz com que o array seja ordenado numericamente e de ordem crescente.
+    }
+
+
+    function populaCartela(ids, numeros){
+      for (var i=0; i< ids.length; i++){
+          $("#"+ids[i]).html(numeros[i]);
+          $("#"+ids[i]).addClass('limpa')
+      }
+
+    }
+
+    $(document).on("click", "#btn_cad", function (event) {
+        event.preventDefault();
+
+        var array_elementos_selecionados = $("form #card_nums_selecionados .btn-success").toArray();
+        var numeros_cartela = []
+
+        for(var i=0; i< array_elementos_selecionados.length;i++){
+            numeros_cartela.push($(array_elementos_selecionados[i]).html());
+
+        }
+
+        if(numeros_cartela.length != 24 ){//verifica se  a quantidade de números é diferente de 24
+            alert("A cartela deverá conter exatamente 24 números!!!\n" +
+                "Quantidade de números selecionados: ( "+numeros_cartela.length+" )")
+        }else{
+            numeros_cartela.sort(sortfunction)
+            console.log(numeros_cartela)
+            enviaDadosBackEnd(numeros_cartela);
+            $(".col-md-4 table tr .limpa").html("")
+
+        }
+        //console.log(array_elementos_selecionados);
 
     });
 
-    $(document).on('click','#card_nums_selecionados .btn-success', function (event) {
-       excluirNumSelecionado(this);
-    });
 
     function clonaBotaoClicado(button) {
         $(button)
@@ -124,7 +304,7 @@ $(document).ready( function () {
             .removeClass("btn-danger")
             .removeClass('num_cartela')
             .addClass("btn btn-success","text-center",'btn-lg')
-            .css({"margin-left":"5px","margin-top":"5px"})
+            .css({"margin-left":"5px","margin-top":"5px","display":"none"})
 
     }
 
@@ -150,18 +330,6 @@ $(document).ready( function () {
         });
     }
 
-    function excluirNumSelecionado(numero) {
-
-        $(numero).remove();
-
-        $("table tr td .btn-danger").filter(function (index) { /*filtra o elemento de acordo com o indice selecionado
-                                                                                          e aplica a classe btn-danger */
-            return $(this).attr("name") === $(numero).html();
-        }).removeClass('btn-danger')
-            .addClass('btn-light')
-            .addClass('text-dark')
-
-    }
     //fim tela cad cartelas
 
 
@@ -170,7 +338,7 @@ $(document).ready( function () {
         $(elemento).addClass("btn-danger");
         $(".text-secondary").removeClass("text-secondary");
         $(elemento).addClass("text-light");
-        //$(elemento).unbind("click");
+        $(elemento).unbind("click");
 
         //$(elemento).css({'color':'#fff'});
 

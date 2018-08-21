@@ -3,6 +3,7 @@
 @section('title','- principal')
 
 @section("content")
+    @include('_includes.alerts')
     <div class="container mt-2 mb-5">
         <div class="row bg-info">
             <div class="col-md-5 text-center">

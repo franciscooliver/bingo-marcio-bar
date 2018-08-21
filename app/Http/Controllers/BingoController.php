@@ -75,6 +75,7 @@ class BingoController extends Controller
                    'numeros'=>$num_sorteado
                ])->delete();
                
+              
                 return  $num_sorteado;
 
              } else {

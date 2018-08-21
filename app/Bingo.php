@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Bingo extends Model
 {
-    protected $table = "bingos";
+    protected $table = "tabela_bingo_atuals";
 
     protected $fillable = [
         "id",
