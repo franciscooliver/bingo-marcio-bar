@@ -31,7 +31,7 @@ class Cartela extends Model
         return $this->belongsTo(LinhaO::class);
     }
 
-    public function salvaColunas($id_b,$id_i,$id_n,$id_g,$id_o){
+    public function salvaColunas($id_b,$id_i,$id_n,$id_g,$id_o,$num_cartela){
 
        /* $retorno = $this::create([
             
@@ -51,7 +51,7 @@ class Cartela extends Model
             "table_N_idtable_N"=> $id_n,
             "table_G_idtable_G"=> $id_g,
             "table_O_idtable_O"=> $id_o,
-            "numero_cartela"=>"2"
+            "numero_cartela"=>$num_cartela
             ]);
 
         if($retorno){

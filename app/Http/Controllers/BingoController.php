@@ -175,7 +175,8 @@ class BingoController extends Controller
                     $retorno_linhaI['id_I'],
                     $retorno_linhaN['id_N'],
                     $retorno_linhaG['id_G'],
-                    $retorno_linhaO['id_O']
+                    $retorno_linhaO['id_O'],
+                    $num_cartela
                     );
                         if ($retorno_cartela['status'] === true){
                            

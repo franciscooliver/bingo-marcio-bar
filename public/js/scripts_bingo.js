@@ -97,7 +97,8 @@ $(document).ready( function () {
 
         var array_elementos = $('#card_nums_selecionados .btn-success').toArray();
         var array_numeros_selecinados = [];
-
+      
+        
         for (var i=0;i<array_elementos.length;i++) {
            array_numeros_selecinados.push($(array_elementos[i]).html())
         }
@@ -138,7 +139,7 @@ $(document).ready( function () {
                 'numero_cart': $('input[name=numero_cart]').val()
         },
             success:function (data) {
-                console.log(data)
+                console.log(data.mensagem);
                 if(data.retorno_bd.status){
                     $("#retorno_success").html(data.mensagem);
                 }else {
