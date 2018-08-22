@@ -134,14 +134,15 @@ class BingoController extends Controller
             return response()->json([$e->getMessage()]);
 
         }
-
 }
+
 
     public function verificaGanhador(Request $request){
 
 
             return response()->json($request->all());
     }
+
 
     public function viewcadCartela(Request $request){
 
@@ -174,7 +175,7 @@ class BingoController extends Controller
         $array_merge = array_merge($aray_div[3], $aray_div[4]);//junta os dois arrays restantes
         array_unshift($array_merge, $remove_numero);//adiciona numero no inicio do array criado
 
-        $novo_array = array_chunk($array_merge,5);//divide o novo array em dois novos arrays com 5 numeros cada
+        $novo_array = array_chunk($array_merge, 5);//divide o novo array em dois novos arrays com 5 numeros cada
 
         $novoArray_div = [
             "linhaG"=>$novo_array[0],
@@ -234,14 +235,13 @@ class BingoController extends Controller
                         }
                     
                     }
-                
-                  
-                       
+                     
                 }   
             }
         }
 
     }
+
     public function popularTabela(){
         $seed = new \DatabaseSeeder();
         $operacao = $seed->run();
@@ -260,6 +260,7 @@ class BingoController extends Controller
        
 
  }
+
 
     public function gerarPdf()
     {
