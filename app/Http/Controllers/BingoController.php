@@ -4,12 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Cartela;
 use http\Env\Response;
-use Illuminate\Database\Console\Seeds\SeedCommand;
-use Illuminate\Database\Migrations\DatabaseMigrationRepository;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Http\Request;
 use App\TabelaBingoAtual;
-use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
 use Exception;
 use Dompdf\Dompdf;
@@ -23,6 +19,9 @@ class BingoController extends Controller
 {
 
     public function  index(){
+        
+       
+
         $numeros = array();
         for ($i=1;$i<76;$i++){
             $numeros[] = $i;
@@ -34,12 +33,17 @@ class BingoController extends Controller
         return view('layouts.index',compact('numeros','size_array'));
     }
 
+   public function dadosView(){
+
+
+    }
     public function sorteiaNumero(){
 
         $nums_chamados = array();
         $array_tabela = array();
         $num_sorteado = null;
         $numerosBanco = array();
+          
         //salvar no banco
         try{
 
@@ -72,26 +76,82 @@ class BingoController extends Controller
                    'numeros'=>$num_sorteado
                ])->delete();
                
-                return  $num_sorteado;
+            //verificar se alguma tabela tem o numero sorteado
+            //pegando a cartela que tem o numero chamado OK
+            $resultCartela =  DB::table('cartelas')
+            ->select('cartelas.numero_cartela')
+            ->join('table_B','table_B.id_table_B', '=', 'cartelas.table_B_idtable_B')
+            ->join('table_I','table_I.id_table_I', '=', 'cartelas.table_I_idtable_I')
+            ->join('table_N','table_N.id_table_N', '=', 'cartelas.table_N_idtable_N')
+            ->join('table_G','table_G.id_table_G', '=', 'cartelas.table_G_idtable_G')
+            ->join('table_O','table_O.id_table_O', '=', 'cartelas.table_O_idtable_O')
+            ->where('table_B.b_1', '=',$num_sorteado )->orWhere('table_B.b_2', '=',$num_sorteado)->orWhere('table_B.b_3', '=',$num_sorteado)->orWhere('table_B.b_4', '=',$num_sorteado)->orWhere('table_B.b_5', '=',$num_sorteado)
+            ->orWhere('table_I.i_1', '=', $num_sorteado)->orWhere('table_I.i_2', '=',$num_sorteado)->orWhere('table_I.i_3', '=',$num_sorteado)->orWhere('table_I.i_4', '=',$num_sorteado)->orWhere('table_I.i_5', '=',$num_sorteado)
+            ->orWhere('table_N.n_1', '=', $num_sorteado)->orWhere('table_N.n_2', '=',$num_sorteado)->orWhere('table_N.n_3', '=',$num_sorteado)->orWhere('table_N.n_4', '=',$num_sorteado)
+            ->orWhere('table_G.g_1', '=', $num_sorteado)->orWhere('table_G.g_2', '=',$num_sorteado)->orWhere('table_G.g_3', '=',$num_sorteado)->orWhere('table_G.g_4', '=',$num_sorteado)->orWhere('table_G.g_5', '=',$num_sorteado)
+            ->orWhere('table_O.o_1', '=', $num_sorteado)->orWhere('table_O.o_2', '=',$num_sorteado)->orWhere('table_O.o_3', '=',$num_sorteado)->orWhere('table_O.o_4', '=',$num_sorteado)->orWhere('table_O.o_5', '=',$num_sorteado)
+            ->get()->toArray();
+           
+            
+            //for que percorre todas as cartelas que tem o numero sorteado
+            foreach($resultCartela  as $key=>$num){
+                ////pegar o valor do contador
+                $cartelaAtualContador =  DB::table("cartelas")
+                ->select("cartela_contador")
+                ->where(
+                    'numero_cartela',$num->numero_cartela
+                )->get();
 
+               //salvar mais um no contador de cada cartela
+                DB::table('cartelas')
+                ->where('numero_cartela',$num->numero_cartela)
+                ->update(['cartela_contador'=>$cartelaAtualContador[0]->cartela_contador+1]);
+             
+               
+           }
+                
+              //codigo que traz a cartela ganhadora
+                //pegar o contador maior 
+                $contCartela =  DB::table('cartelas')->max('cartela_contador');
+                //buscar as cartelas que mais pontuaram no bingo
+                $cartelaGanhadora = DB::table('cartelas')
+                ->select('cartelas.numero_cartela')
+                ->where('cartela_contador', $contCartela)->get();
+
+                //retorno para teste
+                //ResultCartela retorna as cartelas que contem o numero sorteado
+                //cartelaMaior retorna um objeto das cartela que mais marcaram ,consequentemente a cartela ganhadora
+                $arrayName = array('Tabela' => $resultCartela ,'numero sorteado'=>$num_sorteado,"Possiveis ganhadores "=>$cartelaGanhadora);
+            //retorno para teste verificar no console do navegador
+            return  $arrayName;
+           
              } else {
 
                 return 0;
              }
+            
         }catch(Exception $e){
             return response()->json([$e->getMessage()]);
 
         }
 }
 
-    public function verificaGanhador(Request $request){}
+
+    public function verificaGanhador(Request $request){
+
+
+            return response()->json($request->all());
+    }
+
 
     public function viewcadCartela(Request $request){
 
         $numeros = range(1 ,75);
+        $letras = array(['B','I','N','G','O']);
         $array_view = array_chunk($numeros , 15);
 
-        return view('bingo.cadastro_cartelas',compact('array_view'));
+
+        return view('bingo.cadastro_cartelas',compact('array_view','letras'));
     }
 
     public function addCartela(Request $request){
@@ -165,7 +225,8 @@ class BingoController extends Controller
                     $retorno_linhaI['id_I'],
                     $retorno_linhaN['id_N'],
                     $retorno_linhaG['id_G'],
-                    $retorno_linhaO['id_O']
+                    $retorno_linhaO['id_O'],
+                    $num_cartela
                     );
                         if ($retorno_cartela['status'] === true){
                            
@@ -181,14 +242,25 @@ class BingoController extends Controller
 
     }
 
-    //função que gera os números para o bingo na tabela correspondente
- public function popularTabela(){
+    public function popularTabela(){
         $seed = new \DatabaseSeeder();
         $operacao = $seed->run();
+
+        //zerar o contador das cartelas
+        $contador = DB::table('cartelas')
+        ->update(['cartela_contador'=>0]);
+
+    
         return redirect()
-            ->route('index')
-            ->with("success_generate","Números gerados");
+        ->route('index')
+        ->with("success_generate","Números gerados , Contador das cartelas zerados");
+
+       // ->with("success_generate","Números gerados , Quantidades de cartelas pronta para o bingo = "+$contador);
+
+       
+
  }
+
 
     public function gerarPdf()
     {
