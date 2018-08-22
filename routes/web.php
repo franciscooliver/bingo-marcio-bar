@@ -12,6 +12,7 @@
 */
 
 use App\Http\Controllers\BingoController;
+use App\bingo;
 
 Route::get('/', 'BingoController@index')->name('index');
 //Route::post("/verificaganhador","BingoController@verificaGanhador");
@@ -25,6 +26,24 @@ Route::post('/addPremio','PremioController@addPremio')->name('add-premio');
 Route::get("/popularTabela","BingoController@popularTabela")->name('popular-tabela');
 
 
+//reseta todo o banco de dados
+Route::get('/resetaDB', function()
+{
+    $reseta_bd = Artisan::call('migrate:refresh');
+    //depois de resetar todas as tabelas, retorna mensagem 
+   
+    if($reseta_bd === 0){
+        return redirect()
+        ->route('index')
+        ->with("reset_db","Banco de dados resetado");
+    }else
+    return redirect()
+        ->route('index')
+        ->with("error","Erro ao resetar o banco de dados");
+
+})->name('reset-db');
+
+//teste para gerar PDF
 Route::get("/gerarPdf","BingoController@gerarPdf")->name('gerarPdf');
 Route::get("/returnpdf", function (){
     return view('exemplo_pdf');
