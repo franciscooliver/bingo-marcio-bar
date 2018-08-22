@@ -16,6 +16,7 @@ class CreateTableCartelas extends Migration
         Schema::create('cartelas', function (Blueprint $table) {
             $table->increments('idCartela');
             $table->string("numero_cartela", 45);
+            $table->integer("cartela_contador");
             $table->integer("table_B_idtable_B")->unsigned();
             $table->foreign("table_B_idtable_B")->references('id_table_B')->on('table_B');
             $table->integer("table_I_idtable_I")->unsigned();

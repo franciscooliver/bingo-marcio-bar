@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 class Cartela extends Model
 {
     protected $table = "cartelas";
-    protected $fillable = ['idTabela','table_B_idtable_B','table_I_idtable_I','table_N_idtable_N','table_G_idtable_G','table_O_idtable_O',"numero_cartela"];
+    protected $fillable = ['idTabela','table_B_idtable_B','table_I_idtable_I','table_N_idtable_N','table_G_idtable_G','table_O_idtable_O',"numero_cartela",'cartela_contador'];
 
 
     public function linhaB(){
@@ -51,7 +51,8 @@ class Cartela extends Model
             "table_N_idtable_N"=> $id_n,
             "table_G_idtable_G"=> $id_g,
             "table_O_idtable_O"=> $id_o,
-            "numero_cartela"=>$num_cartela
+            "numero_cartela"=>$num_cartela,
+            "cartela_contador"=>0
             ]);
 
         if($retorno){

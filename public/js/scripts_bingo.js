@@ -115,14 +115,6 @@ $(document).ready( function () {
                 for (var i=0; i< array_danger.length; i++){
                     arraylinhaB.push($(array_danger[i]).html());
 
-<<<<<<< HEAD
-        var array_elementos = $('#card_nums_selecionados .btn-success').toArray();
-        var array_numeros_selecinados = [];
-      
-        
-        for (var i=0;i<array_elementos.length;i++) {
-           array_numeros_selecinados.push($(array_elementos[i]).html())
-=======
                    arraylinhaB = arraylinhaB.sort(sortfunction)
                     populaCartela(ids_B, arraylinhaB);
                 }
@@ -132,7 +124,6 @@ $(document).ready( function () {
 
         }else if(numero > 15 && array_numeros_selecinados.length < 5){
             alert("Número não permitido na sequência de B")
->>>>>>> upstream/master
         }
 
         //validacao linha I
