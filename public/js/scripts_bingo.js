@@ -4,6 +4,7 @@ $(document).ready( function () {
     if($(window).width() <= 640){
         $(".responsive-table").addClass("table-responsive");
     }
+    $("#info_cartela").hide();
     /*$(".btn-light").click(function () {
         fundoBotao(this);
         //imprimeNumsSorteados(this);
@@ -19,18 +20,23 @@ $(document).ready( function () {
     //array com os numeros ja sorteados
 
     //pegar os valores da td
-    $(document).on("click","#sortear", function () {
+     $("#sortear").click(function () {
+
         var dataNumero;
         var nums_chamados = [];
         $.ajax({
             type: 'GET',
             url: "sorteiaNumero",
+            dataType:'json',
             success: function(data)
             {
-                dataNumero = data;
-                console.log(dataNumero);
+
+                dataNumero = data.numero_sorteado;
+
                 //data igual a 0, a tabela do banco está zerada
-                if(dataNumero != 0){
+                if(data.length != 0){
+
+
                     var numero_selecinado;
                     var array = $("table tr td .ajax").toArray();
                     var array_nums_chamds = $("table tr td .btn-danger").toArray();
@@ -39,10 +45,10 @@ $(document).ready( function () {
                         nums_chamados.push($(array_nums_chamds[i]).html());
                     }
     
-                    numero_selecinado = $(array[dataNumero-1]).html(); //recupera o valor do elemento dentro da table de acordo com o índice =>(número vindo do server)
+                    numero_selecinado = $(array[dataNumero -1 ]).html(); //recupera o valor do elemento dentro da table de acordo com o índice =>(número vindo do server)
+                    //console.log(numero_selecinado);
+                    if(dataNumero != "" && dataNumero == numero_selecinado){//verifica se o número sorteado é igual ao valor do indice selecionado
 
-                    if(dataNumero === numero_selecinado && dataNumero != "" && $.inArray(dataNumero, nums_chamados) === -1){//verifica se o número sorteado é igual ao valor do indice selecionado
-    
                         fundoBotao($("table tr td .btn-light").filter(function( index ) { /*filtra o elemento de acordo com o indice selecionado
                                                                                           e aplica a classe btn-danger */
                            return $( this ).attr( "id" ) === numero_selecinado;
@@ -56,7 +62,18 @@ $(document).ready( function () {
                         controlaRestantes(chamados);
                         //imprime a sequencia de numeros sorteados (os oito últimos)
                         imprimeNumsSorteados($("#"+numero_selecinado));
-    
+
+                        //console.log(data.ganhadores.length);
+
+                            $("#info_cartela").show();
+                            var dataN = [];
+                            var numero;
+                        for (var i = 0; i < data.ganhadores.length; i++) {
+                                dataN.push(data.ganhadores[i].numero_cartela);
+
+                        }
+                        setaValorCartelas(dataN,data.cont_cartela);
+
                     }
                 }else{
                     alert('Acabou o bingo');
@@ -73,10 +90,26 @@ $(document).ready( function () {
 
     });
 
+     function setaValorCartelas(num_cartelas, cont_cartela) {
+
+         $("#div_cartelas .info_cartela").remove();//remove a div que contem os numeros
+
+         //console.log(array_elementos)
+         for(var a=0;a < num_cartelas.length; a++){
+
+             $("#div_cartelas").append('<p class="info_cartela">Número da cartela: <span class="text-dark" style="padding: 5px">'+num_cartelas[a]+'</span></p>');//adiciona a div com os numeros
+         }
+
+         $("#qtd").html("("+num_cartelas.length+")")//seta quantidade de possíveis ganhadores
+             .css({"font-size":"1rem"});
+         //console.log(num_cartelas)
+
+         if(cont_cartela == 24)
+             alert("Ganhador(s): "+num_cartelas)
+     }
+
+
     //tela cad cartelas
-    if($('#card_nums_selecionados .btn-success').length <= 0){
-        $("#text-num_sel").hide();
-    }
 
     $(document).on("click",".num_cartela", function (event) {
         event.preventDefault()

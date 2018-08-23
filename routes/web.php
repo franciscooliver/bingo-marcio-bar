@@ -30,13 +30,14 @@ Route::get("/popularTabela","BingoController@popularTabela")->name('popular-tabe
 Route::get('/resetaDB', function()
 {
     $reseta_bd = Artisan::call('migrate:refresh');
-    //depois de resetar todas as tabelas, retorna mensagem 
-   
+
+    //exibe mensagem de retorno
     if($reseta_bd === 0){
         return redirect()
         ->route('index')
         ->with("reset_db","Banco de dados resetado");
-    }else
+    }
+
     return redirect()
         ->route('index')
         ->with("error","Erro ao resetar o banco de dados");
