@@ -25,10 +25,15 @@ $(document).ready( function () {
         $.ajax({
             type: 'GET',
             url: "sorteiaNumero",
-            success: function(data)
+            success: function(dataT)
             {
-                dataNumero = data;
+
+               dataNumero = '56';
                 console.log(dataNumero);
+               
+               /* for(var a = 0; a < dataNumero.ganhadores.length;a++){
+                    console.log(dataNumero.ganhadores[a].numero_cartela);
+                }*/
                 //data igual a 0, a tabela do banco está zerada
                 if(dataNumero != 0){
                     var numero_selecinado;

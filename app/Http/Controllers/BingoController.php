@@ -116,15 +116,15 @@ class BingoController extends Controller
                 //buscar as cartelas que mais pontuaram no bingo
                 $cartelaGanhadora = DB::table('cartelas')
                 ->select('cartelas.numero_cartela')
-                ->where('cartela_contador', $contCartela)->get();
+                ->where('cartela_contador', $contCartela)->get()->toArray();
 
                 //retorno para teste
                 //ResultCartela retorna as cartelas que contem o numero sorteado
                 //cartelaMaior retorna um objeto das cartela que mais marcaram ,consequentemente a cartela ganhadora
-                $arrayName = array('Tabela' => $resultCartela ,'numero sorteado'=>$num_sorteado,"Possiveis ganhadores "=>$cartelaGanhadora);
+                $arrayName = array('numero_sorteado'=>$num_sorteado);//'ganhadores'=>$cartelaGanhadora
             //retorno para teste verificar no console do navegador
-            return  $arrayName;
-           
+           //return  $arrayName;
+           return $num_sorteado;
              } else {
 
                 return 0;
