@@ -1,7 +1,7 @@
 $(document).ready( function () {
 
 //tela index
-    if($(window).width() <= 640){
+    if($(window).width() <= 800){
         $(".responsive-table").addClass("table-responsive");
     }
     $("#info_cartela").hide();
@@ -92,12 +92,12 @@ $(document).ready( function () {
 
      function setaValorCartelas(num_cartelas, cont_cartela) {
 
-         $("#div_cartelas .info_cartela").remove();//remove a div que contem os numeros
+         $("#div_cartelas .info_cartela .number-cart").html("");//remove a div que contem os numeros
 
          //console.log(array_elementos)
          for(var a=0;a < num_cartelas.length; a++){
 
-             $("#div_cartelas").append('<p class="info_cartela">Número da cartela: <span class="text-dark" style="padding: 5px">'+num_cartelas[a]+'</span></p>');//adiciona a div com os numeros
+             $(".number-cart").append(num_cartelas[a]+", ");//adiciona a div com os numeros
          }
 
          $("#qtd").html("("+num_cartelas.length+")")//seta quantidade de possíveis ganhadores

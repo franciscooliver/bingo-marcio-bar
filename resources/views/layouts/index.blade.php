@@ -20,7 +20,7 @@
                     <span class="text-center mt-0">Possível(s) ganhador(s) <small id="qtd"></small></span>
 
                         <div class="card-body mt-0" id="div_cartelas"><!--onde serao inseridos os numeros das cartelas-->
-
+                            <p class="info_cartela" style="font-size: 1.2rem;">N°: <span class="text-dark number-cart" style="padding: 5px"></span></p>
                         </div>
                 </div>
             </div>
