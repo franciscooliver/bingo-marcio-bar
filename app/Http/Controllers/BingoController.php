@@ -30,7 +30,6 @@ class BingoController extends Controller
         }
         (int) $size_array = count($numeros);
         $numeros = array_chunk($numeros, 9);
-        
         //dd($size_array);
         return view('layouts.index',compact('numeros','size_array'));
     }

@@ -1,5 +1,6 @@
 $(document).ready( function () {
 
+
 //tela index
     if($(window).width() <= 800){
         $(".responsive-table").addClass("table-responsive");
@@ -17,8 +18,9 @@ $(document).ready( function () {
         var chamados =  parseInt($("#chamados").html());
         controlaChamados(chamados);
     })*/
-    //array com os numeros ja sorteados
 
+    //esconde letra numero
+    $("#letra").hide();
     //pegar os valores da td
      $("#sortear").click(function () {
 
@@ -45,7 +47,7 @@ $(document).ready( function () {
                         nums_chamados.push($(array_nums_chamds[i]).html());
                     }
     
-                    numero_selecinado = $(array[dataNumero -1 ]).html(); //recupera o valor do elemento dentro da table de acordo com o índice =>(número vindo do server)
+                    numero_selecinado = $(array[dataNumero -1 ]).attr("id"); //recupera o valor do elemento dentro da table de acordo com o índice =>(número vindo do server)
                     //console.log(numero_selecinado);
                     if(dataNumero != "" && dataNumero == numero_selecinado){//verifica se o número sorteado é igual ao valor do indice selecionado
 
@@ -55,8 +57,24 @@ $(document).ready( function () {
                        }));
     
                         var chamados =  parseInt($("tr td .btn-danger").length);//retorna o qtd de numeros chamados (classe btn-danger é adicionada sempre que um número é sorteado)
-    
-                        $("#num-sorteado").html(dataNumero);
+
+
+                        //exibe a letra da sequencia da qual o numero sorteado pertence
+                        if(dataNumero >=1 && dataNumero <= 15)
+                            $("#letra").show().html("B");
+                            $("#num-sorteado").html(dataNumero);
+                        if(dataNumero >=16 && dataNumero <= 30)
+                            $("#letra").show().html("I");
+                            $("#num-sorteado").html(dataNumero);
+                        if(dataNumero >=31 && dataNumero <= 45)
+                            $("#letra").show().html("N");
+                            $("#num-sorteado").html(dataNumero);
+                        if(dataNumero >=46 && dataNumero <= 60)
+                            $("#letra").show().html("G");
+                            $("#num-sorteado").html(dataNumero);
+                        if(dataNumero >=61 && dataNumero <= 75)
+                            $("#letra").show().html("O");
+                            $("#num-sorteado").html(dataNumero);
     
                         controlaChamados(chamados);
                         controlaRestantes(chamados);
@@ -385,6 +403,7 @@ $(document).ready( function () {
     //$(this).slideDown("slow");
     
     function imprimeNumsSorteados(elemento) {
+        var numero = elemento.html();
 
         $(elemento)
             .clone()
@@ -392,55 +411,17 @@ $(document).ready( function () {
             .removeClass("btn-danger")
             .addClass("btn-success","text-center",'btn-lg')
             .css({"margin-left":"5px","margin-top":"5px"})
-            .attr("type","button");
+            .attr("type","button")
 
         var tam_div = $("#div_nums .btn-success").length;
         //console.log(tam_div)
 
         //remove o primeiro botao da div sempre que o tamanho dela for maior que 8
-        if(tam_div > 8){
+        if(tam_div > 10){
             $("#div_nums .btn-success:first").remove();
         }
-        
+
     }
-    $("#verifica").click(function () {
-
-        var tam_div_clonada = parseInt($("tbody tr td .btn-danger").clone().length);
-        var controleDeNumeros = null;
-        
-
-        if(tam_div_clonada < 5){
-            alert("Necessário selecionar no mínimo 5 números para comparação")
-            //$("#modal-body").append("<h6 class='text-secondary'>Selecione mais números</h6>")
-
-            $("#verifica").attr("data-target","#m");
-        }else{
-            //$(this).attr("data-target","#modal");
-            if(parseInt($("#form .btn-danger").length) === 0){//se nao tiver nenhum elemento na div
-                $("#verifica").attr("data-target","#modal");
-                //clona os elementos selecionados
-                $("td .btn-danger")
-                    .clone()
-                    .appendTo($('#form'))//coloca o elementos selecionados no modal
-                    .css({"margin-left":"5px","margin-top":"5px"});//aplica um css ao elemento clonado
-
-                $('#modal').modal('show');//exibe modal
-                controleDeNumeros += $("#form .btn-danger").length;//seta variavel com a quantidade de numeros selecionados
-            }else {
-                if(controleDeNumeros != 0){//se a quantidade de numeros for diferente de zero remove
-                    $("#form .btn-danger").remove();//adiciona novamente com a quantidade atualizada
-                    $("td .btn-danger").
-                        clone()
-                        .appendTo($('#form'))
-                        .css({"margin-left":"5px","margin-top":"5px"});
-                }
-                $('#modal').modal('show');
-            }
-        }
-
-        //alert()
-
-    })
 
 });
 
