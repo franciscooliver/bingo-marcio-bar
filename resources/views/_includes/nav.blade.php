@@ -16,7 +16,7 @@
                     <a class="nav-link text-uppercase text-light" href="{{ route('premios') }}">Premiações</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-uppercase text-light" href="#">Gerar cartelas</a>
+                    <a class="nav-link text-uppercase text-light" href="{{ route('gerarPdf') }}">Gerar cartelas</a>
                 </li>
             </ul>
             <ul class="navbar-nav flex-row ml-md-auto d-md-flex">
@@ -29,7 +29,7 @@
                         <a class="dropdown-item" href="{{ route('reset-db') }}">Resetar DB</a>
                         <a class="dropdown-item" href="{{ route('view-cad-premios') }}">Cadastrar prêmio</a>
                         <a class="dropdown-item" href="{{ route('reset-table-num-sort') }}">Reset table numbers sort</a>
-
+                        <a class="dropdown-item" href="{{ route('reset-table') }}">Reset tabela de numeros</a>
                     </div>
                 </li>
             </ul>

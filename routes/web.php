@@ -23,6 +23,7 @@ Route::post("/addCartela","BingoController@addCartela")->name('addcartela');
 Route::get('/premios','PremioController@index')->name('premios');
 Route::get('/viewCadPremios','PremioController@viewCadPremios')->name('view-cad-premios');
 Route::post('/addPremio','PremioController@addPremio')->name('add-premio');
+Route::get('/preview_pdf','PdfController@index')->name('preview-pdf');
 
 Route::get("/popularTabela","BingoController@popularTabela")->name('popular-tabela');
 
@@ -62,8 +63,22 @@ Route::get('/reset-numerosSort_table', function()
 
 })->name('reset-table-num-sort');
 
+Route::get('/reset_table', function()
+{
+    $reseta_table = \App\Bingo::truncate();
+
+    //exibe mensagem de retorno
+    if($reseta_table){
+        return redirect()
+            ->route('index')
+            ->with("reset_table","Successful, reset table");
+    }
+
+    return redirect()
+        ->route('index')
+        ->with("error","Error reset table");
+
+})->name('reset-table');
+
 //teste para gerar PDF
-Route::get("/gerarPdf","BingoController@gerarPdf")->name('gerarPdf');
-Route::get("/returnpdf", function (){
-    return view('exemplo_pdf');
-})->name('returnpdf');
+Route::get("/gerarPdf","PdfController@gerarPdf")->name('gerarPdf');

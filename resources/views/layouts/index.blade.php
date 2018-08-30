@@ -20,7 +20,7 @@
                     <span class="text-center mt-0">Últimos números sorteados</span>
 
                     <div class="card-body mt-0" id="div_nums">
-
+                        <!--aqui serão exibidos os últimos 10 números sorteados-->
                     </div>
                 </div>
             </div>
