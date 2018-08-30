@@ -25,6 +25,7 @@ Route::get('/viewCadPremios','PremioController@viewCadPremios')->name('view-cad-
 Route::post('/addPremio','PremioController@addPremio')->name('add-premio');
 
 Route::get("/popularTabela","BingoController@popularTabela")->name('popular-tabela');
+Route::get("/restaurarBingo","BingoController@restaurarBingo")->name('restaurar-bingo');
 
 
 //reseta todo o banco de dados
