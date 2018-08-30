@@ -26,6 +26,7 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="bd-versions">
                         <a class="dropdown-item" href="{{ route('popular-tabela') }}">Popular tabela</a>
+                        <a class="dropdown-item" href="{{ route('reset-db') }}">Resetar DB</a>
                     </div>
                 </li>
             </ul>

@@ -14,6 +14,8 @@ use App\LinhaG;
 use App\LinhaI;
 use App\LinhaN;
 use App\LinhaO;
+use phpDocumentor\Reflection\Types\Integer;
+use Psy\Util\Json;
 
 class BingoController extends Controller
 {
@@ -37,7 +39,7 @@ class BingoController extends Controller
 
 
     }
-    public function sorteiaNumero(){
+    public function sorteiaNumero() {
 
         $nums_chamados = array();
         $array_tabela = array();
@@ -62,7 +64,7 @@ class BingoController extends Controller
                 //sortear um numero aleatorio no array
                 $num_sorteado = array_rand($numerosBanco);
 
-                shuffle($numerosBanco);
+                shuffle($numerosBanco);//mistura numeros no array
 
                 DB::table('numero_sorteados')//salva na tabela o numero que foi sorteado
                     ->insert([
@@ -94,7 +96,7 @@ class BingoController extends Controller
            
             
             //for que percorre todas as cartelas que tem o numero sorteado
-            foreach($resultCartela  as $key=>$num){
+            foreach($resultCartela  as $key => $num){
                 ////pegar o valor do contador
                 $cartelaAtualContador =  DB::table("cartelas")
                 ->select("cartela_contador")
@@ -106,42 +108,46 @@ class BingoController extends Controller
                 DB::table('cartelas')
                 ->where('numero_cartela',$num->numero_cartela)
                 ->update(['cartela_contador'=>$cartelaAtualContador[0]->cartela_contador+1]);
-             
-               
+
            }
-                
+
               //codigo que traz a cartela ganhadora
                 //pegar o contador maior 
                 $contCartela =  DB::table('cartelas')->max('cartela_contador');
+
                 //buscar as cartelas que mais pontuaram no bingo
                 $cartelaGanhadora = DB::table('cartelas')
-                ->select('cartelas.numero_cartela')
+                ->select('numero_cartela')
                 ->where('cartela_contador', $contCartela)->get()->toArray();
 
-                //retorno para teste
-                //ResultCartela retorna as cartelas que contem o numero sorteado
-                //cartelaMaior retorna um objeto das cartela que mais marcaram ,consequentemente a cartela ganhadora
-                $arrayName = array('numero_sorteado'=>$num_sorteado);//'ganhadores'=>$cartelaGanhadora
-            //retorno para teste verificar no console do navegador
-           //return  $arrayName;
-           return $num_sorteado;
+                /*****                     retorno para teste
+                ResultCartela retorna as cartelas que contem o numero sorteado
+                cartelaMaior retorna um objeto das cartela que mais marcaram ,consequentemente a cartela ganhadora  ****/
+
+                if($contCartela > 10)
+                    $arrayName = array(
+                        'numero_sorteado'=>$num_sorteado,
+                        'ganhadores'=>$cartelaGanhadora,
+                        'cont_cartela'=>$contCartela);//ganhadores só sao reapassados a partir do contador 11
+                else
+                    $arrayName = array('numero_sorteado'=>$num_sorteado);
+
+                return json_encode($arrayName);
+
              } else {
 
-                return 0;
+                return json_encode([]);
              }
             
         }catch(Exception $e){
             return response()->json([$e->getMessage()]);
 
         }
-
 }
 
-    public function verificaGanhador(Request $request){
 
+    public function verificaGanhador(Request $request){}
 
-            return response()->json($request->all());
-    }
 
     public function viewcadCartela(Request $request){
 
@@ -174,7 +180,7 @@ class BingoController extends Controller
         $array_merge = array_merge($aray_div[3], $aray_div[4]);//junta os dois arrays restantes
         array_unshift($array_merge, $remove_numero);//adiciona numero no inicio do array criado
 
-        $novo_array = array_chunk($array_merge,5);//divide o novo array em dois novos arrays com 5 numeros cada
+        $novo_array = array_chunk($array_merge, 5);//divide o novo array em dois novos arrays com 5 numeros cada
 
         $novoArray_div = [
             "linhaG"=>$novo_array[0],
@@ -234,14 +240,13 @@ class BingoController extends Controller
                         }
                     
                     }
-                
-                  
-                       
+                     
                 }   
             }
         }
 
     }
+
     public function popularTabela(){
         $seed = new \DatabaseSeeder();
         $operacao = $seed->run();
@@ -260,6 +265,7 @@ class BingoController extends Controller
        
 
  }
+
 
     public function gerarPdf()
     {

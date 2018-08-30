@@ -16,13 +16,19 @@
                     </div>
                 </div>
                 <button type="submit" class="btn btn-lg btn-block btn-outline-light mb-1 " data-toggle="modal" data-target="#" id="sortear">sortear número</button>
-                <a class="btn btn-lg btn-block btn-outline-light mb-3 " id="final" href="{{ route('gerarPdf') }}">Gerar pdf</a>
+                <div class="card  mb-2 w-100 mt-2"  style="width: 18rem;">
+                    <span class="text-center mt-0">Possível(s) ganhador(s) <small id="qtd"></small></span>
+
+                        <div class="card-body mt-0" id="div_cartelas"><!--onde serao inseridos os numeros das cartelas-->
+
+                        </div>
+                </div>
             </div>
 
             <div class="col-md-1"></div>
             <div class="col-md-6 ">
                 <div class="responsive-table">
-                    <table class="mt-2">
+                    <table class="mt-5">
                         <tbody>
                           {{ csrf_field() }}
                         @foreach($numeros as $nums)
@@ -41,8 +47,6 @@
                         
                             <div class="card-body mt-0" id="div_nums">
                         
-                        
-
                         </div>
                     </div>
                 </div>
