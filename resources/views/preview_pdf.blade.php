@@ -15,7 +15,7 @@
         header h4{font-size: 2.2rem; margin-top: -30px; text-align: center;}
         h6{font-size: 1.5rem; text-align: center; margin-top: -30px;}
         hr{margin-top: -48px; border: 1px #000 dotted; width: 100%;}
-        small{float: start; margin-top: -5%; margin-left: -5%;}
+        small{float: start; margin-top: -4.5%; margin-left: -5%;}
         img{margin-top: 2.5%; margin-left: -5%;}
         /*DESCRICAO PREMIOS*/
 

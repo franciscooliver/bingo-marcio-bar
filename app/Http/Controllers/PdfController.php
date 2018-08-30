@@ -47,7 +47,7 @@ class PdfController extends Controller
         $pdf =  PDF::loadView('preview_pdf', compact('array_div','sort', 'numeros','numerocartela','barcode'));
         $pdf->setPaper('a4', 'portrait');
 
-        return $pdf->stream('nome-arquivo-pdf-gerado.pdf');
+        return $pdf->stream('cartela'.$numerocartela.'.pdf');
 
     }
 
