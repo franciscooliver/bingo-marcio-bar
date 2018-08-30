@@ -2,70 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7ae194c6-f793-4002-850d-9214d724eaf2" name="Default" comment="up">
-      <change afterPath="$PROJECT_DIR$/public/css/pdf.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/preview_pdf.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/fonts/Courier-Bold.afm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/fonts/Courier-BoldOblique.afm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/fonts/Courier-Oblique.afm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/fonts/Courier.afm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/fonts/DejaVuSans-Bold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/fonts/DejaVuSans-Bold.ufm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/fonts/DejaVuSans-BoldOblique.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/fonts/DejaVuSans-BoldOblique.ufm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/fonts/DejaVuSans-Oblique.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/fonts/DejaVuSans-Oblique.ufm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/fonts/DejaVuSans.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/fonts/DejaVuSans.ufm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/fonts/DejaVuSansMono-Bold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/fonts/DejaVuSansMono-Bold.ufm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/fonts/DejaVuSansMono-BoldOblique.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/fonts/DejaVuSansMono-BoldOblique.ufm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/fonts/DejaVuSansMono-Oblique.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/fonts/DejaVuSansMono-Oblique.ufm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/fonts/DejaVuSansMono.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/fonts/DejaVuSansMono.ufm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/fonts/DejaVuSerif-Bold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/fonts/DejaVuSerif-Bold.ufm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/fonts/DejaVuSerif-BoldItalic.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/fonts/DejaVuSerif-BoldItalic.ufm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/fonts/DejaVuSerif-Italic.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/fonts/DejaVuSerif-Italic.ufm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/fonts/DejaVuSerif.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/fonts/DejaVuSerif.ufm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/fonts/Helvetica-Bold.afm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/fonts/Helvetica-Bold.afm.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/fonts/Helvetica-BoldOblique.afm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/fonts/Helvetica-Oblique.afm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/fonts/Helvetica.afm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/fonts/Helvetica.afm.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/fonts/Symbol.afm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/fonts/Times-Bold.afm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/fonts/Times-BoldItalic.afm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/fonts/Times-Italic.afm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/fonts/Times-Roman.afm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/fonts/ZapfDingbats.afm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/fonts/dompdf_font_family_cache.dist.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/fonts/mustRead.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/bingo-marcio-bar.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/bingo-marcio-bar.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BingoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BingoController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PdfController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PdfController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/exemplo_pdf.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/scripts_bingo.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/scripts_bingo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/_includes/nav.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/_includes/nav.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/preview_pdf.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/preview_pdf.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_namespaces.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_namespaces.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/league/flysystem/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/league/flysystem/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/league/flysystem/src/Adapter/Local.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/league/flysystem/src/Adapter/Local.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/league/flysystem/src/MountManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/league/flysystem/src/MountManager.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -182,7 +130,7 @@
           <entry key="htm" value="1" />
           <entry key="js" value="6" />
           <entry key="json" value="3" />
-          <entry key="php" value="210" />
+          <entry key="php" value="211" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -193,7 +141,7 @@
           <entry key="HTML" value="1" />
           <entry key="JSON" value="3" />
           <entry key="JavaScript" value="6" />
-          <entry key="PHP" value="176" />
+          <entry key="PHP" value="177" />
           <entry key="PLAIN_TEXT" value="2" />
         </counts>
       </usages-collector>
@@ -203,17 +151,17 @@
           <entry key="env" value="21" />
           <entry key="js" value="10346" />
           <entry key="json" value="4" />
-          <entry key="php" value="17039" />
+          <entry key="php" value="17996" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key=".env file" value="21" />
-          <entry key="Blade" value="6156" />
+          <entry key="Blade" value="6806" />
           <entry key="CSS" value="71" />
           <entry key="JSON" value="4" />
           <entry key="JavaScript" value="10345" />
-          <entry key="PHP" value="10883" />
+          <entry key="PHP" value="11190" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.php.composer.actions">
@@ -228,7 +176,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/scripts_bingo.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="765">
+            <state relative-caret-position="359">
               <caret line="51" column="64" selection-start-line="51" selection-start-column="64" selection-end-line="51" selection-end-column="64" />
             </state>
           </provider>
@@ -237,13 +185,23 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/preview_pdf.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="127">
-              <caret line="16" column="100" selection-start-line="16" selection-start-column="100" selection-end-line="16" selection-end-column="100" />
+            <state relative-caret-position="144">
+              <caret line="16" column="68" lean-forward="true" selection-start-line="16" selection-start-column="68" selection-end-line="16" selection-end-column="68" />
               <folding>
+                <element signature="n#src#0;n#img#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/app.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="319">
+              <caret line="232" column="60" selection-start-line="232" selection-start-column="60" selection-end-line="232" selection-end-column="60" />
             </state>
           </provider>
         </entry>
@@ -269,26 +227,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PdfController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="455">
-              <caret line="41" column="38" selection-start-line="41" selection-start-column="38" selection-end-line="41" selection-end-column="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/_includes/nav.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="90" selection-start-line="18" selection-start-column="90" selection-end-line="18" selection-end-column="90" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/BingoController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="34" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
+            <state relative-caret-position="305">
+              <caret line="40" column="31" lean-forward="true" selection-start-line="40" selection-start-column="31" selection-end-line="40" selection-end-column="31" />
+              <folding>
+                <element signature="e#40#54#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -341,7 +284,6 @@
         <option value="$PROJECT_DIR$/public/js/scripts_bingo.js" />
         <option value="$PROJECT_DIR$/app/libs/fpdf181/fpdf.php" />
         <option value="$PROJECT_DIR$/public/exemplo.php" />
-        <option value="$PROJECT_DIR$/config/app.php" />
         <option value="$PROJECT_DIR$/resources/views/exemplo.php" />
         <option value="$PROJECT_DIR$/public/css/css_pdf.css" />
         <option value="$PROJECT_DIR$/composer.json" />
@@ -350,6 +292,7 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/BingoController.php" />
         <option value="$PROJECT_DIR$/resources/views/_includes/nav.blade.php" />
         <option value="$PROJECT_DIR$/config/dompdf.php" />
+        <option value="$PROJECT_DIR$/config/app.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/PdfController.php" />
         <option value="$PROJECT_DIR$/resources/views/preview_pdf.blade.php" />
       </list>
@@ -446,6 +389,7 @@
       <path value="$PROJECT_DIR$/vendor/dompdf/dompdf" />
       <path value="$PROJECT_DIR$/vendor/phenx/php-font-lib" />
       <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-dompdf" />
+      <path value="$PROJECT_DIR$/vendor/milon/barcode" />
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
@@ -459,6 +403,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -470,19 +415,6 @@
               <item name="bingo-marcio-bar" type="b2602c69:ProjectViewProjectNode" />
               <item name="bingo-marcio-bar" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bingo-marcio-bar" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bingo-marcio-bar" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bingo-marcio-bar" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bingo-marcio-bar" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="bingo-marcio-bar" type="b2602c69:ProjectViewProjectNode" />
@@ -538,7 +470,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -640,7 +571,7 @@
       <workItem from="1535583409203" duration="1851000" />
       <workItem from="1535585608289" duration="7502000" />
       <workItem from="1535636258663" duration="5678000" />
-      <workItem from="1535658732215" duration="3613000" />
+      <workItem from="1535658732215" duration="10417000" />
     </task>
     <task id="LOCAL-00001" summary="up">
       <created>1533495109724</created>
@@ -653,13 +584,12 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="333867000" />
+    <option name="totallyTimeSpent" value="340671000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="32" width="1366" height="736" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.22534142" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22078907" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Gulp" order="2" side_tool="true" />
       <window_info id="npm" order="3" side_tool="true" />
@@ -673,7 +603,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" x="0" y="651" width="1366" height="117" id="Terminal" order="9" sideWeight="0.49848256" weight="0.2545757" />
+      <window_info active="true" anchor="bottom" x="0" y="651" width="1366" height="117" id="Terminal" order="9" sideWeight="0.49848256" visible="true" weight="0.27287853" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5015175" side_tool="true" weight="0.25619835" />
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.3294509" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -918,13 +848,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/app.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3420">
-          <caret line="228" column="47" selection-start-line="228" selection-start-column="47" selection-end-line="228" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/storage/fonts/Symbol.afm">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -956,13 +879,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/scripts_bingo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="51" column="64" selection-start-line="51" selection-start-column="64" selection-end-line="51" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1080">
@@ -991,18 +907,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/config/app.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="232" column="60" selection-start-line="232" selection-start-column="60" selection-end-line="232" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/scripts_bingo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="359">
+          <caret line="51" column="64" selection-start-line="51" selection-start-column="64" selection-end-line="51" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PdfController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="455">
-          <caret line="41" column="38" selection-start-line="41" selection-start-column="38" selection-end-line="41" selection-end-column="38" />
+        <state relative-caret-position="305">
+          <caret line="40" column="31" lean-forward="true" selection-start-line="40" selection-start-column="31" selection-end-line="40" selection-end-column="31" />
+          <folding>
+            <element signature="e#40#54#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/preview_pdf.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="16" column="100" selection-start-line="16" selection-start-column="100" selection-end-line="16" selection-end-column="100" />
+        <state relative-caret-position="144">
+          <caret line="16" column="68" lean-forward="true" selection-start-line="16" selection-start-column="68" selection-end-line="16" selection-end-column="68" />
           <folding>
+            <element signature="n#src#0;n#img#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
