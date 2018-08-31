@@ -34,7 +34,7 @@ class PdfController extends Controller
 
         $numerocartela = mt_rand(100, 999);
         $numerocartela = '0'.$numerocartela;
-        $barcode =  DNS1D::getBarcodePNG("$numerocartela", "C39") ;
+        $barcode =  DNS1D::getBarcodePNG("$numerocartela", "C39");
         $array = range(1,75);
         $numeros = array_chunk($array, 25);
         $sort = [];
