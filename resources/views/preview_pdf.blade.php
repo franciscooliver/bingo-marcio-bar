@@ -96,8 +96,10 @@
        <tbody>
        @foreach($array_div as $num)
            <tr class="bordered">
-               @foreach($num as $n)
-                   <td class="text-center bordered">{{ $n }}</td>
+               @foreach($num as $key => $n)
+
+                   <td class="text-center bordered">{{ $key }}</td>
+
                @endforeach
            </tr>
        @endforeach

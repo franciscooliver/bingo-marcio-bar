@@ -413,13 +413,13 @@ $(document).ready( function () {
       //  alert("Teste btn bingo");
         var numeroBackup;
         var nums_chamados = [];
+        var ultimo_numero_sorteado;
         $.ajax({
             type: 'GET',
             url: "restaurarBingo",
             dataType:'json',
             success: function(data)
             {
-
 
                 numeroBackup = data;
                // console.log(numeroBackup[0].numero);
@@ -452,6 +452,11 @@ $(document).ready( function () {
                       controlaRestantes(numeroBackup.length);
                       //exibir a qdt de numeros chamados
                       controlaChamados(numeroBackup.length);
+                      //seta o ultimo numero chamado
+                      ultimo_numero_sorteado = numeroBackup[numeroBackup.length -1].numero;
+                      alert(ultimo_numero_sorteado)
+                      $("#num-sorteado").html(ultimo_numero_sorteado);
+
                 }else{
                     alert('Impossivel recuperar o Bingo');
                 }
@@ -474,11 +479,11 @@ $(document).ready( function () {
             .css({"font-size":"1rem"});
         //console.log(num_cartelas)
 
+        //exibe os ganhadores
         if(cont_cartela == 24)
             alert("Ganhador(s): "+num_cartelas+"\n"
             +"Número da sorte: "+num_chamado)
     }
-
 
 });
 
