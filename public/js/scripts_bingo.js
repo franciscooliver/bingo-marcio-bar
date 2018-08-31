@@ -39,10 +39,14 @@ $(document).ready( function () {
                     //console.log(numero_selecinado);
                     if(dataNumero != "" && dataNumero == numero_selecinado) {//verifica se o número sorteado é igual ao valor do indice selecionado
 
-                        fundoBotao($("table tr td .btn-light").filter(function (index) { /*filtra o elemento de acordo com o indice selecionado
+
+                       fundoBotao($("table tr td .btn-light").filter(function( index ) { /*filtra o elemento de acordo com o indice selecionado
                                                                                           e aplica a classe btn-danger */
-                            return $(this).attr("id") === numero_selecinado;
-                        }));
+                          return $( this ).attr( "id" ) === numero_selecinado;
+                       }));
+    
+                        var chamados =  parseInt($("tr td .btn-danger").length);//retorna o qtd de numeros chamados (classe btn-danger é adicionada sempre que um número é sorteado)
+
 
                         var chamados = parseInt($("tr td .btn-danger").length);//retorna o qtd de numeros chamados (classe btn-danger é adicionada sempre que um número é sorteado)
 
@@ -378,7 +382,7 @@ $(document).ready( function () {
     function controlaChamados(chamados) {
         var chamados = chamados;
 
-        $("#chamados").html(chamados);
+       $("#chamados").html(chamados);
     }
 
     //$(this).slideDown("slow");
@@ -403,6 +407,58 @@ $(document).ready( function () {
         }
 
     }
+ 
+//Acão do btn que restaura os dados do bingo
+    $("#restaurarBingo").click(function () {
+      //  alert("Teste btn bingo");
+        var numeroBackup;
+        var nums_chamados = [];
+        $.ajax({
+            type: 'GET',
+            url: "restaurarBingo",
+            dataType:'json',
+            success: function(data)
+            {
+
+
+                numeroBackup = data;
+               // console.log(numeroBackup[0].numero);
+                
+                if(numeroBackup.length != 0){
+                    
+                    var numero_selecinado;
+                    var array = $("table tr td .ajax").toArray();
+                    var array_nums_chamds = $("table tr td .btn-danger").toArray();
+    
+                    for(var i = 0; i < array_nums_chamds.length;i++){
+                        nums_chamados.push($(array_nums_chamds[i]).html());
+                    }
+                    console.log(nums_chamados);
+                     //console.log(numero_selecinado);
+                    for(var n =0; n < numeroBackup.length;n++){
+                    numero_selecinado = $(array[numeroBackup[n].numero -1 ]).attr("id"); //recupera o valor do elemento dentro da table de acordo com o índice =>(número vindo do server)
+                    
+                        if(numeroBackup[n].numero == numero_selecinado){//verifica se o número sorteado é igual ao valor do indice selecionado
+                            
+                        
+                            fundoBotao($("table tr td .btn-light").filter(function( index ) { /*filtra o elemento de acordo com o indice selecionado
+                                e aplica a classe btn-danger */
+                            return $( this ).attr( "id" ) === numero_selecinado;
+                            }));
+                        }
+                            
+                      }
+                      //exibir numeros restantes
+                      controlaRestantes(numeroBackup.length);
+                      //exibir a qdt de numeros chamados
+                      controlaChamados(numeroBackup.length);
+                }else{
+                    alert('Impossivel recuperar o Bingo');
+                }
+
+            } 
+    });
+});
 
     function setaValorCartelas(num_cartelas,num_chamado, cont_cartela) {
 
@@ -422,6 +478,7 @@ $(document).ready( function () {
             alert("Ganhador(s): "+num_cartelas+"\n"
             +"Número da sorte: "+num_chamado)
     }
+
 
 });
 

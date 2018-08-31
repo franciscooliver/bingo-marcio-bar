@@ -244,7 +244,14 @@ class BingoController extends Controller
         }
 
     }
+    public function restaurarBingo(){
+        $numerosSorteados = DB::table('numero_sorteados')
+            ->select('numero')
+            ->get()->toArray();
 
+            return json_encode($numerosSorteados);
+        
+    }
     public function popularTabela(){
         $seed = new \DatabaseSeeder();
         $operacao = $seed->run();
@@ -252,6 +259,10 @@ class BingoController extends Controller
         //zerar o contador das cartelas
         $contador = DB::table('cartelas')
         ->update(['cartela_contador'=>0]);
+
+         //zerar a tabela numero_sorteados
+         $contador = DB::table('numero_sorteados')
+         ->where('numero', '>', 0)->delete();
 
     
         return redirect()
