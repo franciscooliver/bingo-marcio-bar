@@ -13,6 +13,7 @@
 
 use App\Http\Controllers\BingoController;
 use App\bingo;
+use Illuminate\Support\Facades\DB;
 
 Route::get('/', 'BingoController@index')->name('index');
 //Route::post("/verificaganhador","BingoController@verificaGanhador");
@@ -24,6 +25,7 @@ Route::get('/viewCadPremios','PremioController@viewCadPremios')->name('view-cad-
 Route::post('/addPremio','PremioController@addPremio')->name('add-premio');
 
 Route::get("/popularTabela","BingoController@popularTabela")->name('popular-tabela');
+Route::get("/restaurarBingo","BingoController@restaurarBingo")->name('restaurar-bingo');
 
 
 //reseta todo o banco de dados
@@ -43,6 +45,23 @@ Route::get('/resetaDB', function()
         ->with("error","Erro ao resetar o banco de dados");
 
 })->name('reset-db');
+
+Route::get('/reset-numerosSort_table', function()
+{
+    $reseta_table = \App\NumeroSorteado::truncate();
+
+    //exibe mensagem de retorno
+    if($reseta_table){
+        return redirect()
+            ->route('index')
+            ->with("reset_table","Successful, reset table");
+    }
+
+    return redirect()
+        ->route('index')
+        ->with("error","Erro ao resetar tabela");
+
+})->name('reset-table-num-sort');
 
 //teste para gerar PDF
 Route::get("/gerarPdf","BingoController@gerarPdf")->name('gerarPdf');

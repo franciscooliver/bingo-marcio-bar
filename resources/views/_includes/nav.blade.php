@@ -19,7 +19,7 @@
                     <a class="nav-link text-uppercase text-light" href="#">Gerar cartelas</a>
                 </li>
             </ul>
-            <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
+            <ul class="navbar-nav flex-row ml-md-auto d-md-flex">
                 <li class="nav-item dropdown">
                     <a class="nav-item nav-link dropdown-toggle mr-md-2 text-light" href="#" id="bd-versions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         OPÇÕES
@@ -27,6 +27,9 @@
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="bd-versions">
                         <a class="dropdown-item" href="{{ route('popular-tabela') }}">Popular tabela</a>
                         <a class="dropdown-item" href="{{ route('reset-db') }}">Resetar DB</a>
+                        <a class="dropdown-item" href="{{ route('view-cad-premios') }}">Cadastrar prêmio</a>
+                        <a class="dropdown-item" href="{{ route('reset-table-num-sort') }}">Reset table numbers sort</a>
+                        <a class="dropdown-item" id="restaurarBingo"  href="#">Restaurar Bingo</a>
                     </div>
                 </li>
             </ul>
