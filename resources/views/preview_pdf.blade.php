@@ -13,10 +13,10 @@
         /*HEADER*/
         h1{font-size: 3rem; text-align: center; margin-top: -5%;}
         header h4{font-size: 1.5rem; margin-top: -30px; text-align: center;}
-        h6{font-size: 1.5rem; text-align: center; margin-top: -30px;}
-        hr{margin-top: -48px; border: 1px #000 dotted; width: 100%;}
-        small{float: start; margin-top: -4%; margin-left: -5%;}
-        img{margin-top: 2.5%; margin-left: -5%;}
+        h6{font-size: 1rem; text-align: center; margin-top: -30px;}
+        hr{margin-top: -30px; border: 1px #000 dotted; width: 100%;}
+        small{float: start; margin-top: -3%; margin-left: -5%;}
+        img{margin-top: 2.3%; margin-left: -5%;}
         /*DESCRICAO PREMIOS*/
 
         #dados-premios .premio-01{font-size: 20px; border: none; text-align: left; padding: 0; width: 24%; margin-bottom: 0px;}
@@ -35,7 +35,6 @@
         /*cartela 2*/
         section{margin-top: 5px;}
         section img{margin-top: 4.5%;}
-
 
     </style>
 </head>
@@ -84,7 +83,7 @@
             </table>
 
 
-   <table width="30%"  border="1" cellspacing="0" cellpadding="5" align="left" style="border: thin; border-style: solid; margin-top: -50%">
+   <table width="30%"  border="1" cellspacing="0" cellpadding="5" align="left" style="border: thin; border-style: solid; margin-top: -55%">
        <thead>
        <tr>
            <th>B</th>
@@ -125,11 +124,11 @@
        @endforeach
        </tbody>
    </table>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     <hr>
     <section>
-        <small id="small-2">Cartela: {{ $numerocartela }}</small>
-        <img src="data:image/png;base64,{{ $barcode }}" alt="barcode" id="barcode-2">
+        <small id="small-2" >Cartela: {{ $numerocartela }}</small>
+        <img src="data:image/png;base64,{{ $barcode }}" alt="barcode" id="barcode-2" style="margin-top: 4.5%;">
 
         <h1 style="margin-top: -10%;">BINGO</h1>
         <h4 style="text-align: center; margin-top: -5%; font-size: 1.5rem;">Dia 6 de setembro a partir das 19:00 hrs</h4>
