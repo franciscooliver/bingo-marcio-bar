@@ -6,18 +6,6 @@ $(document).ready( function () {
         $(".responsive-table").addClass("table-responsive");
     }
     $("#info_cartela").hide();
-    /*$(".btn-light").click(function () {
-        fundoBotao(this);
-        //imprimeNumsSorteados(this);
-        //retorna o valor do botao clicado
-        var valor =  $(this).attr("name");
-        //console.log(valor);
-        $("#num-sorteado").html(valor)
-        controlaRestantes();
-        //alert(pegarPreco);
-        var chamados =  parseInt($("#chamados").html());
-        controlaChamados(chamados);
-    })*/
 
     //esconde letra numero
     $("#letra").hide();
@@ -49,7 +37,8 @@ $(document).ready( function () {
     
                     numero_selecinado = $(array[dataNumero -1 ]).attr("id"); //recupera o valor do elemento dentro da table de acordo com o índice =>(número vindo do server)
                     //console.log(numero_selecinado);
-                    if(dataNumero != "" && dataNumero == numero_selecinado){//verifica se o número sorteado é igual ao valor do indice selecionado
+                    if(dataNumero != "" && dataNumero == numero_selecinado) {//verifica se o número sorteado é igual ao valor do indice selecionado
+
 
                        fundoBotao($("table tr td .btn-light").filter(function( index ) { /*filtra o elemento de acordo com o indice selecionado
                                                                                           e aplica a classe btn-danger */
@@ -59,23 +48,38 @@ $(document).ready( function () {
                         var chamados =  parseInt($("tr td .btn-danger").length);//retorna o qtd de numeros chamados (classe btn-danger é adicionada sempre que um número é sorteado)
 
 
+                        var chamados = parseInt($("tr td .btn-danger").length);//retorna o qtd de numeros chamados (classe btn-danger é adicionada sempre que um número é sorteado)
+
                         //exibe a letra da sequencia da qual o numero sorteado pertence
-                        if(dataNumero >=1 && dataNumero <= 15)
+                        if (dataNumero >= 1 && dataNumero <= 15) {
                             $("#letra").show().html("B");
                             $("#num-sorteado").html(dataNumero);
-                        if(dataNumero >=16 && dataNumero <= 30)
+
+                        }
+
+                        if (dataNumero >= 16 && dataNumero <= 30) {
                             $("#letra").show().html("I");
                             $("#num-sorteado").html(dataNumero);
-                        if(dataNumero >=31 && dataNumero <= 45)
+
+                        }
+
+                        if (dataNumero >= 31 && dataNumero <= 45) {
+
                             $("#letra").show().html("N");
                             $("#num-sorteado").html(dataNumero);
-                        if(dataNumero >=46 && dataNumero <= 60)
+
+                        }
+
+                        if(dataNumero >=46 && dataNumero <= 60) {
                             $("#letra").show().html("G");
                             $("#num-sorteado").html(dataNumero);
-                        if(dataNumero >=61 && dataNumero <= 75)
+                        }
+
+                        if(dataNumero >=61 && dataNumero <= 75) {
                             $("#letra").show().html("O");
                             $("#num-sorteado").html(dataNumero);
-    
+                        }
+
                         controlaChamados(chamados);
                         controlaRestantes(chamados);
                         //imprime a sequencia de numeros sorteados (os oito últimos)
@@ -90,7 +94,7 @@ $(document).ready( function () {
                                 dataN.push(data.ganhadores[i].numero_cartela);
 
                         }
-                        setaValorCartelas(dataN,data.cont_cartela);
+                        setaValorCartelas(dataN,dataNumero,data.cont_cartela);
 
                     }
                 }else{
@@ -107,25 +111,6 @@ $(document).ready( function () {
         });
 
     });
-
-     function setaValorCartelas(num_cartelas, cont_cartela) {
-
-         $("#div_cartelas .info_cartela .number-cart").html("");//remove a div que contem os numeros
-
-         //console.log(array_elementos)
-         for(var a=0;a < num_cartelas.length; a++){
-
-             $(".number-cart").append(num_cartelas[a]+", ");//adiciona a div com os numeros
-         }
-
-         $("#qtd").html("("+num_cartelas.length+")")//seta quantidade de possíveis ganhadores
-             .css({"font-size":"1rem"});
-         //console.log(num_cartelas)
-
-         if(cont_cartela == 24)
-             alert("Ganhador(s): "+num_cartelas)
-     }
-
 
     //tela cad cartelas
 
@@ -435,6 +420,7 @@ $(document).ready( function () {
             success: function(data)
             {
 
+
                 numeroBackup = data;
                // console.log(numeroBackup[0].numero);
                 
@@ -473,5 +459,26 @@ $(document).ready( function () {
             } 
     });
 });
+
+    function setaValorCartelas(num_cartelas,num_chamado, cont_cartela) {
+
+        $("#div_cartelas .info_cartela .number-cart").html("");//remove a div que contem os numeros
+
+        //console.log(array_elementos)
+        for(var a=0;a < num_cartelas.length; a++){
+
+            $(".number-cart").append(num_cartelas[a]+", ");//adiciona a div com os numeros
+        }
+
+        $("#qtd").html("("+num_cartelas.length+")")//seta quantidade de possíveis ganhadores
+            .css({"font-size":"1rem"});
+        //console.log(num_cartelas)
+
+        if(cont_cartela == 24)
+            alert("Ganhador(s): "+num_cartelas+"\n"
+            +"Número da sorte: "+num_chamado)
+    }
+
+
 });
 

@@ -2,20 +2,19 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Cartela;
-use http\Env\Response;
 use Illuminate\Http\Request;
 use App\TabelaBingoAtual;
 use Illuminate\Support\Facades\DB;
 use Exception;
-use Dompdf\Dompdf;
 use App\LinhaB;
 use App\LinhaG;
 use App\LinhaI;
 use App\LinhaN;
 use App\LinhaO;
-use phpDocumentor\Reflection\Types\Integer;
-use Psy\Util\Json;
+
+
 
 class BingoController extends Controller
 {
@@ -272,26 +271,7 @@ class BingoController extends Controller
 
        // ->with("success_generate","Números gerados , Quantidades de cartelas pronta para o bingo = "+$contador);
 
-       
-
  }
-
-
-    public function gerarPdf()
-    {
-        $dompdf = new Dompdf();
-
-        $html = file_get_contents(public_path('exemplo_pdf.php'));
-
-        $dompdf->loadHtml($html);
-
-        $dompdf->setPaper('A4', 'landscape');
-
-        $dompdf->render();
-
-        $dompdf->stream();
-
-    }
 
 
 }

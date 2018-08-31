@@ -10,6 +10,7 @@
               integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
         <!--local import-->
+        <script src="http://code.responsivevoice.org/responsivevoice.js"></script>
         <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
         <script src="{{ asset("js/scripts_bingo.js") }}"></script>
         <link href="{{asset('css/css_bingo.css')}}" rel="stylesheet" type="text/css">
