@@ -17,20 +17,19 @@ class CartelaService implements CartelaInterface
     public function gerarCartela(): Array
     {
         // TODO: Implement gerarCartela() method.
+
         //arrays temporarios
         $array_linhaB = $this->gerarLinha(1,15,5);
         $array_linhaI = $this->gerarLinha(16,30,5);
-        $array_linhaN = $this->gerarLinha(31,45,5);
+        $array_linhaN = $this->gerarLinha(31,45,4);
         $array_linhaG = $this->gerarLinha(46,60,5);
         $array_linhaO = $this->gerarLinha(61,75,5);
 
         $B = array($array_linhaB[0],$array_linhaI[0],$array_linhaN[0],$array_linhaG[0],$array_linhaO[0]);
         $I = array($array_linhaB[1],$array_linhaI[1],$array_linhaN[1],$array_linhaG[1],$array_linhaO[1]);
-        $N = array($array_linhaB[2],$array_linhaI[2],$array_linhaN[2],$array_linhaG[2],$array_linhaO[2]);
-        $G = array($array_linhaB[3],$array_linhaI[3],$array_linhaN[3],$array_linhaG[3],$array_linhaO[3]);
-        $O = array($array_linhaB[4],$array_linhaI[4],$array_linhaN[4],$array_linhaG[4],$array_linhaO[4]);
-
-        $N[2] ='--';
+        $N = array($array_linhaB[2],$array_linhaI[2],$array_linhaG[2],$array_linhaO[2]);
+        $G = array($array_linhaB[3],$array_linhaI[3],$array_linhaN[2],$array_linhaG[3],$array_linhaO[3]);
+        $O = array($array_linhaB[4],$array_linhaI[4],$array_linhaN[3],$array_linhaG[4],$array_linhaO[4]);
 
         $linhasCart = [
             'linha1' => $B,

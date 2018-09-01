@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Bingo;
 use Barryvdh\DomPDF\Facade as PDF;
 use App\classes\CartelaService;
+use http\Env\Response;
 
 class PdfController extends Controller
 {
@@ -24,7 +25,6 @@ class PdfController extends Controller
         $numerocartela1 = $cartelaService->geraNumeroCartela(100, 999);
         $barcode_cart1 =  $cartelaService->gerarBarcode($numerocartela1);
 
-
         //cartela n° 2
         if(!empty($cartela1)){
             $cartela2 = $cartelaService->gerarCartela();
@@ -41,6 +41,7 @@ class PdfController extends Controller
             'barcode_cart2'=>$barcode_cart2
         ];
 
+
         //dd($dados_cartelas);
 
         $pdf =  PDF::loadView('preview_pdf', compact('dados_cartelas'));
@@ -49,8 +50,10 @@ class PdfController extends Controller
         return $pdf->stream('cartela'.$numerocartela1.'-'.$numerocartela2.'.pdf');
 
     }
-    /*funcao recebe o valor minimo e maximo e a quantidade de numeros a ser gerados e retorna
-    * um array com os numeros randomicos
-    */
+
+    public function getImg(){
+        $path = public_path()."/img/circle-cart.png";
+        return \response()->download($path);
+    }
 
 }

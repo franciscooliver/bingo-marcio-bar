@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,7 +40,14 @@
     </style>
 </head>
 <body>
-
+<?php
+    $cont = 0;
+    $cont2 = 0;
+    $cont3 = 0;
+    $cont4 = 0;
+    $cont5 = 0;
+    $cont6 = 0;
+?>
     <small id="small-2">Cartela: {{ $dados_cartelas["numero_cart_1"] }}</small>
     <img src="data:image/png;base64,{{ $dados_cartelas["barcode_cart1"] }}" alt="barcode" id="barcode-2">
 
@@ -75,9 +83,13 @@
                 @foreach($dados_cartelas["linhas_cart_1"] as $nums)
                     <tr class="bordered">
                         @foreach($nums as $key => $n)
-
+                            <?php
+                             $cont++;
+                              if ($cont == 13)
+                                echo '<td class="text-center bordered"><img src="https://cdn4.iconfinder.com/data/icons/geomicons/32/672342-circle-16.png"
+                                    style="text-align: center; margin-top: -0.5px;"></td>';
+                            ?>
                             <td class="text-center bordered">{{ $n }}</td>
-
                         @endforeach
                     </tr>
                 @endforeach
@@ -99,7 +111,12 @@
        @foreach($dados_cartelas["linhas_cart_1"] as $nums)
            <tr class="bordered">
                @foreach($nums as $key => $n)
-
+                   <?php
+                   $cont2++;
+                   if ($cont2 == 13)
+                       echo '<td class="text-center bordered"><img src="https://cdn4.iconfinder.com/data/icons/geomicons/32/672342-circle-16.png"
+                                    style="text-align: center; margin-top: -0.5px;"></td>';
+                   ?>
                    <td class="text-center bordered">{{ $n }}</td>
 
                @endforeach
@@ -122,7 +139,12 @@
        @foreach($dados_cartelas["linhas_cart_1"] as $nums)
            <tr class="bordered">
                @foreach($nums as $key => $n)
-
+                   <?php
+                   $cont3++;
+                   if ($cont3 == 13)
+                       echo '<td class="text-center bordered"><img src="https://cdn4.iconfinder.com/data/icons/geomicons/32/672342-circle-16.png"
+                                    style="text-align: center; margin-top: -0.5px;"></td>';
+                   ?>
                    <td class="text-center bordered">{{ $n }}</td>
 
                @endforeach
@@ -168,7 +190,12 @@
             @foreach($dados_cartelas["linhas_cart_2"] as $nums)
                 <tr class="bordered">
                     @foreach($nums as $key => $n)
-
+                        <?php
+                        $cont4++;
+                        if ($cont4 == 13)
+                            echo '<td class="text-center bordered"><img src="https://cdn4.iconfinder.com/data/icons/geomicons/32/672342-circle-16.png"
+                                    style="text-align: center; margin-top: -0.5px;"></td>';
+                        ?>
                         <td class="text-center bordered">{{ $n }}</td>
 
                     @endforeach
@@ -192,7 +219,12 @@
             @foreach($dados_cartelas["linhas_cart_2"] as $nums)
                 <tr class="bordered">
                     @foreach($nums as $key => $n)
-
+                        <?php
+                        $cont5++;
+                        if ($cont5 == 13)
+                            echo '<td class="text-center bordered"><img src="https://cdn4.iconfinder.com/data/icons/geomicons/32/672342-circle-16.png"
+                                    style="text-align: center; margin-top: -0.5px;"></td>';
+                        ?>
                         <td class="text-center bordered">{{ $n }}</td>
 
                     @endforeach
@@ -215,7 +247,12 @@
             @foreach($dados_cartelas["linhas_cart_2"] as $nums)
                 <tr class="bordered">
                     @foreach($nums as $key => $n)
-
+                        <?php
+                        $cont6++;
+                        if ($cont6 == 13)
+                            echo '<td class="text-center bordered"><img src="https://cdn4.iconfinder.com/data/icons/geomicons/32/672342-circle-16.png"
+                                    style="text-align: center; margin-top: -0.5px;"></td>';
+                        ?>
                         <td class="text-center bordered">{{ $n }}</td>
 
                     @endforeach
