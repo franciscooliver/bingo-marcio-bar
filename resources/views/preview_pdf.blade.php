@@ -131,10 +131,11 @@
        </tbody>
    </table>
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <!--cartela 2-->
     <hr>
     <section>
         <small id="small-2" >Cartela: {{ $dados_cartelas["numero_cart_2"] }}</small>
-        <img src="data:image/png;base64,{{ $dados_cartelas["barcode_cart1"] }}" alt="barcode" id="barcode-2" style="margin-top: 4.5%;">
+        <img src="data:image/png;base64,{{ $dados_cartelas["barcode_cart2"] }}" alt="barcode" id="barcode-2" style="margin-top: 4.5%;">
 
         <h1 style="margin-top: -10%;">BINGO</h1>
         <h4 style="text-align: center; margin-top: -5%; font-size: 1.5rem;">Dia 6 de setembro a partir das 19:00 hrs</h4>
@@ -164,7 +165,7 @@
             </tr>
             </thead>
             <tbody>
-            @foreach($dados_cartelas["linhas_cart_1"] as $nums)
+            @foreach($dados_cartelas["linhas_cart_2"] as $nums)
                 <tr class="bordered">
                     @foreach($nums as $key => $n)
 
@@ -188,7 +189,7 @@
             </tr>
             </thead>
             <tbody>
-            @foreach($dados_cartelas["linhas_cart_1"] as $nums)
+            @foreach($dados_cartelas["linhas_cart_2"] as $nums)
                 <tr class="bordered">
                     @foreach($nums as $key => $n)
 
@@ -211,7 +212,7 @@
             </tr>
             </thead>
             <tbody>
-            @foreach($dados_cartelas["linhas_cart_1"] as $nums)
+            @foreach($dados_cartelas["linhas_cart_2"] as $nums)
                 <tr class="bordered">
                     @foreach($nums as $key => $n)
 
