@@ -245,11 +245,32 @@ class BingoController extends Controller
 
     }
     public function restaurarBingo(){
-        $numerosSorteados = DB::table('numero_sorteados')
-            ->select('numero')
-            ->get()->toArray();
+                //recupera os numeros sorteados
+                $numerosSorteados = DB::table('numero_sorteados')
+                ->select('numero')
+                ->get()->toArray();
 
-            return json_encode($numerosSorteados);
+                //recupera os possiveis ganhadores
+                //pegar o contador maior 
+                $contCartela =  DB::table('cartelas')->max('cartela_contador');
+
+                //buscar as cartelas que mais pontuaram no bingo
+                $cartelaGanhadora = DB::table('cartelas')
+                ->select('numero_cartela')
+                ->where('cartela_contador', $contCartela)->get()->toArray();
+
+                /*****                     retorno para teste
+                ResultCartela retorna as cartelas que contem o numero sorteado
+                cartelaMaior retorna um objeto das cartela que mais marcaram ,consequentemente a cartela ganhadora  ****/
+
+           
+                    $arrayBackup= array(
+                        'numero_sorteado'=>$numerosSorteados,
+                        'ganhadores'=>$cartelaGanhadora,
+                        'cont_cartela'=>$contCartela);//ganhadores só sao reapassados a partir do contador 11
+            
+
+            return json_encode($arrayBackup);
         
     }
     public function popularTabela(){
