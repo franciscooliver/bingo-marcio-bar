@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Cartela;
+use App\NumeroSorteado;
 use Illuminate\Http\Request;
 use App\TabelaBingoAtual;
 use Illuminate\Support\Facades\DB;
@@ -78,19 +79,7 @@ class BingoController extends Controller
                
             //verificar se alguma tabela tem o numero sorteado
             //pegando a cartela que tem o numero chamado OK
-            $resultCartela =  DB::table('cartelas')
-            ->select('cartelas.numero_cartela')
-            ->join('table_B','table_B.id_table_B', '=', 'cartelas.table_B_idtable_B')
-            ->join('table_I','table_I.id_table_I', '=', 'cartelas.table_I_idtable_I')
-            ->join('table_N','table_N.id_table_N', '=', 'cartelas.table_N_idtable_N')
-            ->join('table_G','table_G.id_table_G', '=', 'cartelas.table_G_idtable_G')
-            ->join('table_O','table_O.id_table_O', '=', 'cartelas.table_O_idtable_O')
-            ->where('table_B.b_1', '=',$num_sorteado )->orWhere('table_B.b_2', '=',$num_sorteado)->orWhere('table_B.b_3', '=',$num_sorteado)->orWhere('table_B.b_4', '=',$num_sorteado)->orWhere('table_B.b_5', '=',$num_sorteado)
-            ->orWhere('table_I.i_1', '=', $num_sorteado)->orWhere('table_I.i_2', '=',$num_sorteado)->orWhere('table_I.i_3', '=',$num_sorteado)->orWhere('table_I.i_4', '=',$num_sorteado)->orWhere('table_I.i_5', '=',$num_sorteado)
-            ->orWhere('table_N.n_1', '=', $num_sorteado)->orWhere('table_N.n_2', '=',$num_sorteado)->orWhere('table_N.n_3', '=',$num_sorteado)->orWhere('table_N.n_4', '=',$num_sorteado)
-            ->orWhere('table_G.g_1', '=', $num_sorteado)->orWhere('table_G.g_2', '=',$num_sorteado)->orWhere('table_G.g_3', '=',$num_sorteado)->orWhere('table_G.g_4', '=',$num_sorteado)->orWhere('table_G.g_5', '=',$num_sorteado)
-            ->orWhere('table_O.o_1', '=', $num_sorteado)->orWhere('table_O.o_2', '=',$num_sorteado)->orWhere('table_O.o_3', '=',$num_sorteado)->orWhere('table_O.o_4', '=',$num_sorteado)->orWhere('table_O.o_5', '=',$num_sorteado)
-            ->get()->toArray();
+            $resultCartela =  $this->verificaNumeroSorteado('cartelas', $num_sorteado);
            
             
             //for que percorre todas as cartelas que tem o numero sorteado
@@ -144,7 +133,23 @@ class BingoController extends Controller
 }
 
 
-    public function verificaGanhador(Request $request){}
+    public function verificaNumeroSorteado($tabelaDB, $num_sorteado){
+       $verificador =  DB::table($tabelaDB)
+            ->select('cartelas.numero_cartela')
+            ->join('table_B','table_B.id_table_B', '=', 'cartelas.table_B_idtable_B')
+            ->join('table_I','table_I.id_table_I', '=', 'cartelas.table_I_idtable_I')
+            ->join('table_N','table_N.id_table_N', '=', 'cartelas.table_N_idtable_N')
+            ->join('table_G','table_G.id_table_G', '=', 'cartelas.table_G_idtable_G')
+            ->join('table_O','table_O.id_table_O', '=', 'cartelas.table_O_idtable_O')
+            ->where('table_B.b_1', '=',$num_sorteado )->orWhere('table_B.b_2', '=',$num_sorteado)->orWhere('table_B.b_3', '=',$num_sorteado)->orWhere('table_B.b_4', '=',$num_sorteado)->orWhere('table_B.b_5', '=',$num_sorteado)
+            ->orWhere('table_I.i_1', '=', $num_sorteado)->orWhere('table_I.i_2', '=',$num_sorteado)->orWhere('table_I.i_3', '=',$num_sorteado)->orWhere('table_I.i_4', '=',$num_sorteado)->orWhere('table_I.i_5', '=',$num_sorteado)
+            ->orWhere('table_N.n_1', '=', $num_sorteado)->orWhere('table_N.n_2', '=',$num_sorteado)->orWhere('table_N.n_3', '=',$num_sorteado)->orWhere('table_N.n_4', '=',$num_sorteado)
+            ->orWhere('table_G.g_1', '=', $num_sorteado)->orWhere('table_G.g_2', '=',$num_sorteado)->orWhere('table_G.g_3', '=',$num_sorteado)->orWhere('table_G.g_4', '=',$num_sorteado)->orWhere('table_G.g_5', '=',$num_sorteado)
+            ->orWhere('table_O.o_1', '=', $num_sorteado)->orWhere('table_O.o_2', '=',$num_sorteado)->orWhere('table_O.o_3', '=',$num_sorteado)->orWhere('table_O.o_4', '=',$num_sorteado)->orWhere('table_O.o_5', '=',$num_sorteado)
+            ->get()->toArray();
+
+        return $verificador;
+    }
 
 
     public function viewcadCartela(Request $request){
@@ -233,16 +238,13 @@ class BingoController extends Controller
                     );
                         if ($retorno_cartela['status'] === true){
                            
-                            return response()->json(["retorno_bd"=>$retorno_cartela,"mensagem"=>"Sucesso ao cadastrar cartela"]);
+                            return response()->json(["retorno_bd" => $retorno_cartela,"mensagem"=>"Sucesso ao cadastrar cartela"]);
 
                         }
-                    
                     }
-                     
                 }   
             }
         }
-
     }
     public function restaurarBingo(){
                 //recupera os numeros sorteados
@@ -273,19 +275,16 @@ class BingoController extends Controller
             return json_encode($arrayBackup);
         
     }
+
     public function popularTabela(){
         $seed = new \DatabaseSeeder();
-        $operacao = $seed->run();
+        $seed->run();//roda funcao do seeder
 
         //zerar o contador das cartelas
         $contador = DB::table('cartelas')
         ->update(['cartela_contador'=>0]);
 
-         //zerar a tabela numero_sorteados
-         $contador = DB::table('numero_sorteados')
-         ->where('numero', '>', 0)->delete();
 
-    
         return redirect()
         ->route('index')
         ->with("success_generate","Números gerados , Contador das cartelas zerados");
@@ -294,5 +293,10 @@ class BingoController extends Controller
 
  }
 
+ public function confereCartela(){
+        $numeros_sorteados = NumeroSorteado::select('numero')->get();
+
+        return response()->json($numeros_sorteados);
+ }
 
 }

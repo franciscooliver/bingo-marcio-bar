@@ -16,7 +16,7 @@
                     <a class="nav-link text-uppercase text-light" href="{{ route('premios') }}">Premiações</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-uppercase text-light" href="{{ route('gerarPdf') }}">Gerar cartelas</a>
+                    <a class="nav-link text-uppercase text-light" href="{{ route('gerarPdf') }}" target="_blank">Gerar cartelas</a>
                 </li>
             </ul>
             <ul class="navbar-nav flex-row ml-md-auto d-md-flex">
@@ -26,6 +26,7 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="bd-versions">
                         <a class="dropdown-item" href="{{ route('popular-tabela') }}">Popular tabela</a>
+                        <a class="dropdown-item" id="btn_conferir"  href="#" data-toggle="modal" data-target="#modal">Conferir cartela</a>
                         <a class="dropdown-item" href="{{ route('reset-db') }}">Resetar DB</a>
                         <a class="dropdown-item" href="{{ route('view-cad-premios') }}">Cadastrar prêmio</a>
                         <a class="dropdown-item" href="{{ route('reset-table-num-sort') }}">Reset table numbers sort</a>

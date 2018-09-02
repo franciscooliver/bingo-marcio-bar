@@ -2,7 +2,7 @@ $(document).ready( function () {
 
 
 //tela index
-    if($(window).width() <= 800){
+    if($(window).width() <= 900){
         $(".responsive-table").addClass("table-responsive");
     }
     $("#info_cartela").hide();
@@ -60,7 +60,6 @@ $(document).ready( function () {
 
                             $("#info_cartela").show();
                             var dataN = [];
-                            var numero;
                         for (var i = 0; i < data.ganhadores.length; i++) {
                                 dataN.push(data.ganhadores[i].numero_cartela);
 
@@ -438,7 +437,6 @@ $(document).ready( function () {
                     for(var i = 0; i < array_nums_chamds.length;i++){
                         nums_chamados.push($(array_nums_chamds[i]).html());
                     }
-                    console.log(nums_chamados);
                      //console.log(numero_selecinado);
                     for(var n =0; n < numeroBackup.length;n++){
                     numero_selecinado = $(array[numeroBackup[n].numero -1 ]).attr("id"); //recupera o valor do elemento dentro da table de acordo com o índice =>(número vindo do server)
@@ -473,8 +471,7 @@ $(document).ready( function () {
                             dataN.push(data.ganhadores[i].numero_cartela);
 
                     }
-                   
-                    setaValorCartelas(dataN,numeroBackup,data.cont_cartela);
+                    //setaValorCartelas(dataN,numeroBackup,data.cont_cartela);
 
                 }else{
                     alert('Impossivel recuperar o Bingo');
@@ -502,6 +499,74 @@ $(document).ready( function () {
         if(cont_cartela == 24)
             alert("Ganhador(s): "+num_cartelas+"\n"
             +"Número da sorte: "+num_chamado)
+    }
+
+    $(document).on("click", "#btn_conferir", function (event) {
+        event.preventDefault()
+
+        retornaNumerosSorteados();
+    })
+
+    function retornaNumerosSorteados() {
+        $.ajax({
+            url:'confereCartela',
+            type:'GET',
+            dataType:'json',
+            success:function (data) {
+
+                setaModal(data)
+                $('#modal').modal();
+
+            },
+            error:function(jqXHR, textStatus, errorThrown) {
+                alert('Erro ao retornar numeros de conferência');
+                console.log(errorThrown);
+            }
+        })
+    }
+
+    function setaModal(data) {
+        var numerosB = [];
+        var numerosI = [];
+        var numerosN = [];
+        var numerosG = [];
+        var numerosO = [];
+        for (var i=0;i< data.length;i++){
+
+
+            if(parseInt(data[i].numero) < 15){
+                numerosB.push("( "+data[i].numero+" )");
+                $("#numerosB").html(numerosB.join(" - "))
+            }
+
+            if(data[i].numero >= 16 && data[i].numero <= 30){
+                numerosI.push("( "+data[i].numero+" )");
+                $("#numerosI").html(numerosI.join(" - "))
+            }
+            if(data[i].numero >= 31 && data[i].numero <= 45){
+                numerosN.push("( "+data[i].numero+" )");
+                $("#numerosN").html(numerosN.join(" - "))
+            }
+
+
+            if(data[i].numero >= 46 && data[i].numero <= 60){
+                numerosG.push("( "+data[i].numero+" )");
+                $("#numerosG").html(numerosG.join(" - "))
+            }
+
+            if(data[i].numero >= 61 && data[i].numero <= 75){
+                numerosO.push("( "+data[i].numero+" )");
+                $("#numerosO").html(numerosO.join(" - "))
+            }
+
+
+        }
+
+        if(data.length == 0) {
+            $("#modal-body h4").hide()
+            $("#modal-body p:first").html("Nenhum numero sorteado até o momento").addClass("text-danger")
+        }
+
     }
 
 });

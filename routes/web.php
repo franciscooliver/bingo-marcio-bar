@@ -23,10 +23,9 @@ Route::post("/addCartela","BingoController@addCartela")->name('addcartela');
 Route::get('/premios','PremioController@index')->name('premios');
 Route::get('/viewCadPremios','PremioController@viewCadPremios')->name('view-cad-premios');
 Route::post('/addPremio','PremioController@addPremio')->name('add-premio');
-Route::get('/preview_pdf','PdfController@index')->name('preview-pdf');
-
 Route::get("/popularTabela","BingoController@popularTabela")->name('popular-tabela');
 Route::get("/restaurarBingo","BingoController@restaurarBingo")->name('restaurar-bingo');
+Route::get("/confereCartela","BingoController@confereCartela")->name('confere');
 
 
 //reseta todo o banco de dados

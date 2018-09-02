@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,9 +32,6 @@
         table tr th:nth-child(4){border-top: 1px solid #1e88e5; }
         table tr th:nth-child(5){border-top: 1px solid #1e88e5;border-right: 1px solid #1e88e5; }
 
-        /*cartela 2*/
-        section{margin-top: 5px;}
-        section img{margin-top: 4.5%;}
 
     </style>
 </head>
@@ -155,8 +151,8 @@
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     <!--cartela 2-->
     <hr>
-    <section>
-        <small id="small-2" >Cartela: {{ $dados_cartelas["numero_cart_2"] }}</small>
+    <section style="margin-top: 5%;">
+        <small>Cartela: {{ $dados_cartelas["numero_cart_2"] }}</small>
         <img src="data:image/png;base64,{{ $dados_cartelas["barcode_cart2"] }}" alt="barcode" id="barcode-2" style="margin-top: 4.5%;">
 
         <h1 style="margin-top: -10%;">BINGO</h1>
@@ -176,7 +172,7 @@
                 <th class="premio-03">Surpresa</th>
             </tr>
         </table>
-        <table width="30%" border="1" cellspacing="0" cellpadding="5" align="center" style="border-collapse: collapse; margin-top: 1%;">
+        <table width="30%" border="1" cellspacing="0" cellpadding="5" align="center" style="border-collapse: collapse; margin-top: 0%;">
             <thead>
             <tr>
                 <th>B</th>

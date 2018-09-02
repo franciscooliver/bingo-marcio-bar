@@ -29,6 +29,7 @@
                     <table class="mt-0">
                         <tbody>
                           {{ csrf_field() }}
+
                         @foreach($numeros as $nums)
                             <tr class="text-light text-center">
                             @foreach($nums as $numero)
@@ -50,6 +51,7 @@
                             @endforeach
                             </tr>
                         @endforeach
+
                         </tbody>
                     </table>
                     <div class="card  mb-2 w-100 mt-2"  style="width: 18rem;">

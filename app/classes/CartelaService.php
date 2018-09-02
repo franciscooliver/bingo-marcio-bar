@@ -25,6 +25,7 @@ class CartelaService implements CartelaInterface
         $array_linhaG = $this->gerarLinha(46,60,5);
         $array_linhaO = $this->gerarLinha(61,75,5);
 
+        //montando a cartela
         $B = array($array_linhaB[0],$array_linhaI[0],$array_linhaN[0],$array_linhaG[0],$array_linhaO[0]);
         $I = array($array_linhaB[1],$array_linhaI[1],$array_linhaN[1],$array_linhaG[1],$array_linhaO[1]);
         $N = array($array_linhaB[2],$array_linhaI[2],$array_linhaG[2],$array_linhaO[2]);
