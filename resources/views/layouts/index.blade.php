@@ -56,10 +56,10 @@
                         <span class="text-center mt-0">Possível(s) ganhador(s) <small id="qtd"></small></span>
 
                         <div class="card-body mt-0" id="div_cartelas"><!--onde serao inseridos os numeros das cartelas-->
-                            <p class="info_cartela" style="font-size: 1.2rem;">N°: <span class="text-dark number-cart" style="padding: 5px"></span></p>
+                            <p class="info_cartela" style="font-size: 2.2rem;">N°: <span class="text-dark number-cart" style="padding: 5px"></span></p>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-lg btn-block btn-outline-light mb-1 " data-toggle="modal" data-target="#" id="sortear">sortear número</button>
+                    <button type="submit" class="btn btn-lg btn-block btn-outline-light mb-1 " data-toggle="modal" data-target="#" id="sortear">Sortear número</button>
                 </div>
             </div>
         </div>

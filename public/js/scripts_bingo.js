@@ -49,37 +49,8 @@ $(document).ready( function () {
 
 
                         var chamados = parseInt($("tr td .btn-danger").length);//retorna o qtd de numeros chamados (classe btn-danger é adicionada sempre que um número é sorteado)
-
-                        //exibe a letra da sequencia da qual o numero sorteado pertence
-                        if (dataNumero >= 1 && dataNumero <= 15) {
-                            $("#letra").show().html("B");
-                            $("#num-sorteado").html(dataNumero);
-
-                        }
-
-                        if (dataNumero >= 16 && dataNumero <= 30) {
-                            $("#letra").show().html("I");
-                            $("#num-sorteado").html(dataNumero);
-
-                        }
-
-                        if (dataNumero >= 31 && dataNumero <= 45) {
-
-                            $("#letra").show().html("N");
-                            $("#num-sorteado").html(dataNumero);
-
-                        }
-
-                        if(dataNumero >=46 && dataNumero <= 60) {
-                            $("#letra").show().html("G");
-                            $("#num-sorteado").html(dataNumero);
-                        }
-
-                        if(dataNumero >=61 && dataNumero <= 75) {
-                            $("#letra").show().html("O");
-                            $("#num-sorteado").html(dataNumero);
-                        }
-
+                       setLetraNumSorteado(dataNumero);
+                       
                         controlaChamados(chamados);
                         controlaRestantes(chamados);
                         //imprime a sequencia de numeros sorteados (os oito últimos)
@@ -94,6 +65,7 @@ $(document).ready( function () {
                                 dataN.push(data.ganhadores[i].numero_cartela);
 
                         }
+                        console.log(dataN);
                         setaValorCartelas(dataN,dataNumero,data.cont_cartela);
 
                     }
@@ -112,6 +84,39 @@ $(document).ready( function () {
 
     });
 
+    //adicionar a letra ao numero sorteado
+    function setLetraNumSorteado(dataNumero){
+            //exibe a letra da sequencia da qual o numero sorteado pertence
+            if (dataNumero >= 1 && dataNumero <= 15) {
+                $("#letra").show().html("B");
+                $("#num-sorteado").html(dataNumero);
+
+            }
+
+            if (dataNumero >= 16 && dataNumero <= 30) {
+                $("#letra").show().html("I");
+                $("#num-sorteado").html(dataNumero);
+
+            }
+
+            if (dataNumero >= 31 && dataNumero <= 45) {
+
+                $("#letra").show().html("N");
+                $("#num-sorteado").html(dataNumero);
+
+            }
+
+            if(dataNumero >=46 && dataNumero <= 60) {
+                $("#letra").show().html("G");
+                $("#num-sorteado").html(dataNumero);
+            }
+
+            if(dataNumero >=61 && dataNumero <= 75) {
+                $("#letra").show().html("O");
+                $("#num-sorteado").html(dataNumero);
+            }
+
+    }
     //tela cad cartelas
 
     $(document).on("click",".num_cartela", function (event) {
@@ -421,7 +426,7 @@ $(document).ready( function () {
             success: function(data)
             {
 
-                numeroBackup = data;
+                numeroBackup = data.numero_sorteado;
                // console.log(numeroBackup[0].numero);
                 
                 if(numeroBackup.length != 0){
@@ -446,6 +451,8 @@ $(document).ready( function () {
                             return $( this ).attr( "id" ) === numero_selecinado;
                             }));
                         }
+                         //imprime a sequencia de numeros sorteados (os oito últimos)
+                         imprimeNumsSorteados($("#"+numero_selecinado));
                             
                       }
                       //exibir numeros restantes
@@ -454,8 +461,20 @@ $(document).ready( function () {
                       controlaChamados(numeroBackup.length);
                       //seta o ultimo numero chamado
                       ultimo_numero_sorteado = numeroBackup[numeroBackup.length -1].numero;
-                      alert(ultimo_numero_sorteado)
+                      //restaura a letra do ultimo numero sorteado
+                      setLetraNumSorteado(ultimo_numero_sorteado);
+                    //  alert(ultimo_numero_sorteado)
                       $("#num-sorteado").html(ultimo_numero_sorteado);
+                     
+                      var dataN = [];
+                      var numero;
+                      
+                    for (var i = 0; i < data.ganhadores.length; i++) {
+                            dataN.push(data.ganhadores[i].numero_cartela);
+
+                    }
+                   
+                    setaValorCartelas(dataN,numeroBackup,data.cont_cartela);
 
                 }else{
                     alert('Impossivel recuperar o Bingo');

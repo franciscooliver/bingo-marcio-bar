@@ -52,7 +52,7 @@ class Cartela extends Model
             "table_G_idtable_G"=> $id_g,
             "table_O_idtable_O"=> $id_o,
             "numero_cartela"=>$num_cartela,
-            "cartela_contador"=>0
+            "cartela_contador"=>0 
             ]);
 
         if($retorno){
