@@ -64,7 +64,7 @@ class CartelaService implements CartelaInterface
     {
         // TODO: Implement geraNumeroCartela() method.
 
-        $numero = '0'.mt_rand(100, 999);
+        $numero = '0'.mt_rand($start, $end);
         return $numero;
     }
 
