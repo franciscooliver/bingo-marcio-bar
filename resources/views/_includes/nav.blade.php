@@ -31,7 +31,6 @@
                         <a class="dropdown-item" href="{{ route('view-cad-premios') }}">Cadastrar prêmio</a>
                         <a class="dropdown-item" href="{{ route('reset-table-num-sort') }}">Reset table numbers sort</a>
                         <a class="dropdown-item" id="restaurarBingo"  href="#">Restaurar Bingo</a>
-
                     </div>
                 </li>
             </ul>

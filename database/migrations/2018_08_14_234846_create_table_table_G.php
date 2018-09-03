@@ -14,7 +14,7 @@ class CreateTableTableG extends Migration
     public function up()
     {
         Schema::create('table_G', function (Blueprint $table) {
-            $table->increments('id_table_G');
+            $table->increments('id');
             $table->integer("g_1");
             $table->integer("g_2");
             $table->integer("g_3");

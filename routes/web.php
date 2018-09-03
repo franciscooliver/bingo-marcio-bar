@@ -1,19 +1,5 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-use App\Http\Controllers\BingoController;
-use App\bingo;
-use Illuminate\Support\Facades\DB;
 
 Route::get('/', 'BingoController@index')->name('index');
 //Route::post("/verificaganhador","BingoController@verificaGanhador");
@@ -27,7 +13,7 @@ Route::get("/popularTabela","BingoController@popularTabela")->name('popular-tabe
 Route::get("/restaurarBingo","BingoController@restaurarBingo")->name('restaurar-bingo');
 Route::get("/confereCartela","BingoController@confereCartela")->name('confere');
 
-
+Route::get("/teste","BingoController@teste");
 //reseta todo o banco de dados
 Route::get('/resetaDB', function()
 {

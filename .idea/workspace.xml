@@ -2,15 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7ae194c6-f793-4002-850d-9214d724eaf2" name="Default" comment="up">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BingoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BingoController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/classes/CartelaService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/classes/CartelaService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/scripts_bingo.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/scripts_bingo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/_includes/modal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/_includes/modal.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/LinhaB.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/LinhaB.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2018_08_14_232827_create_table_table_B.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2018_08_14_232827_create_table_table_B.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2018_08_14_234642_create_table_table_I.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2018_08_14_234642_create_table_table_I.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2018_08_14_234800_create_table_table_N.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2018_08_14_234800_create_table_table_N.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2018_08_14_234846_create_table_table_G.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2018_08_14_234846_create_table_table_G.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2018_08_14_234928_create_table_table_O.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2018_08_14_234928_create_table_table_O.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2018_08_14_235107_create_table_cartelas.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2018_08_14_235107_create_table_cartelas.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/css_bingo.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/css_bingo.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/_includes/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/_includes/footer.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/_includes/nav.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/_includes/nav.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/preview_pdf.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/preview_pdf.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -171,54 +174,59 @@
     <session id="-2080496325">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="4" />
+          <entry key="project.closed" value="5" />
           <entry key="project.open.time.20" value="1" />
           <entry key="project.open.time.33" value="1" />
           <entry key="project.open.time.40" value="1" />
           <entry key="project.open.time.41" value="1" />
+          <entry key="project.open.time.42" value="1" />
           <entry key="project.open.time.45" value="1" />
-          <entry key="project.opened" value="5" />
+          <entry key="project.opened" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+          <entry key="css" value="2" />
           <entry key="env" value="3" />
           <entry key="gitignore" value="1" />
           <entry key="jpg" value="1" />
           <entry key="js" value="1" />
           <entry key="json" value="1" />
           <entry key="lock" value="1" />
-          <entry key="php" value="19" />
+          <entry key="php" value="32" />
           <entry key="png" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key=".env file" value="3" />
-          <entry key="Blade" value="8" />
+          <entry key="Blade" value="9" />
+          <entry key="CSS" value="2" />
           <entry key="Image" value="2" />
           <entry key="JSON" value="2" />
           <entry key="JavaScript" value="1" />
-          <entry key="PHP" value="11" />
+          <entry key="PHP" value="23" />
           <entry key="PLAIN_TEXT" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
+          <entry key="css" value="281" />
           <entry key="dummy" value="14" />
           <entry key="env" value="15" />
           <entry key="gitignore" value="5" />
-          <entry key="js" value="1450" />
-          <entry key="php" value="5881" />
+          <entry key="js" value="1555" />
+          <entry key="php" value="6137" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key=".env file" value="15" />
-          <entry key="Blade" value="946" />
+          <entry key="Blade" value="981" />
+          <entry key="CSS" value="281" />
           <entry key="HTML" value="11" />
-          <entry key="JavaScript" value="1450" />
-          <entry key="PHP" value="4924" />
+          <entry key="JavaScript" value="1555" />
+          <entry key="PHP" value="5145" />
           <entry key="PLAIN_TEXT" value="19" />
         </counts>
       </usages-collector>
@@ -233,78 +241,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/web.php">
+        <entry file="file://$PROJECT_DIR$/public/css/css_bingo.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="27" column="60" selection-start-line="27" selection-start-column="46" selection-end-line="27" selection-end-column="60" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/BingoController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
-              <caret line="284" column="42" lean-forward="true" selection-start-line="284" selection-start-column="42" selection-end-line="284" selection-end-column="42" />
-              <folding>
-                <element signature="e#41#57#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="273">
+              <caret line="49" column="20" lean-forward="true" selection-start-line="49" selection-start-column="20" selection-end-line="49" selection-end-column="20" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/js/scripts_bingo.js">
+        <entry file="file://$PROJECT_DIR$/resources/views/_includes/footer.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="349">
-              <caret line="566" column="75" lean-forward="true" selection-start-line="566" selection-start-column="75" selection-end-line="566" selection-end-column="75" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Cartela.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-518">
-              <caret line="18" column="47" lean-forward="true" selection-start-line="18" selection-start-column="47" selection-end-line="18" selection-end-column="47" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/_includes/modal.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
-              <folding>
-                <element signature="n#style#0;n#p#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#1;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#2;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#3;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#4;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/_includes/nav.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="32" column="67" selection-start-line="32" selection-start-column="53" selection-end-line="32" selection-end-column="67" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/layouts/index.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="68" column="25" selection-start-line="68" selection-start-column="25" selection-end-line="68" selection-end-column="25" />
-              <folding>
-                <element signature="e#3711#3737#0#HTML" expanded="true" />
-                <element signature="e#3778#3798#0#HTML" expanded="true" />
-              </folding>
+            <state relative-caret-position="15">
+              <caret line="1" column="20" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -323,18 +272,10 @@
         <option value="$PROJECT_DIR$/database/migrations/2018_08_14_213150_create_table_cartelas.php" />
         <option value="$PROJECT_DIR$/database/migrations/2018_08_14_000128_create_table_linha_b.php" />
         <option value="$PROJECT_DIR$/database/migrations/2018_08_14_214611_create_table_cartelas.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2018_08_14_232827_create_table_table_B.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2018_08_14_234642_create_table_table_I.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2018_08_14_234800_create_table_table_N.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2018_08_14_234846_create_table_table_G.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2018_08_14_234928_create_table_table_O.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2018_08_14_235107_create_table_cartelas.php" />
-        <option value="$PROJECT_DIR$/app/Cartela.php" />
         <option value="$PROJECT_DIR$/app/LinhaN.php" />
         <option value="$PROJECT_DIR$/app/LinhaI.php" />
         <option value="$PROJECT_DIR$/app/LinhaG.php" />
         <option value="$PROJECT_DIR$/app/LinhaO.php" />
-        <option value="$PROJECT_DIR$/app/LinhaB.php" />
         <option value="$PROJECT_DIR$/database/migrations/2018_08_15_220906_create_premios_table.php" />
         <option value="$PROJECT_DIR$/app/Premio.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/PremioController.php" />
@@ -343,9 +284,7 @@
         <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
         <option value="$PROJECT_DIR$/database/seeds/TabelaNumerosSeeder.php" />
         <option value="$PROJECT_DIR$/resources/views/bingo/view-premios-cad.blade.php" />
-        <option value="$PROJECT_DIR$/public/css/css_bingo.css" />
         <option value="$PROJECT_DIR$/resources/views/bingo/cadastro_cartelas.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/_includes/footer.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/_includes/alerts.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/dashboard.blade.php" />
         <option value="$PROJECT_DIR$/app/libs/fpdf181/fpdf.php" />
@@ -362,13 +301,23 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/PdfController.php" />
         <option value="$PROJECT_DIR$/app/classes/CartelaService.php" />
         <option value="$PROJECT_DIR$/resources/views/preview_pdf.blade.php" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/index.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/BingoController.php" />
-        <option value="$PROJECT_DIR$/resources/views/_includes/nav.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/_includes/modal.blade.php" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/public/js/scripts_bingo.js" />
+        <option value="$PROJECT_DIR$/resources/views/_includes/nav.blade.php" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2018_08_14_232827_create_table_table_B.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2018_08_14_234642_create_table_table_I.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2018_08_14_234800_create_table_table_N.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2018_08_14_234846_create_table_table_G.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2018_08_14_234928_create_table_table_O.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2018_08_14_235107_create_table_cartelas.php" />
+        <option value="$PROJECT_DIR$/app/Cartela.php" />
+        <option value="$PROJECT_DIR$/app/LinhaB.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/BingoController.php" />
+        <option value="$PROJECT_DIR$/public/css/css_bingo.css" />
+        <option value="$PROJECT_DIR$/resources/views/_includes/footer.blade.php" />
       </list>
     </option>
   </component>
@@ -487,31 +436,13 @@
             <path>
               <item name="bingo-marcio-bar" type="b2602c69:ProjectViewProjectNode" />
               <item name="bingo-marcio-bar" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bingo-marcio-bar" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bingo-marcio-bar" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bingo-marcio-bar" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bingo-marcio-bar" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bingo-marcio-bar" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bingo-marcio-bar" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="bingo-marcio-bar" type="b2602c69:ProjectViewProjectNode" />
               <item name="bingo-marcio-bar" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="bingo-marcio-bar" type="b2602c69:ProjectViewProjectNode" />
@@ -530,18 +461,6 @@
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="_includes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bingo-marcio-bar" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bingo-marcio-bar" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="layouts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bingo-marcio-bar" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bingo-marcio-bar" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -571,120 +490,6 @@
       <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/resources/views/pdf" />
     </key>
-  </component>
-  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
-    <UpdatedFiles>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Updated from server" />
-        <option name="myStatusName" value="Changed on server" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="CHANGED_ON_SERVER" />
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Updated" />
-          <option name="myStatusName" value="Changed" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.env</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/Cartela.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/Http/Controllers/BingoController.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/js/scripts_bingo.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/views/layouts/index.blade.php</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Created" />
-          <option name="myStatusName" value="Created" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="CREATED" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Deleted" />
-          <option name="myStatusName" value="Deleted" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="true" />
-          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Restored" />
-          <option name="myStatusName" value="Will be restored" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="RESTORED" />
-        </FILE-GROUP>
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Modified" />
-        <option name="myStatusName" value="Modified" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MODIFIED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Skipped" />
-        <option name="myStatusName" value="Skipped" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SKIPPED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with conflicts" />
-        <option name="myStatusName" value="Will be merged with conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_CONFLICTS" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with tree conflicts" />
-        <option name="myStatusName" value="Merged with tree conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with property conflicts" />
-        <option name="myStatusName" value="Will be merged with property conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged" />
-        <option name="myStatusName" value="Will be merged" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Not in repository" />
-        <option name="myStatusName" value="Not in repository" />
-        <option name="mySupportsDeletion" value="true" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="UNKNOWN" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally added" />
-        <option name="myStatusName" value="Locally added" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_ADDED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally removed" />
-        <option name="myStatusName" value="Locally removed" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_REMOVED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Switched" />
-        <option name="myStatusName" value="Switched" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SWITCHED" />
-      </FILE-GROUP>
-    </UpdatedFiles>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -768,7 +573,8 @@
       <workItem from="1535765372569" duration="720000" />
       <workItem from="1535819938404" duration="17696000" />
       <workItem from="1535895967262" duration="1237000" />
-      <workItem from="1535909905296" duration="11912000" />
+      <workItem from="1535909905296" duration="16700000" />
+      <workItem from="1535985292384" duration="2185000" />
     </task>
     <task id="LOCAL-00001" summary="up">
       <created>1533495109724</created>
@@ -781,7 +587,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="395384000" />
+    <option name="totallyTimeSpent" value="402357000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -796,7 +602,7 @@
     <frame x="0" y="27" width="1366" height="741" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21818182" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2219697" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Gulp" order="2" side_tool="true" />
       <window_info id="npm" order="3" side_tool="true" />
@@ -811,7 +617,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" x="0" y="651" width="1366" height="117" id="Terminal" order="9" sideWeight="0.49848256" weight="0.2675367" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5015175" side_tool="true" weight="0.25619835" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5015175" side_tool="true" weight="0.25611746" />
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.36215335" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -855,41 +661,6 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/database/migrations/2018_08_14_000128_create_table_linha_b.php" />
     <entry file="file://$PROJECT_DIR$/database/migrations/2018_08_14_214611_create_table_cartelas.php" />
-    <entry file="file://$PROJECT_DIR$/database/migrations/2018_08_14_234800_create_table_table_N.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="17" column="35" lean-forward="true" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2018_08_14_234846_create_table_table_G.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="20" column="35" lean-forward="true" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2018_08_14_234928_create_table_table_O.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="18" column="35" lean-forward="true" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2018_08_14_232827_create_table_table_B.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="86">
-          <caret line="18" column="35" lean-forward="true" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2018_08_14_234642_create_table_table_I.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="83">
-          <caret line="16" column="43" selection-start-line="16" selection-start-column="43" selection-end-line="16" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/LinhaN.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="183">
@@ -915,13 +686,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/LinhaB.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="411">
-          <caret line="36" column="41" lean-forward="true" selection-start-line="36" selection-start-column="41" selection-end-line="36" selection-end-column="41" />
         </state>
       </provider>
     </entry>
@@ -967,38 +731,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/css_bingo.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="52" column="16" selection-start-line="52" selection-start-column="16" selection-end-line="52" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/_includes/footer.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="35" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PremioController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="392">
           <caret line="40" column="59" lean-forward="true" selection-start-line="40" selection-start-column="59" selection-end-line="40" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2018_08_14_235107_create_table_cartelas.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="17" column="49" selection-start-line="17" selection-start-column="49" selection-end-line="17" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Bingo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -1038,13 +774,6 @@
     <entry file="file://$PROJECT_DIR$/storage/fonts/Symbol.afm">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/pdf.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/app.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
@@ -1082,22 +811,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/classes/CartelaService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="25" column="51" selection-start-line="25" selection-start-column="51" selection-end-line="25" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/preview_pdf.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="494">
           <caret line="156" selection-start-line="156" selection-end-line="156" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#td#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#td#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#td#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1105,26 +822,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="528">
           <caret line="42" selection-start-line="42" selection-end-line="42" />
-          <folding>
-            <element signature="e#40#54#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/classes/CartelaInterface.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="56" selection-start-line="16" selection-start-column="56" selection-end-line="16" selection-end-column="56" />
-          <folding>
-            <element signature="e#6#91#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="27" column="60" selection-start-line="27" selection-start-column="46" selection-end-line="27" selection-end-column="60" />
         </state>
       </provider>
     </entry>
@@ -1132,13 +829,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
-          <folding>
-            <element signature="n#style#0;n#p#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#1;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#2;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#3;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#4;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1149,45 +839,139 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/layouts/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="68" column="25" selection-start-line="68" selection-start-column="25" selection-end-line="68" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/scripts_bingo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="567" column="8" selection-start-line="567" selection-start-column="8" selection-end-line="567" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/_includes/nav.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="27" column="104" lean-forward="true" selection-start-line="27" selection-start-column="104" selection-end-line="27" selection-end-column="104" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/classes/CartelaInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/classes/CartelaService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="25" column="51" selection-start-line="25" selection-start-column="51" selection-end-line="25" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Bingo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2018_08_14_232827_create_table_table_B.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="17" column="35" lean-forward="true" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2018_08_14_234800_create_table_table_N.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="16" column="34" lean-forward="true" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2018_08_14_234846_create_table_table_G.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="16" column="34" lean-forward="true" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2018_08_14_234928_create_table_table_O.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="16" column="37" lean-forward="true" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2018_08_14_234642_create_table_table_I.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="21" column="35" lean-forward="true" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Cartela.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-518">
-          <caret line="18" column="47" lean-forward="true" selection-start-line="18" selection-start-column="47" selection-end-line="18" selection-end-column="47" />
+        <state relative-caret-position="195">
+          <caret line="14" column="47" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/LinhaB.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2018_08_14_235107_create_table_cartelas.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="28" column="82" selection-start-line="28" selection-start-column="82" selection-end-line="28" selection-end-column="82" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/BingoController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="284" column="42" lean-forward="true" selection-start-line="284" selection-start-column="42" selection-end-line="284" selection-end-column="42" />
+        <state relative-caret-position="409">
+          <caret line="305" column="20" lean-forward="true" selection-start-line="305" selection-start-column="20" selection-end-line="305" selection-end-column="20" />
           <folding>
             <element signature="e#41#57#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/index.blade.php">
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="68" column="25" selection-start-line="68" selection-start-column="25" selection-end-line="68" selection-end-column="25" />
-          <folding>
-            <element signature="e#3711#3737#0#HTML" expanded="true" />
-            <element signature="e#3778#3798#0#HTML" expanded="true" />
-          </folding>
+        <state relative-caret-position="255">
+          <caret line="17" column="34" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/_includes/nav.blade.php">
+    <entry file="file://$PROJECT_DIR$/public/css/pdf.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="67" selection-start-line="32" selection-start-column="53" selection-end-line="32" selection-end-column="67" />
+        <state relative-caret-position="15">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/scripts_bingo.js">
+    <entry file="file://$PROJECT_DIR$/public/css/css_bingo.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="566" column="75" lean-forward="true" selection-start-line="566" selection-start-column="75" selection-end-line="566" selection-end-column="75" />
+        <state relative-caret-position="273">
+          <caret line="49" column="20" lean-forward="true" selection-start-line="49" selection-start-column="20" selection-end-line="49" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/_includes/footer.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="20" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
         </state>
       </provider>
     </entry>

@@ -12,10 +12,10 @@ class LinhaB extends Model
     protected  $table = "table_B";
 
     public $timestamps = false;
-    protected $fillable = ['id_table_B','b_1','b_2','b_3','b_4','b_5'];
+    protected $fillable = ['id','b_1','b_2','b_3','b_4','b_5'];
 
     public function cartelas() {
-        return $this->hasMany(Cartela::class);
+        return $this->hasMany(Cartela::class,'table_B_idtable_B');
     }
 
     public function salvaNumerosLinhaB($data = []) : Array{

@@ -298,5 +298,12 @@ class BingoController extends Controller
 
         return response()->json($numeros_sorteados);
  }
+ public function teste(){
+
+       $cartela = Cartela::select('table_B_idtable_B')->get();
+
+
+       dd($cartela);
+ }
 
 }
