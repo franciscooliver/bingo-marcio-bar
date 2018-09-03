@@ -51,12 +51,6 @@ footer{
 }
 footer span{color: #fff;}
 
-
-dody:last-child{
-    display: flex;
-    align-items: flex-end;
-}
-
 /*tela cadastro cartelas*/
 #table_cad{
     font-size: 2.5rem;
