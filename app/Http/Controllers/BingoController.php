@@ -1,8 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
-
 use App\Cartela;
 use App\NumeroSorteado;
 use Illuminate\Http\Request;
@@ -15,15 +13,10 @@ use App\LinhaI;
 use App\LinhaN;
 use App\LinhaO;
 
-
-
 class BingoController extends Controller
 {
 
     public function  index(){
-        
-       
-
         $numeros = array();
         for ($i=1;$i<76;$i++){
             $numeros[] = $i;
@@ -117,10 +110,12 @@ class BingoController extends Controller
                         'ganhadores'=>$cartelaGanhadora,
                         'cont_cartela'=>$contCartela);//ganhadores só sao reapassados a partir do contador 11
                 else
-                    $arrayName = array('numero_sorteado'=>$num_sorteado);
+                    $arrayName = array(
+                        'numero_sorteado'=>$num_sorteado,
+                        'ganhadores' => []);
 
                 return json_encode($arrayName);
-
+               // return json_encode($arrayName);
              } else {
 
                 return json_encode([]);
@@ -128,7 +123,6 @@ class BingoController extends Controller
             
         }catch(Exception $e){
             return response()->json([$e->getMessage()]);
-
         }
 }
 
@@ -136,11 +130,11 @@ class BingoController extends Controller
     public function verificaNumeroSorteado($tabelaDB, $num_sorteado){
        $verificador =  DB::table($tabelaDB)
             ->select('cartelas.numero_cartela')
-            ->join('table_B','table_B.id_table_B', '=', 'cartelas.table_B_idtable_B')
-            ->join('table_I','table_I.id_table_I', '=', 'cartelas.table_I_idtable_I')
-            ->join('table_N','table_N.id_table_N', '=', 'cartelas.table_N_idtable_N')
-            ->join('table_G','table_G.id_table_G', '=', 'cartelas.table_G_idtable_G')
-            ->join('table_O','table_O.id_table_O', '=', 'cartelas.table_O_idtable_O')
+            ->join('table_B','table_B.id', '=', 'cartelas.table_B_idtable_B')
+            ->join('table_I','table_I.id', '=', 'cartelas.table_I_idtable_I')
+            ->join('table_N','table_N.id', '=', 'cartelas.table_N_idtable_N')
+            ->join('table_G','table_G.id', '=', 'cartelas.table_G_idtable_G')
+            ->join('table_O','table_O.id', '=', 'cartelas.table_O_idtable_O')
             ->where('table_B.b_1', '=',$num_sorteado )->orWhere('table_B.b_2', '=',$num_sorteado)->orWhere('table_B.b_3', '=',$num_sorteado)->orWhere('table_B.b_4', '=',$num_sorteado)->orWhere('table_B.b_5', '=',$num_sorteado)
             ->orWhere('table_I.i_1', '=', $num_sorteado)->orWhere('table_I.i_2', '=',$num_sorteado)->orWhere('table_I.i_3', '=',$num_sorteado)->orWhere('table_I.i_4', '=',$num_sorteado)->orWhere('table_I.i_5', '=',$num_sorteado)
             ->orWhere('table_N.n_1', '=', $num_sorteado)->orWhere('table_N.n_2', '=',$num_sorteado)->orWhere('table_N.n_3', '=',$num_sorteado)->orWhere('table_N.n_4', '=',$num_sorteado)

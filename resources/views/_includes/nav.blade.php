@@ -1,22 +1,22 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-dark">
     <div class="container">
-        <a class="navbar-brand text-light" href="#">Márcio bar</a>
+        <a class="navbar-brand text-light hvr-bounce-in" href="#">Márcio bar</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon text-light"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link text-uppercase text-light" href="{{ route('index') }}">Início</a>
+                    <a class="nav-link text-uppercase text-light hvr-underline-from-center" href="{{ route('index') }}">Início</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-uppercase text-light" href="{{ route('view_cad_cartela') }}">Cadastrar cartelas</a>
+                    <a class="nav-link text-uppercase text-light hvr-underline-from-center" href="{{ route('view_cad_cartela') }}">Cadastrar cartelas</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-uppercase text-light" href="{{ route('premios') }}">Premiações</a>
+                    <a class="nav-link text-uppercase text-light hvr-underline-from-center" href="{{ route('premios') }}">Premiações</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-uppercase text-light" href="{{ route('gerarPdf') }}" target="_blank">Gerar cartelas</a>
+                    <a class="nav-link text-uppercase text-light hvr-underline-from-center" href="{{ route('gerarPdf') }}" target="_blank">Gerar cartelas</a>
                 </li>
             </ul>
             <ul class="navbar-nav flex-row ml-md-auto d-md-flex">
@@ -25,12 +25,12 @@
                         OPÇÕES
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="bd-versions">
-                        <a class="dropdown-item" href="{{ route('popular-tabela') }}">Popular tabela</a>
-                        <a class="dropdown-item" id="btn_conferir"  href="#" data-toggle="modal" data-target="#modal">Conferir cartela</a>
-                        <a class="dropdown-item" href="{{ route('reset-db') }}">Resetar DB</a>
-                        <a class="dropdown-item" href="{{ route('view-cad-premios') }}">Cadastrar prêmio</a>
-                        <a class="dropdown-item" href="{{ route('reset-table-num-sort') }}">Reset table numbers sort</a>
-                        <a class="dropdown-item" id="restaurarBingo"  href="#">Restaurar Bingo</a>
+                        <a class="dropdown-item hvr-grow" href="{{ route('popular-tabela') }}">Popular tabela</a>
+                        <a class="dropdown-item hvr-grow" id="btn_conferir"  href="#" data-toggle="modal" data-target="#modal">Conferir cartela</a>
+                        <a class="dropdown-item hvr-grow" href="{{ route('reset-db') }}">Resetar DB</a>
+                        <a class="dropdown-item hvr-grow" href="{{ route('view-cad-premios') }}">Cadastrar prêmio</a>
+                        <a class="dropdown-item hvr-grow" href="{{ route('reset-table-num-sort') }}">Reset table numbers sort</a>
+                        <a class="dropdown-item hvr-grow" id="restaurarBingo"  href="#">Restaurar Bingo</a>
                     </div>
                 </li>
             </ul>

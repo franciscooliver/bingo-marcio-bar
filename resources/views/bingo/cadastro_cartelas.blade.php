@@ -73,16 +73,13 @@
                         <td id="o_3"class="border-bottom p-3 text-center text-light"></td>
                     </tr>
                     <tr>
-
                         <td id="b_4" class="border-bottom border-right p-3 text-center text-light"></td>
                         <td id="i_4" class="border-bottom border-right p-3 text-center text-light"> </td>
                         <td id="n_3" class="border-bottom border-right p-3 text-center text-light"></td>
                         <td id="g_4" class="border-bottom border-right p-3 text-center text-light"></td>
                         <td id="o_4"class="border-bottom p-3 text-center text-light"></td>
                     </tr>
-
                     <tr>
-
                         <td id="b_5" class=" border-right p-3 text-center text-light"></td>
                         <td id="i_5" class=" border-right p-3 text-center text-light"> </td>
                         <td id="n_4" class=" border-right p-3 text-center text-light"></td>
@@ -91,24 +88,18 @@
                     </tr>
                     </tbody>
                 </table>
-
             </div>
-
             <div class="card col-12">
                 <form >
                     {{ csrf_field() }}
                     <div class="card-body" id="card_nums_selecionados">
                         <div class="col-md-3 ml-0 col-xs-12">
                             <input type="text" placeholder="Digite o identificador" class="form-control" name="numero_cart">
-
                         </div>
-                        <h6 class="text-center" id="text-num_sel">Números selecionados</h6>
                         <p id="retorno_success" class="text-success"></p>
                         <p id="retorno_error" class="text-danger"></p>
-
                     </div>
-
-                    <button type="button" class="btn btn-info  btn-sm col-4 offset-md-4 " id="btn_cad">Cadastrar cartela</button>
+                    <button type="button" class="btn btn-info btn-sm col-md-4 offset-md-4 offset-sm-3 col-sm-6" id="btn_cad">Cadastrar cartela</button>
                 </form>
             </div>
         </div>

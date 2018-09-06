@@ -13,14 +13,15 @@ class PremioController extends Controller
         $datadiaria = date('d/m/Y');
         $data_comparativa = date('Y-m-d');
 
-
         $premios = DB::table('premios')
             ->select("nome_premio","descricao_premio","hora_inicio")
             ->where([
                 "data_bingo" => $data_comparativa
             ])->get();
+        $horario = $premios[0]->hora_inicio;
+        $horario = date("H:i", strtotime($horario));
 
-        return view('bingo.premios',compact('premios','datadiaria'));
+        return view('bingo.premios',compact('premios','datadiaria','horario'));
     }
 
     public function viewCadPremios(){

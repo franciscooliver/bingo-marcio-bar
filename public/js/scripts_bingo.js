@@ -45,11 +45,9 @@ $(document).ready( function () {
                           return $( this ).attr( "id" ) === numero_selecinado;
                        }));
     
-                        var chamados =  parseInt($("tr td .btn-danger").length);//retorna o qtd de numeros chamados (classe btn-danger é adicionada sempre que um número é sorteado)
-
 
                         var chamados = parseInt($("tr td .btn-danger").length);//retorna o qtd de numeros chamados (classe btn-danger é adicionada sempre que um número é sorteado)
-                       setLetraNumSorteado(dataNumero);
+                        setLetraNumSorteado(dataNumero);
                        
                         controlaChamados(chamados);
                         controlaRestantes(chamados);
@@ -60,12 +58,12 @@ $(document).ready( function () {
 
                             $("#info_cartela").show();
                             var dataN = [];
-                        for (var i = 0; i < data.ganhadores.length; i++) {
+                        /*for (var i = 0; i < data.ganhadores.length; i++) {
                                 dataN.push(data.ganhadores[i].numero_cartela);
 
                         }
                         console.log(dataN);
-                        setaValorCartelas(dataN,dataNumero,data.cont_cartela);
+                        setaValorCartelas(dataN,dataNumero,data.cont_cartela);*/
 
                     }
                 }else{
