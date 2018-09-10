@@ -16,7 +16,9 @@ $(document).ready( function () {
             dataType:'json',
             success: function(data)
             {
+
                 dataNumero = data.numero_sorteado;
+
                 //data igual a 0, a tabela do banco está zerada
                 if(data.length != 0){
                     var numero_selecinado;
@@ -51,17 +53,15 @@ $(document).ready( function () {
                         setaValorCartelas(dataN,dataNumero,data.cont_cartela);
                     }
                 }else{
-                    alert('Sem números para sortear');
+                    alert('Sem numeros para sortear');
                 }
             },
-
             error:function(jqXHR, textStatus, errorThrown){
                 alert('Erro ao sortear número');
                 chamados = (chamados) -1;
                 console.log(errorThrown);
             }
         });
-
     });
 
      
@@ -262,9 +262,11 @@ $(document).ready( function () {
 
     }
 
+
     function sortfunction(a, b){
         return (a - b) //faz com que o array seja ordenado numericamente e de ordem crescente.
     }
+
 
     function populaCartela(ids, numeros){
       for (var i=0; i< ids.length; i++){
@@ -468,7 +470,7 @@ $(document).ready( function () {
         //console.log(num_cartelas)
 
         //exibe os ganhadores
-        if(parseInt(cont_cartela) == 24)
+        if(cont_cartela == 24)
             alert("Ganhador(s): "+num_cartelas+"\n"
             +"Número da sorte: "+num_chamado)
     }
@@ -479,14 +481,20 @@ $(document).ready( function () {
         retornaNumerosSorteados();
     })
 
+    $(document).on("click", "#btn_gerar_cart", function(){
+        $("#modal_qtd").modal();
+    });
+
     function retornaNumerosSorteados() {
         $.ajax({
             url:'confereCartela',
             type:'GET',
             dataType:'json',
             success:function (data) {
+
                 setaModal(data)
                 $('#modal').modal();
+
             },
             error:function(jqXHR, textStatus, errorThrown) {
                 alert('Erro ao retornar numeros de conferência');
@@ -502,6 +510,7 @@ $(document).ready( function () {
         var numerosG = [];
         var numerosO = [];
         for (var i=0;i< data.length;i++){
+
 
             if(parseInt(data[i].numero) < 15){
                 numerosB.push("( "+data[i].numero+" )");
@@ -543,8 +552,9 @@ $(document).ready( function () {
     });
     $("#btn_enviar").click( function () {
         $('#msg-retorno').html("Aguarde gerando cartelas...")
-
-        enviaQtd()
+            .removeClass()
+            .addClass('text-secondary')
+             enviaQtd()
     })
 function enviaQtd() {
    $.ajax({

@@ -10,7 +10,7 @@
             </div>
             
             <div class="modal-body" id="modal-body">
-                <p class="text-secondary" id="msg-retorno"></p>
+                <p id="msg-retorno"></p>
                 <form>
                     {{ csrf_field() }}
                     <div class="form-group">
