@@ -1,6 +1,7 @@
 /*css editing*/
 body,html{
     overflow-x: hidden; height: 100%;
+    font-family: 'Open Sans', sans-serif;
 }
 hr{
     border:         none;

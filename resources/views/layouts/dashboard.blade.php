@@ -14,6 +14,7 @@
         <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
         <script src="{{ asset("js/scripts_bingo.js") }}"></script>
         <link rel="stylesheet" href="{{ asset('css/hover.css') }}">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
         <link href="{{asset('css/css_bingo.css')}}" rel="stylesheet" type="text/css">
         <title>Márcio bar @yield('title')</title>
 
@@ -25,6 +26,9 @@
 
 
         @include('_includes.footer')
+            <!--modais-->
+        @include("_includes.modal_confere_cartela")
+        @include("_includes.modal_gerar_cartelas")
     <!--javascript e jquery--><!--jquery versao completa-->
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

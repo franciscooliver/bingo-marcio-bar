@@ -1,17 +1,13 @@
 $(document).ready( function () {
-
-
 //tela index
     if($(window).width() <= 900){
         $(".responsive-table").addClass("table-responsive");
     }
     $("#info_cartela").hide();
-
     //esconde letra numero
     $("#letra").hide();
     //pegar os valores da td
      $("#sortear").click(function () {
-
         var dataNumero;
         var nums_chamados = [];
         $.ajax({
@@ -20,13 +16,9 @@ $(document).ready( function () {
             dataType:'json',
             success: function(data)
             {
-
                 dataNumero = data.numero_sorteado;
-
                 //data igual a 0, a tabela do banco está zerada
                 if(data.length != 0){
-
-
                     var numero_selecinado;
                     var array = $("table tr td .ajax").toArray();
                     var array_nums_chamds = $("table tr td .btn-danger").toArray();
@@ -34,21 +26,15 @@ $(document).ready( function () {
                     for(var i = 0; i < array_nums_chamds.length;i++){
                         nums_chamados.push($(array_nums_chamds[i]).html());
                     }
-    
                     numero_selecinado = $(array[dataNumero -1 ]).attr("id"); //recupera o valor do elemento dentro da table de acordo com o índice =>(número vindo do server)
                     //console.log(numero_selecinado);
                     if(dataNumero != "" && dataNumero == numero_selecinado) {//verifica se o número sorteado é igual ao valor do indice selecionado
-
-
                        fundoBotao($("table tr td .btn-light").filter(function( index ) { /*filtra o elemento de acordo com o indice selecionado
                                                                                           e aplica a classe btn-danger */
                           return $( this ).attr( "id" ) === numero_selecinado;
                        }));
-    
-
                         var chamados = parseInt($("tr td .btn-danger").length);//retorna o qtd de numeros chamados (classe btn-danger é adicionada sempre que um número é sorteado)
                         setLetraNumSorteado(dataNumero);
-                       
                         controlaChamados(chamados);
                         controlaRestantes(chamados);
                         //imprime a sequencia de numeros sorteados (os oito últimos)
@@ -58,18 +44,15 @@ $(document).ready( function () {
 
                             $("#info_cartela").show();
                             var dataN = [];
-                        /*for (var i = 0; i < data.ganhadores.length; i++) {
+                        for (var i = 0; i < data.ganhadores.length; i++) {
                                 dataN.push(data.ganhadores[i].numero_cartela);
-
                         }
                         console.log(dataN);
-                        setaValorCartelas(dataN,dataNumero,data.cont_cartela);*/
-
+                        setaValorCartelas(dataN,dataNumero,data.cont_cartela);
                     }
                 }else{
-                    alert('Acabou o bingo');
+                    alert('Sem números para sortear');
                 }
-
             },
 
             error:function(jqXHR, textStatus, errorThrown){
@@ -81,15 +64,14 @@ $(document).ready( function () {
 
     });
 
+     
     //adicionar a letra ao numero sorteado
     function setLetraNumSorteado(dataNumero){
             //exibe a letra da sequencia da qual o numero sorteado pertence
             if (dataNumero >= 1 && dataNumero <= 15) {
                 $("#letra").show().html("B");
                 $("#num-sorteado").html(dataNumero);
-
             }
-
             if (dataNumero >= 16 && dataNumero <= 30) {
                 $("#letra").show().html("I");
                 $("#num-sorteado").html(dataNumero);
@@ -118,9 +100,7 @@ $(document).ready( function () {
 
     $(document).on("click",".num_cartela", function (event) {
         event.preventDefault()
-
         valida_selecao_numeros(this);//chama a funcao de validacao
-
     });
     function valida_selecao_numeros(elemento){//funcao responsável por validar a sequencia de numeros selecionados
         var array_numeros_selecinados = $("form #card_nums_selecionados .btn-success").toArray();
@@ -129,7 +109,6 @@ $(document).ready( function () {
         var arraylinhaN = [];//array para os numeros linha N
         var arraylinhaG = [];//array para os numeros linha G
         var arraylinhaO = [];//array para os numeros linha O
-
         var numero = $(elemento).attr('name');
         //alert(button);
         //var array_elementos = $('#card_nums_selecionados .btn-light').toArray();
@@ -141,10 +120,7 @@ $(document).ready( function () {
                 alert("Você já escolheu o máximo de números para a linha B \n" +
                     "Por favor vá para a próxima linha")
                 $(elemento).removeClass("btn-danger")
-
             }else{
-
-
                 fundoBotao(elemento);
                 clonaBotaoClicado($(elemento).attr('name',numero));
                 var array_danger = $("#table_cad tr td .btn-danger").toArray();
@@ -286,11 +262,9 @@ $(document).ready( function () {
 
     }
 
-
     function sortfunction(a, b){
         return (a - b) //faz com que o array seja ordenado numericamente e de ordem crescente.
     }
-
 
     function populaCartela(ids, numeros){
       for (var i=0; i< ids.length; i++){
@@ -494,7 +468,7 @@ $(document).ready( function () {
         //console.log(num_cartelas)
 
         //exibe os ganhadores
-        if(cont_cartela == 24)
+        if(parseInt(cont_cartela) == 24)
             alert("Ganhador(s): "+num_cartelas+"\n"
             +"Número da sorte: "+num_chamado)
     }
@@ -511,10 +485,8 @@ $(document).ready( function () {
             type:'GET',
             dataType:'json',
             success:function (data) {
-
                 setaModal(data)
                 $('#modal').modal();
-
             },
             error:function(jqXHR, textStatus, errorThrown) {
                 alert('Erro ao retornar numeros de conferência');
@@ -530,7 +502,6 @@ $(document).ready( function () {
         var numerosG = [];
         var numerosO = [];
         for (var i=0;i< data.length;i++){
-
 
             if(parseInt(data[i].numero) < 15){
                 numerosB.push("( "+data[i].numero+" )");
@@ -566,6 +537,30 @@ $(document).ready( function () {
         }
 
     }
+    $(document).on("click", "#btn_gerar_cart", function(){
 
+        $("#modal_qtd").modal();
+    });
+    $("#btn_enviar").click( function () {
+        $('#msg-retorno').html("Aguarde gerando cartelas...")
+
+        enviaQtd()
+    })
+function enviaQtd() {
+   $.ajax({
+       url: "gerar_cartela",
+       type:"POST",
+       dataType:"json",
+       data:{
+           '_token': $('input[name=_token]').val(),
+           'qtd': $('input[name=qtd]').val()
+       },
+       success: function (data) {
+               $('#msg-retorno').html(data.mensagem)
+                   .removeClass('text-secondary')
+                   .addClass(data.classe)
+       }
+   });
+}
 });
 

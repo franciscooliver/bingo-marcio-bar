@@ -18,8 +18,14 @@ class PremioController extends Controller
             ->where([
                 "data_bingo" => $data_comparativa
             ])->get();
-        $horario = $premios[0]->hora_inicio;
-        $horario = date("H:i", strtotime($horario));
+
+            if(count($premios) > 0):
+                $horario = $premios[0]->hora_inicio;
+                $horario = date("H:i", strtotime($horario));
+
+            else:
+                $horario = "";
+            endif;
 
         return view('bingo.premios',compact('premios','datadiaria','horario'));
     }
@@ -30,6 +36,7 @@ class PremioController extends Controller
 
     public function addPremio(Request $request){
         $dadosPremio = $request->all();
+
         $premio = Premio::create($dadosPremio);
 
         if($premio){

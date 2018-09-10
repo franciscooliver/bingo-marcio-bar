@@ -15,7 +15,6 @@ use App\LinhaO;
 
 class BingoController extends Controller
 {
-
     public function  index(){
         $numeros = array();
         for ($i=1;$i<76;$i++){
@@ -26,21 +25,13 @@ class BingoController extends Controller
         //dd($size_array);
         return view('layouts.index',compact('numeros','size_array'));
     }
-
-   public function dadosView(){
-
-
-    }
     public function sorteiaNumero() {
-
         $nums_chamados = array();
         $array_tabela = array();
         $num_sorteado = null;
         $numerosBanco = array();
-          
         //salvar no banco
         try{
-
             $num_banco = DB::table('tabela_bingo_atuals')
                 ->select('numeros')
                 ->get()->toArray();
@@ -100,20 +91,16 @@ class BingoController extends Controller
                 ->select('numero_cartela')
                 ->where('cartela_contador', $contCartela)->get()->toArray();
 
-                /*****                     retorno para teste
-                ResultCartela retorna as cartelas que contem o numero sorteado
-                cartelaMaior retorna um objeto das cartela que mais marcaram ,consequentemente a cartela ganhadora  ****/
-
-                if($contCartela > 10)
+                if($contCartela > 10):
                     $arrayName = array(
                         'numero_sorteado'=>$num_sorteado,
                         'ganhadores'=>$cartelaGanhadora,
                         'cont_cartela'=>$contCartela);//ganhadores só sao reapassados a partir do contador 11
-                else
+                else:
                     $arrayName = array(
                         'numero_sorteado'=>$num_sorteado,
                         'ganhadores' => []);
-
+                endif;
                 return json_encode($arrayName);
                // return json_encode($arrayName);
              } else {
@@ -125,8 +112,6 @@ class BingoController extends Controller
             return response()->json([$e->getMessage()]);
         }
 }
-
-
     public function verificaNumeroSorteado($tabelaDB, $num_sorteado){
        $verificador =  DB::table($tabelaDB)
             ->select('cartelas.numero_cartela')

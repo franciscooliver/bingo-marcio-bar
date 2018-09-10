@@ -18,16 +18,24 @@
           </div>
       </div>
        <div class="row mt-5">
-           @foreach($premios as $premio)
+
+           @forelse($premios as $premio)
            <div class="col-md-12 col-lg-4 m-md-1 m-lg-0 mt-xs-2">
                <div class="card hvr-grow h-100 w-100" style="width: 18rem;">
-                   <div class="card-body ">
+                   <div class="card-body">
                        <h5 class="card-title">{{ $premio->nome_premio }}</h5>
                        <p>{{ $premio->descricao_premio }}</p>
                    </div>
                </div>
            </div>
-           @endforeach
+           @empty
+
+           <div class="col-md-12">
+              <p class="text-center">Nenhum prêmio cadastrado</p>
+           </div>
+
+           @endforelse
+
        </div>
    </div>
 @endsection

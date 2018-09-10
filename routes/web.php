@@ -6,12 +6,14 @@ Route::get('/', 'BingoController@index')->name('index');
 Route::get("/sorteiaNumero","BingoController@sorteiaNumero")->name('sorteianumero');
 Route::get("/viewcadCartela","BingoController@viewcadCartela")->name('view_cad_cartela');
 Route::post("/addCartela","BingoController@addCartela")->name('addcartela');
+Route::post("/gerar_cartela","CartelaController@gerarCartelas")->name('gerar-cartela');
 Route::get('/premios','PremioController@index')->name('premios');
 Route::get('/viewCadPremios','PremioController@viewCadPremios')->name('view-cad-premios');
 Route::post('/addPremio','PremioController@addPremio')->name('add-premio');
 Route::get("/popularTabela","BingoController@popularTabela")->name('popular-tabela');
 Route::get("/restaurarBingo","BingoController@restaurarBingo")->name('restaurar-bingo');
 Route::get("/confereCartela","BingoController@confereCartela")->name('confere');
+
 
 Route::get("/teste","BingoController@teste");
 //reseta todo o banco de dados

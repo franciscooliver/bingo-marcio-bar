@@ -16,7 +16,7 @@
                     <a class="nav-link text-uppercase text-light hvr-underline-from-center" href="{{ route('premios') }}">Premiações</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-uppercase text-light hvr-underline-from-center" href="{{ route('gerarPdf') }}" target="_blank">Gerar cartelas</a>
+                    <a class="nav-link text-uppercase text-light hvr-underline-from-center" href="{{ route('gerarPdf') }}" target="_blank">Imprimir cartelas</a>
                 </li>
             </ul>
             <ul class="navbar-nav flex-row ml-md-auto d-md-flex">
@@ -25,10 +25,12 @@
                         OPÇÕES
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="bd-versions">
-                        <a class="dropdown-item hvr-grow" href="{{ route('popular-tabela') }}">Popular tabela</a>
+                        <a class="dropdown-item hvr-grow" href="#" id="btn_gerar_cart"  data-target="#modal_qtd" data-target="#modal_qtd">Gerar cartelas</a>
                         <a class="dropdown-item hvr-grow" id="btn_conferir"  href="#" data-toggle="modal" data-target="#modal">Conferir cartela</a>
-                        <a class="dropdown-item hvr-grow" href="{{ route('reset-db') }}">Resetar DB</a>
                         <a class="dropdown-item hvr-grow" href="{{ route('view-cad-premios') }}">Cadastrar prêmio</a>
+                        <a class="dropdown-item hvr-grow" href="{{ route('popular-tabela') }}">Popular tabela</a>
+                        <a class="dropdown-item hvr-grow" href="{{ route('reset-db') }}">Resetar DB</a>
+                    
                         <a class="dropdown-item hvr-grow" href="{{ route('reset-table-num-sort') }}">Reset table numbers sort</a>
                         <a class="dropdown-item hvr-grow" id="restaurarBingo"  href="#">Restaurar Bingo</a>
                     </div>

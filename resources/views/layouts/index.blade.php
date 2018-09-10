@@ -66,5 +66,5 @@
             </div>
         </div>
     </div>
-    @include("_includes.modal")<!--carrega modal-->
+
 @endsection
