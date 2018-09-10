@@ -14,10 +14,11 @@ class CreateTableCartelas extends Migration
     public function up()
     {
         Schema::create('cartelas', function (Blueprint $table) {
-            $table->increments('idCartela');
+            $table->increments('id');
             $table->string("numero_cartela", 45);
             $table->enum('vendida',['S','N'])->default('S');
             $table->enum('impressa',['S','N'])->default('N');
+            $table->string('barcode');
             $table->integer("cartela_contador");
             $table->integer("table_B_idtable_B")->unsigned();
             $table->foreign("table_B_idtable_B")->references('id')->on('table_B');

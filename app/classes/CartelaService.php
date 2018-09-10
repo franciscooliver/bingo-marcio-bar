@@ -137,7 +137,8 @@ class CartelaService implements CartelaInterface
                                $retorno_linhaN['id_N'],
                                $retorno_linhaG['id_G'],
                                $retorno_linhaO['id_O'],
-                               $data['numero_cartela']
+                               $data['numero_cartela'],
+                               $data['barcode']
                            );
                        }
                        if ($retorno_cartela['status']){

@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\classes\CartelaService;
 class CartelaController extends Controller
 {
-
     public function gerarCartelas(Request $request){
         $num_verify = null;
     	$qtd = $request->qtd;
@@ -16,15 +15,15 @@ class CartelaController extends Controller
     	for ($i= 0; $i < $qtd; $i++){
             //cartela n° 1
             $cartela1 = $cartelaService->gerarCartela();
-            $numerocartela1 = "0".$array_numeros_cartelas[$count];
-            $barcode_cart1 =  $cartelaService->gerarBarcode($numerocartela1);
+            $numerocartela = "0".$array_numeros_cartelas[$count];
+            $barcode_cart =  $cartelaService->gerarBarcode($numerocartela);
             $dados_cartela = array(
                 'linhas' => $cartela1,
-                'numero_cartela' => $numerocartela1,
-                'barcode' => $barcode_cart1
+                'numero_cartela' => $numerocartela,
+                'barcode' => $barcode_cart
             );
                 $cartelaService->salvarCartelasGeradas($dados_cartela);
-               $count += 1;
+                $count += 1;
         }
     	if($count >= $qtd){
     		

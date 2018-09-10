@@ -70,4 +70,3 @@ Route::get('/reset_table', function()
 
 //teste para gerar PDF
 Route::get("/gerarPdf","PdfController@gerarPdf")->name('gerarPdf');
-Route::get('img-center','Pdfcontroller@getImg')->name('img-center');

@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 class Cartela extends Model
 {
     protected $table = "cartelas";
-    protected $fillable = ['idTabela','table_B_idtable_B','table_I_idtable_I','table_N_idtable_N','table_G_idtable_G','table_O_idtable_O',"numero_cartela",'cartela_contador'];
+    protected $fillable = ['id','numero_cartela','vendida','impressa','barcode','table_B_idtable_B','table_I_idtable_I','table_N_idtable_N','table_G_idtable_G','table_O_idtable_O',"numero_cartela",'cartela_contador'];
 
     public function linhaB(){
         return $this->belongsTo(LinhaB::class);
@@ -29,7 +29,7 @@ class Cartela extends Model
     public function linhaO(){
         return $this->belongsTo(LinhaO::class);
     }
-    public function salvaColunas($id_b,$id_i,$id_n,$id_g,$id_o,$num_cartela){
+    public function salvaColunas($id_b,$id_i,$id_n,$id_g,$id_o,$num_cartela, $barcode){
 
        /* $retorno = $this::create([
             "table_B_idtable_B"=> $id_b,
@@ -47,7 +47,8 @@ class Cartela extends Model
             "table_G_idtable_G"=> $id_g,
             "table_O_idtable_O"=> $id_o,
             "numero_cartela"=>$num_cartela,
-            "cartela_contador"=>0 
+            "cartela_contador"=>0,
+            "barcode" => $barcode
             ]);
 
         if($retorno){
