@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-dark">
     <div class="container">
-        <a class="navbar-brand text-light hvr-bounce-in" href="#">Márcio bar</a>
+        <a class="navbar-brand text-light hvr-bounce-in" href="#">Márcio bingos</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon text-light"></span>
         </button>
@@ -28,10 +28,10 @@
                         <a class="dropdown-item hvr-grow" href="#" id="btn_gerar_cart"  data-target="#modal_qtd" data-target="#modal_qtd">Gerar cartelas</a>
                         <a class="dropdown-item hvr-grow" id="btn_conferir"  href="#" data-toggle="modal" data-target="#modal">Conferir cartela</a>
                         <a class="dropdown-item hvr-grow" href="{{ route('view-cad-premios') }}">Cadastrar prêmio</a>
-                        <a class="dropdown-item hvr-grow" href="{{ route('popular-tabela') }}">Popular tabela</a>
-                        <a class="dropdown-item hvr-grow" href="{{ route('reset-db') }}">Resetar DB</a>
-                    
+                        <a class="dropdown-item hvr-grow" href="{{ route('popular-tabela') }}" id="pop-table">Popular tabela</a>
+                        <a class="dropdown-item hvr-grow" href="{{ route('reset-db') }}" id="reset-db">Resetar DB</a>
                         <a class="dropdown-item hvr-grow" href="{{ route('reset-table-num-sort') }}">Reset table numbers sort</a>
+                        <a class="dropdown-item hvr-grow" href="{{ route('reset-table') }}">Reset table bingo</a>
                         <a class="dropdown-item hvr-grow" id="restaurarBingo"  href="#">Restaurar Bingo</a>
                     </div>
                 </li>
@@ -39,3 +39,14 @@
         </div>
     </div>
 </nav>
+
+
+<script>
+ $('#pop-table').click(function(){
+     $("#preloader").show();
+ })
+
+ $('#reset-db').click(function(){
+     $("#preloader").show();
+ })
+</script>

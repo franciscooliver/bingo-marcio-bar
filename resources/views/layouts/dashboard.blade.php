@@ -8,11 +8,12 @@
         <!--css bootstrap-->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
               integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 
         <!--local import-->
         <script src="http://code.responsivevoice.org/responsivevoice.js"></script>
         <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-        <script src="{{ asset("js/scripts_bingo.js") }}"></script>
+        <script src="{{ asset('js/scripts_bingo.js') }}"></script>
         <link rel="stylesheet" href="{{ asset('css/hover.css') }}">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
         <link href="{{asset('css/css_bingo.css')}}" rel="stylesheet" type="text/css">

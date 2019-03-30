@@ -12,22 +12,24 @@ class PremioController extends Controller
         date_default_timezone_set('America/Sao_Paulo');
         $datadiaria = date('d/m/Y');
         $data_comparativa = date('Y-m-d');
+        
 
         $premios = DB::table('premios')
-            ->select("nome_premio","descricao_premio","hora_inicio")
+            ->select("desc_bingo","nome_premio","descricao_premio","hora_inicio")
             ->where([
                 "data_bingo" => $data_comparativa
             ])->get();
 
+
             if(count($premios) > 0):
                 $horario = $premios[0]->hora_inicio;
                 $horario = date("H:i", strtotime($horario));
-
+                $descricao_bingo = $premios[0]->desc_bingo;
             else:
                 $horario = "";
             endif;
 
-        return view('bingo.premios',compact('premios','datadiaria','horario'));
+        return view('bingo.premios',compact('premios','datadiaria','horario','descricao_bingo'));
     }
 
     public function viewCadPremios(){
@@ -36,7 +38,7 @@ class PremioController extends Controller
 
     public function addPremio(Request $request){
         $dadosPremio = $request->all();
-
+        
         $premio = Premio::create($dadosPremio);
 
         if($premio){

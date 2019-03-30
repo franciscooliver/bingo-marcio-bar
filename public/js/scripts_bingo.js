@@ -10,6 +10,7 @@ $(document).ready( function () {
      $("#sortear").click(function () {
         var dataNumero;
         var nums_chamados = [];
+
         $.ajax({
             type: 'GET',
             url: "sorteiaNumero",
@@ -102,6 +103,8 @@ $(document).ready( function () {
         event.preventDefault()
         valida_selecao_numeros(this);//chama a funcao de validacao
     });
+
+
     function valida_selecao_numeros(elemento){//funcao responsável por validar a sequencia de numeros selecionados
         var array_numeros_selecinados = $("form #card_nums_selecionados .btn-success").toArray();
         var arraylinhaB = [];//array para os numeros linha B
@@ -269,6 +272,7 @@ $(document).ready( function () {
 
 
     function populaCartela(ids, numeros){
+
       for (var i=0; i< ids.length; i++){
           $("#"+ids[i]).html(numeros[i]);
           $("#"+ids[i]).addClass('limpa')
@@ -339,10 +343,13 @@ $(document).ready( function () {
 
 
     function fundoBotao( elemento) {
+
+    
         $(elemento).removeClass("btn-light");
         $(elemento).addClass("btn-danger");
         $(".text-secondary").removeClass("text-secondary");
         $(elemento).addClass("text-light");
+        $(elemento).addClass("animated rollIn delay-0.5s");
         $(elemento).unbind("click");
 
         //$(elemento).css({'color':'#fff'});
@@ -460,15 +467,23 @@ $(document).ready( function () {
         $("#div_cartelas .info_cartela .number-cart").html("");//remove a div que contem os numeros
 
         //console.log(array_elementos)
-        for(var a=0;a < num_cartelas.length; a++){
+        // if(num_cartelas.length <= 0 ){
+        //         $(".number-cart").append("<span style='font-size:1rem;'>Não possui cartelas cadastradas<span/>"); 
+        //     }else{
+        //         for(var a=0;a < num_cartelas.length; a++){
 
-            $(".number-cart").append(num_cartelas[a]+", ");//adiciona a div com os numeros
-        }
+        //         $(".number-cart").append(num_cartelas[a]+", ");//adiciona a div com os numeros
+        //     }
+        // }
+
+        $(".number-cart").append("<span style='font-size:1.2rem;' class='text-danger'>Não possui cartelas cadastradas no sistema<span/>"); 
+
 
         $("#qtd").html("("+num_cartelas.length+")")//seta quantidade de possíveis ganhadores
             .css({"font-size":"1rem"});
         //console.log(num_cartelas)
 
+    
         //exibe os ganhadores
         if(cont_cartela == 24)
             alert("Ganhador(s): "+num_cartelas+"\n"
@@ -492,6 +507,10 @@ $(document).ready( function () {
             dataType:'json',
             success:function (data) {
 
+                for (var i=0;i< data.length;i++){
+                    console.log(data[i].numero)
+                }
+                
                 setaModal(data)
                 $('#modal').modal();
 
@@ -509,32 +528,41 @@ $(document).ready( function () {
         var numerosN = [];
         var numerosG = [];
         var numerosO = [];
+        
+
         for (var i=0;i< data.length;i++){
 
 
-            if(parseInt(data[i].numero) < 15){
-                numerosB.push("( "+data[i].numero+" )");
-                $("#numerosB").html(numerosB.join(" - "))
+            if(parseInt(data[i].numero) <= 15){
+
+                numerosB.push( data[i].numero )
+                numerosB.sort(sortfunction);
+                $("#numerosB").html("( "+numerosB.join(" - ")+" )")
             }
 
             if(data[i].numero >= 16 && data[i].numero <= 30){
-                numerosI.push("( "+data[i].numero+" )");
-                $("#numerosI").html(numerosI.join(" - "))
+                numerosI.push(data[i].numero)
+                numerosI.sort(sortfunction);
+                $("#numerosI").html("( "+numerosI.join(" - ")+" )")
             }
+
             if(data[i].numero >= 31 && data[i].numero <= 45){
-                numerosN.push("( "+data[i].numero+" )");
-                $("#numerosN").html(numerosN.join(" - "))
+                numerosN.push(data[i].numero)
+                 numerosN.sort(sortfunction);
+                $("#numerosN").html("( "+numerosN.join(" - ")+" )")
             }
 
 
             if(data[i].numero >= 46 && data[i].numero <= 60){
-                numerosG.push("( "+data[i].numero+" )");
-                $("#numerosG").html(numerosG.join(" - "))
+                numerosG.push(data[i].numero)
+                 numerosG.sort(sortfunction);
+                $("#numerosG").html("( "+numerosG.join(" - ")+" )")
             }
 
             if(data[i].numero >= 61 && data[i].numero <= 75){
-                numerosO.push("( "+data[i].numero+" )");
-                $("#numerosO").html(numerosO.join(" - "))
+                numerosO.push(data[i].numero)
+                 numerosO.sort(sortfunction);
+                $("#numerosO").html("( "+numerosO.join(" - ")+" )")
             }
 
 

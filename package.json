@@ -16,7 +16,9 @@
     "vue-resource": "^1.0.3"
   },
   "dependencies": {
+    "animate.css": "^3.7.0",
     "bootstrap": "^4.1.3",
-    "hover.css": "^2.3.2"
+    "hover.css": "^2.3.2",
+    "materialize-css": "^1.0.0-rc.2"
   }
 }

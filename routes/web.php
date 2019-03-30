@@ -22,7 +22,7 @@ Route::get('/resetaDB', function()
     $reseta_bd = Artisan::call('migrate:refresh');
 
     //exibe mensagem de retorno
-    if($reseta_bd === 0){
+    if($reseta_bd == 0){
         return redirect()
         ->route('index')
         ->with("reset_db","Banco de dados resetado");
@@ -34,6 +34,8 @@ Route::get('/resetaDB', function()
 
 })->name('reset-db');
 
+
+//reseta a tabela de números sorteados
 Route::get('/reset-numerosSort_table', function()
 {
     $reseta_table = \App\NumeroSorteado::truncate();
@@ -51,6 +53,7 @@ Route::get('/reset-numerosSort_table', function()
 
 })->name('reset-table-num-sort');
 
+
 Route::get('/reset_table', function()
 {
     $reseta_table = \App\Bingo::truncate();
@@ -67,6 +70,8 @@ Route::get('/reset_table', function()
         ->with("error","Error reset table");
 
 })->name('reset-table');
+
+
 
 //teste para gerar PDF
 Route::get("/gerarPdf","PdfController@gerarPdf")->name('gerarPdf');

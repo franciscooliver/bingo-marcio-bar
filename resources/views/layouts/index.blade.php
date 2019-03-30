@@ -4,13 +4,16 @@
 
 @section("content")
     @include('_includes.alerts')
+    <div id="preloader">
+        <img src="{{ asset('img/preloader.gif') }}" alt="preloader" width="50">
+    </div>
     <div class="container mt-2 mb-5">
         <div class="row bg-info">
             <div class="col-md-5 text-center">
-                <p class="text-light" id="text-lg">Qtd. números restantes: <span id="restantes" class="text-success bg-light p-1">{{$size_array}}</span></p>
                 <p class="text-light" id="text-lg">Qtd. números chamados: <span id="chamados" class="text-info bg-light p-1">0</span></p>
+                <p class="text-light" id="text-lg">Qtd. números restantes: <span id="restantes" class="text-success bg-light p-1">{{$size_array}}</span></p>  
                 <div class="card  mb-3 w-100" style="width: 18rem;">
-                    <span class="text-center mt-3">Último número chamado</span>
+                    <span class="text-center mt-3">Número sorteado</span>
                     <div class="card-body mt-0">
                         <span id="letra" style="font-size: 5rem;" class="text-center mt-0"></span><h1 style="font-size: 13rem;" class="text-danger" id="num-sorteado">--</h1>
                     </div>

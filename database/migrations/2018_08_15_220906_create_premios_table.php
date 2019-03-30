@@ -15,6 +15,7 @@ class CreatePremiosTable extends Migration
     {
         Schema::create('premios', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('desc_bingo')->nullable();
             $table->string('nome_premio');
             $table->string('descricao_premio', 150);
             $table->date('data_bingo');

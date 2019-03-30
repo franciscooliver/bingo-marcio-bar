@@ -13,7 +13,12 @@
                     {{ csrf_field() }}
                     @include('_includes.alerts')
                     <div class="form-group">
-                        <label for="nome_premio">Nome do prêmio</label>
+                        <label for="nome_premio">Nome do prêmio:</label>
+                        <input type="text" class="form-control" id="desc_bingo"  name="desc_bingo" placeholder="Breve descrição">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nome_premio">Descrição bingo:</label>
                         <input type="text" class="form-control" id="nome_premio" aria-describedby="emailHelp" name="nome_premio" placeholder="Digite o prêmio">
                     </div>
 

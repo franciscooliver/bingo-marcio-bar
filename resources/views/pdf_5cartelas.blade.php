@@ -48,7 +48,7 @@
 
 ?>
     <small id="small-2">Cartela: {{ $dados_cartelas["numero_cart"] }}</small>
-    <img src="data:image/png;base64,{{ $dados_cartelas["barcode"] }}" alt="barcode" id="barcode-2">
+    <img src="data:image/png;base64,{{ $dados_cartelas['barcode'] }}" alt="barcode" id="barcode-2">
 
    <header>
        <h1>BINGO</h1>
