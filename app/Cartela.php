@@ -29,7 +29,7 @@ class Cartela extends Model
     public function linhaO(){
         return $this->belongsTo(LinhaO::class);
     }
-    public function salvaColunas($id_b,$id_i,$id_n,$id_g,$id_o,$num_cartela, $barcode){
+    public function salvaColunas($id_b, $id_i, $id_n, $id_g, $id_o, $num_cartela, $barcode = null){
 
        /* $retorno = $this::create([
             "table_B_idtable_B"=> $id_b,

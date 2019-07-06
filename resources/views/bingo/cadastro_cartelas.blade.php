@@ -9,10 +9,10 @@
                 <div class="card-body">
                    <h6 >Selecione abaixo os números da cartela</h6>
                     <p class="text-success">INFO:<span class="text-secondary"> Cartela deverá conter exatamente 24 números</span><br>
-                        <span class="text-secondary">Para remover um número selecinado, click sobre ele</span></p>
+                        {{--  <span class="text-secondary">Para remover um número selecionado, click sobre ele</span></p>  --}}
                 </div>
             </div>
-            <div class="col-md-8">
+            <div class="col-12 col-md-9">
                 <div class="responsive-table">
                     <table class="table" id="table_cad">
                         <tbody>
@@ -40,8 +40,8 @@
                 </div>
             </div>
 
-            <div class="col-md-4">
-                <table class="table  ml-1">
+            <div class="col-12 col-md-3">
+                <table class="table ">
                     <tbody>
                     <tr id="linhaB">
                         <td class="text-center">B</td>
@@ -104,5 +104,5 @@
             </div>
         </div>
     </div>
-    <!--@include("_includes.modal")carrega modal-->
+    {{--  @include("_includes.modal")carrega modal  --}}
 @endsection

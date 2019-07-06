@@ -26,6 +26,7 @@ class PremioController extends Controller
                 $horario = date("H:i", strtotime($horario));
                 $descricao_bingo = $premios[0]->desc_bingo;
             else:
+                $descricao_bingo = "";
                 $horario = "";
             endif;
 

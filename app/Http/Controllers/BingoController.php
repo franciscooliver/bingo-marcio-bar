@@ -12,6 +12,8 @@ use App\LinhaG;
 use App\LinhaI;
 use App\LinhaN;
 use App\LinhaO;
+use App\classes\CartelaService;
+use Log;
 
 class BingoController extends Controller
 {
@@ -93,13 +95,14 @@ class BingoController extends Controller
 
                 if($contCartela > 10):
                     $arrayName = array(
-                        'numero_sorteado'=>$num_sorteado,
-                        'ganhadores'=>$cartelaGanhadora,
-                        'cont_cartela'=>$contCartela);//ganhadores só sao reapassados a partir do contador 11
+                        'numero_sorteado' => $num_sorteado,
+                        'ganhadores' => $cartelaGanhadora,
+                        'cont_cartela' => $contCartela);//ganhadores só sao reapassados a partir do contador 11
                 else:
                     $arrayName = array(
                         'numero_sorteado'=>$num_sorteado,
-                        'ganhadores' => []);
+                        'ganhadores' => [],
+                        'cont_cartela' => $contCartela );
                 endif;
                 return json_encode($arrayName);
                // return json_encode($arrayName);
@@ -143,8 +146,12 @@ class BingoController extends Controller
 
     public function addCartela(Request $request){
 
+        Log::debug($request->all());
+        
         $arraysave =  array("numeros"=>$request->numeros);
         $num_cartela = $request->input("numero_cart");
+        $cartelaService = new CartelaService();
+        $barcode = $cartelaService->gerarBarcode($num_cartela);
 
         $aray_div = array_chunk($arraysave["numeros"], 5);//divide array de numeros em 5
 
@@ -213,11 +220,12 @@ class BingoController extends Controller
                     $retorno_linhaN['id_N'],
                     $retorno_linhaG['id_G'],
                     $retorno_linhaO['id_O'],
-                    $num_cartela
+                    $num_cartela,
+                    $barcode
                     );
                         if ($retorno_cartela['status'] === true){
                            
-                            return response()->json(["retorno_bd" => $retorno_cartela,"mensagem"=>"Sucesso ao cadastrar cartela"]);
+                            return response()->json(["retorno_bd" => $retorno_cartela,"mensagem"=>"Cartela cadastrada"]);
 
                         }
                     }
@@ -225,33 +233,35 @@ class BingoController extends Controller
             }
         }
     }
+
+
     public function restaurarBingo(){
-                //recupera os numeros sorteados
-                $numerosSorteados = DB::table('numero_sorteados')
-                ->select('numero')
-                ->get()->toArray();
+        //recupera os numeros sorteados
+        $numerosSorteados = DB::table('numero_sorteados')
+        ->select('numero')
+        ->get()->toArray();
 
-                //recupera os possiveis ganhadores
-                //pegar o contador maior 
-                $contCartela =  DB::table('cartelas')->max('cartela_contador');
+        //recupera os possiveis ganhadores
+        //pegar o contador maior 
+        $contCartela =  DB::table('cartelas')->max('cartela_contador');
 
-                //buscar as cartelas que mais pontuaram no bingo
-                $cartelaGanhadora = DB::table('cartelas')
-                ->select('numero_cartela')
-                ->where('cartela_contador', $contCartela)->get()->toArray();
+        //buscar as cartelas que mais pontuaram no bingo
+        $cartelaGanhadora = DB::table('cartelas')
+        ->select('numero_cartela')
+        ->where('cartela_contador', $contCartela)->get()->toArray();
 
-                /*****                     retorno para teste
-                ResultCartela retorna as cartelas que contem o numero sorteado
-                cartelaMaior retorna um objeto das cartela que mais marcaram ,consequentemente a cartela ganhadora  ****/
+        /*****                     retorno para teste
+        ResultCartela retorna as cartelas que contem o numero sorteado
+        cartelaMaior retorna um objeto das cartela que mais marcaram ,consequentemente a cartela ganhadora  ****/
 
-           
-                    $arrayBackup= array(
-                        'numero_sorteado'=>$numerosSorteados,
-                        'ganhadores'=>$cartelaGanhadora,
-                        'cont_cartela'=>$contCartela);//ganhadores só sao reapassados a partir do contador 11
-            
+    
+        $arrayBackup= array(
+            'numero_sorteado'=>$numerosSorteados,
+            'ganhadores'=>$cartelaGanhadora,
+            'cont_cartela'=>$contCartela);//ganhadores só sao reapassados a partir do contador 11
+        
 
-            return json_encode($arrayBackup);
+        return json_encode($arrayBackup);
         
     }
 
@@ -277,6 +287,8 @@ class BingoController extends Controller
 
         return response()->json($numeros_sorteados);
  }
+
+
  public function teste(){
 
        $cartela = Cartela::select('table_B_idtable_B')->get();

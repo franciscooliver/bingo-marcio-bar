@@ -7,7 +7,7 @@
     <div id="preloader">
         <img src="{{ asset('img/preloader.gif') }}" alt="preloader" width="50">
     </div>
-    <div class="container mt-2 mb-5">
+    <div class="container-fluid mt-2 mb-5 mt-0">
         <div class="row bg-info">
             <div class="col-md-5 text-center">
                 <p class="text-light" id="text-lg">Qtd. números chamados: <span id="chamados" class="text-info bg-light p-1">0</span></p>
@@ -15,7 +15,7 @@
                 <div class="card  mb-3 w-100" style="width: 18rem;">
                     <span class="text-center mt-3">Número sorteado</span>
                     <div class="card-body mt-0">
-                        <span id="letra" style="font-size: 5rem;" class="text-center mt-0"></span><h1 style="font-size: 13rem;" class="text-danger" id="num-sorteado">--</h1>
+                        <span id="letra" style="font-size: 5rem;" class="text-center mt-0"></span><h1 style="font-size: 13rem; font-weight:bold" class="text-danger" id="num-sorteado">--</h1>
                     </div>
                 </div>
 
@@ -29,7 +29,7 @@
             </div>
             <div class="col-md-7 ">
                 <div class="responsive-table">
-                    <table class="mt-0">
+                    <table class="mt-0 w-100">
                         <tbody>
                           {{ csrf_field() }}
 

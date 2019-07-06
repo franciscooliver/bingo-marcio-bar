@@ -45,8 +45,8 @@ $(document).ready( function () {
 
                         //console.log(data.ganhadores.length);
 
-                            $("#info_cartela").show();
-                            var dataN = [];
+                        $("#info_cartela").show();
+                        var dataN = [];
                         for (var i = 0; i < data.ganhadores.length; i++) {
                                 dataN.push(data.ganhadores[i].numero_cartela);
                         }
@@ -344,7 +344,6 @@ $(document).ready( function () {
 
     function fundoBotao( elemento) {
 
-    
         $(elemento).removeClass("btn-light");
         $(elemento).addClass("btn-danger");
         $(".text-secondary").removeClass("text-secondary");
@@ -371,7 +370,7 @@ $(document).ready( function () {
     }
 
     //$(this).slideDown("slow");
-    
+ 
     function imprimeNumsSorteados(elemento) {
         var numero = elemento.html();
 
@@ -462,21 +461,23 @@ $(document).ready( function () {
     });
 });
 
-    function setaValorCartelas(num_cartelas,num_chamado, cont_cartela) {
+    function setaValorCartelas(num_cartelas, num_chamado, cont_cartela) {
 
         $("#div_cartelas .info_cartela .number-cart").html("");//remove a div que contem os numeros
 
-        //console.log(array_elementos)
-        // if(num_cartelas.length <= 0 ){
-        //         $(".number-cart").append("<span style='font-size:1rem;'>Não possui cartelas cadastradas<span/>"); 
-        //     }else{
-        //         for(var a=0;a < num_cartelas.length; a++){
+        console.log(cont_cartela < 10)
+        if(cont_cartela < 10 ){
+            
+                $(".number-cart").append("<span style='font-size:1rem;'>A PARTIR DE 10 PONTOS, O NÚMEROS DAS CARTELAS SERÃO EXIBIDOS AQUI.<br> PONTOS: "+cont_cartela+" PONTOS<b><span/>"); 
 
-        //         $(".number-cart").append(num_cartelas[a]+", ");//adiciona a div com os numeros
-        //     }
-        // }
+        }else if(cont_cartela >=10 ){
+            //for(var a=0;a < num_cartelas.length; a++){
 
-        $(".number-cart").append("<span style='font-size:1.2rem;' class='text-danger'>Não possui cartelas cadastradas no sistema<span/>"); 
+                $(".number-cart").append(num_cartelas.join(', '));//adiciona a div com os numeros
+            //}
+        }
+
+        //$(".number-cart").append("<span style='font-size:1.2rem;' class='text-danger'>Não possui cartelas cadastradas no sistema<span/>"); 
 
 
         $("#qtd").html("("+num_cartelas.length+")")//seta quantidade de possíveis ganhadores
@@ -488,6 +489,7 @@ $(document).ready( function () {
         if(cont_cartela == 24)
             alert("Ganhador(s): "+num_cartelas+"\n"
             +"Número da sorte: "+num_chamado)
+
     }
 
     $(document).on("click", "#btn_conferir", function (event) {
@@ -584,6 +586,8 @@ $(document).ready( function () {
             .addClass('text-secondary')
              enviaQtd()
     })
+
+
 function enviaQtd() {
    $.ajax({
        url: "gerar_cartela",
@@ -594,7 +598,8 @@ function enviaQtd() {
            'qtd': $('input[name=qtd]').val()
        },
        success: function (data) {
-               $('#msg-retorno').html(data.mensagem)
+               $('#msg-retorno')
+                   .html(data.mensagem)
                    .removeClass('text-secondary')
                    .addClass(data.classe)
        }
