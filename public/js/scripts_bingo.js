@@ -1,8 +1,9 @@
 $(document).ready( function () {
-//tela index
+
     if($(window).width() <= 900){
         $(".responsive-table").addClass("table-responsive");
     }
+
     $("#info_cartela").hide();
     //esconde letra numero
     $("#letra").hide();
@@ -26,9 +27,10 @@ $(document).ready( function () {
                     var array = $("table tr td .ajax").toArray();
                     var array_nums_chamds = $("table tr td .btn-danger").toArray();
     
-                    for(var i = 0; i < array_nums_chamds.length;i++){
+                    for(var i = 0; i < array_nums_chamds.length; i++){
                         nums_chamados.push($(array_nums_chamds[i]).html());
                     }
+
                     numero_selecinado = $(array[dataNumero -1 ]).attr("id"); //recupera o valor do elemento dentro da table de acordo com o índice =>(número vindo do server)
                     //console.log(numero_selecinado);
                     if(dataNumero != "" && dataNumero == numero_selecinado) {//verifica se o número sorteado é igual ao valor do indice selecionado
@@ -36,10 +38,12 @@ $(document).ready( function () {
                                                                                           e aplica a classe btn-danger */
                           return $( this ).attr( "id" ) === numero_selecinado;
                        }));
+
                         var chamados = parseInt($("tr td .btn-danger").length);//retorna o qtd de numeros chamados (classe btn-danger é adicionada sempre que um número é sorteado)
                         setLetraNumSorteado(dataNumero);
                         controlaChamados(chamados);
                         controlaRestantes(chamados);
+
                         //imprime a sequencia de numeros sorteados (os oito últimos)
                         imprimeNumsSorteados($("#"+numero_selecinado));
 
@@ -53,6 +57,7 @@ $(document).ready( function () {
                         console.log(dataN);
                         setaValorCartelas(dataN,dataNumero,data.cont_cartela);
                     }
+
                 }else{
                     alert('Sem numeros para sortear');
                 }
