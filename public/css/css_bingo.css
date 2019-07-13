@@ -80,4 +80,14 @@ tbody #linhaB .text-center{
 .footer p, .footer span{color:#757575;}
 .footer .row{padding-top: 20px;}
 
+.item-number{
+    padding: 3px 1px;
+}
+
+.item-number button{
+    max-width: 60%;
+    display: flex;
+    justify-content: center;
+}
+
 

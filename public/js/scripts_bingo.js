@@ -12,6 +12,8 @@ $(document).ready( function () {
         var dataNumero;
         var nums_chamados = [];
 
+        $(this).html('Sorteando...');
+
         $.ajax({
             type: 'GET',
             url: "sorteiaNumero",
@@ -50,15 +52,17 @@ $(document).ready( function () {
                         //console.log(data.ganhadores.length);
 
                         $("#info_cartela").show();
+                        $('#sortear').html('Sortear número');
                         var dataN = [];
                         for (var i = 0; i < data.ganhadores.length; i++) {
-                                dataN.push(data.ganhadores[i].numero_cartela);
+                            dataN.push(data.ganhadores[i].numero_cartela);
                         }
                         console.log(dataN);
-                        setaValorCartelas(dataN,dataNumero,data.cont_cartela);
+                        setaValorCartelas(dataN,  dataNumero, data.cont_cartela);
                     }
 
                 }else{
+                    $('#sortear').html('Sortear número');
                     alert('Sem numeros para sortear');
                 }
             },
@@ -81,14 +85,12 @@ $(document).ready( function () {
             if (dataNumero >= 16 && dataNumero <= 30) {
                 $("#letra").show().html("I");
                 $("#num-sorteado").html(dataNumero);
-
             }
 
             if (dataNumero >= 31 && dataNumero <= 45) {
 
                 $("#letra").show().html("N");
                 $("#num-sorteado").html(dataNumero);
-
             }
 
             if(dataNumero >=46 && dataNumero <= 60) {
@@ -102,8 +104,8 @@ $(document).ready( function () {
             }
 
     }
-    //tela cad cartelas
 
+    //tela cad cartelas
     $(document).on("click",".num_cartela", function (event) {
         event.preventDefault()
         valida_selecao_numeros(this);//chama a funcao de validacao
@@ -397,7 +399,7 @@ $(document).ready( function () {
 
     }
  
-//Acão do btn que restaura os dados do bingo
+    //Acão do btn que restaura os dados do bingo
     $("#restaurarBingo").click(function () {
       //  alert("Teste btn bingo");
         var numeroBackup;
@@ -464,7 +466,18 @@ $(document).ready( function () {
 
             } 
     });
-});
+    });
+
+    const modalGanhadorBingo = (num_cartelas, num_chamado) => {
+        $("#modal_qtd").modal();
+
+        $('#modal_qtd #exampleModalLabel').text('Ebaaa temos ganhador(s)!!!');
+
+        $('#modal_qtd .modal-content .modal-body').html('<h4>Cartelas: ' + num_cartelas + '\n' 
+            + 'Número da sorte: '+num_chamado+'</h4>');
+
+        $('#modal_qtd .modal-content .modal-footer').html('');
+    }
 
     function setaValorCartelas(num_cartelas, num_chamado, cont_cartela) {
 
@@ -489,11 +502,13 @@ $(document).ready( function () {
             .css({"font-size":"1rem"});
         //console.log(num_cartelas)
 
-    
+       
+        
         //exibe os ganhadores
         if(cont_cartela == 24)
-            alert("Ganhador(s): "+num_cartelas+"\n"
-            +"Número da sorte: "+num_chamado)
+            modalGanhadorBingo(num_cartelas, num_chamado);
+            //alert("Ganhador(s): " + num_cartelas + "\n" + "Número da sorte: "+num_chamado)
+            
 
     }
 
@@ -581,6 +596,7 @@ $(document).ready( function () {
         }
 
     }
+
     $(document).on("click", "#btn_gerar_cart", function(){
 
         $("#modal_qtd").modal();
