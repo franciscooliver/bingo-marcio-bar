@@ -348,7 +348,7 @@ $(document).ready( function () {
 
     //fim tela cad cartelas
 
-
+ 
     function fundoBotao( elemento) {
 
         $(elemento).removeClass("btn-light");
@@ -607,9 +607,7 @@ $(document).ready( function () {
             .addClass('text-secondary')
              enviaQtd()
     })
-
-
-function enviaQtd() {
+    function enviaQtd() {
    $.ajax({
        url: "gerar_cartela",
        type:"POST",
@@ -625,6 +623,6 @@ function enviaQtd() {
                    .addClass(data.classe)
        }
    });
-}
+    }
 });
 

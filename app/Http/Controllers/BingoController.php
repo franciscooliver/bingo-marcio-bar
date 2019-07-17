@@ -79,7 +79,10 @@ class BingoController extends Controller
 
                //salvar mais um no contador de cada cartela
                 DB::table('cartelas')
-                ->where('numero_cartela',$num->numero_cartela)
+                ->where([
+                    'numero_cartela' => $num->numero_cartela,
+                    'vendida' => 'S'
+                ])
                 ->update(['cartela_contador'=>$cartelaAtualContador[0]->cartela_contador+1]);
 
            }

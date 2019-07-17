@@ -8,26 +8,40 @@ use Illuminate\Support\Facades\DB;
 class Cartela extends Model
 {
     protected $table = "cartelas";
-    protected $fillable = ['id','numero_cartela','vendida','impressa','barcode','table_B_idtable_B','table_I_idtable_I','table_N_idtable_N','table_G_idtable_G','table_O_idtable_O',"numero_cartela",'cartela_contador'];
+    public $timestamps = false;
+    
+    protected $fillable = [
+        'id','numero_cartela',
+        'vendida',
+        'impressa',
+        'barcode',
+        'table_B_idtable_B',
+        'table_I_idtable_I',
+        'table_N_idtable_N',
+        'table_G_idtable_G',
+        'table_O_idtable_O',
+        "numero_cartela",
+        'cartela_contador'
+    ];
 
     public function linhaB(){
-        return $this->belongsTo(LinhaB::class);
+        return $this->belongsTo(LinhaB::class, 'table_B_idtable_B');
     }
 
     public function linhaI(){
-        return $this->belongsTo(LinhaI::class);
+        return $this->belongsTo(LinhaI::class, 'table_I_idtable_I');
     }
 
     public function linhaN(){
-        return $this->belongsTo(LinhaN::class);
+        return $this->belongsTo(LinhaN::class, 'table_N_idtable_N');
     }
 
     public function linhaG(){
-        return $this->belongsTo(LinhaG::class);
+        return $this->belongsTo(LinhaG::class, 'table_G_idtable_G');
     }
 
     public function linhaO(){
-        return $this->belongsTo(LinhaO::class);
+        return $this->belongsTo(LinhaO::class, 'table_O_idtable_O');
     }
     public function salvaColunas($id_b, $id_i, $id_n, $id_g, $id_o, $num_cartela, $barcode = null){
 

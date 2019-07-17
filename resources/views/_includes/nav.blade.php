@@ -26,6 +26,7 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="bd-versions">
                         <a class="dropdown-item hvr-grow" href="#" id="btn_gerar_cart"  data-target="#modal_qtd" data-target="#modal_qtd">Gerar cartelas</a>
+                        <a class="dropdown-item hvr-grow" id="manage_cards"  href="{{ route('cartelas') }}">Gerenciar cartelas</a>
                         <a class="dropdown-item hvr-grow" id="btn_conferir"  href="#" data-toggle="modal" data-target="#modal">Conferir cartela</a>
                         <a class="dropdown-item hvr-grow" href="{{ route('view-cad-premios') }}">Cadastrar prêmio</a>
                         <a class="dropdown-item hvr-grow" href="{{ route('popular-tabela') }}" id="pop-table">Popular tabela</a>

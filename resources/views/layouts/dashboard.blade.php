@@ -14,6 +14,7 @@
         <script src="http://code.responsivevoice.org/responsivevoice.js"></script>
         <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
         <script src="{{ asset('js/scripts_bingo.js') }}"></script>
+        <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
         <link rel="stylesheet" href="{{ asset('css/hover.css') }}">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
         <link href="{{asset('css/css_bingo.css')}}" rel="stylesheet" type="text/css">
